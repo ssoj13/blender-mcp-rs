@@ -1,0 +1,75 @@
+---
+area: api-ops
+group: graph
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.graph
+
+- `bpy.ops.graph.bake_keys()` — Add keyframes on every frame between the selected keyframes
+- `bpy.ops.graph.blend_offset(factor: float)` — Shift selected keys to the value of the neighboring keys as a block
+- `bpy.ops.graph.blend_to_default(factor: float)` — Blend selected keys to their default value from their current position
+- `bpy.ops.graph.blend_to_ease(factor: float)` — Blends keyframes from current state to an ease-in or ease-out curve
+- `bpy.ops.graph.blend_to_neighbor(factor: float)` — Blend selected keyframes to their left or right neighbor
+- `bpy.ops.graph.breakdown(factor: float)` — Move selected keyframes to an inbetween position relative to adjacent keys
+- `bpy.ops.graph.butterworth_smooth(cutoff_frequency: float, filter_order: int, samples_per_frame: int, blend: float, blend_in_out: int)` — Smooth an F-Curve while maintaining the general shape of the curve
+- `bpy.ops.graph.clean(threshold: float, channels: boolean)` — Simplify F-Curves by removing closely spaced keyframes
+- `bpy.ops.graph.click_insert(frame: float, value: float, extend: boolean)` — Insert new keyframe at the cursor position for the active F-Curve
+- `bpy.ops.graph.clickselect(wait_to_deselect_others: boolean, use_select_on_click: boolean, mouse_x: int, mouse_y: int, extend: boolean, deselect_all: boolean, column: boolean, curves: boolean)` — Select keyframes by clicking on them
+- `bpy.ops.graph.copy()` — Copy selected keyframes to the internal clipboard
+- `bpy.ops.graph.cursor_set(frame: float, value: float)` — Interactively set the current frame and value cursor
+- `bpy.ops.graph.decimate(mode: enum{RATIO, ERROR}, factor: float, remove_error_margin: float)` — Decimate F-Curves by removing keyframes that influence the curve shape the least
+- `bpy.ops.graph.delete(confirm: boolean)` — Remove all selected keyframes
+- `bpy.ops.graph.driver_delete_invalid()` — Delete all visible drivers considered invalid
+- `bpy.ops.graph.driver_variables_copy()` — Copy the driver variables of the active driver
+- `bpy.ops.graph.driver_variables_paste(replace: boolean)` — Add copied driver variables to the active driver
+- `bpy.ops.graph.duplicate(mode: enum{INIT, DUMMY, TRANSLATION, ROTATION, RESIZE, SKIN_RESIZE, TOSPHERE, SHEAR, BEND, SHRINKFATTEN, TILT, TRACKBALL, PUSHPULL, CREASE, VERTEX_CREASE, MIRROR, BONE_SIZE, BONE_ENVELOPE, BONE_ENVELOPE_DIST, CURVE_SHRINKFATTEN, MASK_SHRINKFATTEN, BONE_ROLL, TIME_TRANSLATE, TIME_SLIDE, TIME_SCALE, TIME_EXTEND, BAKE_TIME, BWEIGHT, ALIGN, EDGESLIDE, SEQSLIDE, GPENCIL_OPACITY})` — Make a copy of all selected keyframes
+- `bpy.ops.graph.duplicate_move(GRAPH_OT_duplicate: pointer, TRANSFORM_OT_translate: pointer)` — Make a copy of all selected keyframes and move them
+- `bpy.ops.graph.ease(factor: float, sharpness: float)` — Align keyframes on a ease-in or ease-out curve
+- `bpy.ops.graph.easing_type(type: enum{AUTO, EASE_IN, EASE_OUT, EASE_IN_OUT})` — Set easing type for the F-Curve segments starting from the selected keyframes
+- `bpy.ops.graph.equalize_handles(side: enum{LEFT, RIGHT, BOTH}, handle_length: float, flatten: boolean)` — Ensure selected keyframes' handles have equal length, optionally making them horizontal. Automatic, Automatic Clamped, or Vector handle types will be converted to Aligned
+- `bpy.ops.graph.euler_filter()` — Fix large jumps and flips in the selected Euler Rotation F-Curves arising from rotation values being clipped when baking physics
+- `bpy.ops.graph.extrapolation_type(type: enum{CONSTANT, LINEAR, MAKE_CYCLIC, CLEAR_CYCLIC})` — Set extrapolation mode for selected F-Curves
+- `bpy.ops.graph.fmodifier_add(type: enum{NULL, GENERATOR, FNGENERATOR, ENVELOPE, CYCLES, NOISE, LIMITS, STEPPED, SMOOTH}, only_active: boolean)` — Add F-Modifier to the active/selected F-Curves
+- `bpy.ops.graph.fmodifier_copy()` — Copy the F-Modifier(s) of the active F-Curve
+- `bpy.ops.graph.fmodifier_delete(mode: enum{ALL, FIRST, TYPE}, type: enum{NULL, GENERATOR, FNGENERATOR, ENVELOPE, CYCLES, NOISE, LIMITS, STEPPED, SMOOTH})` — Remove Modifier(s) from the selected F-Curves
+- `bpy.ops.graph.fmodifier_paste(only_active: boolean, replace: boolean)` — Add copied F-Modifiers to the selected F-Curves
+- `bpy.ops.graph.frame_jump()` — Place the cursor on the midpoint of selected keyframes
+- `bpy.ops.graph.gaussian_smooth(factor: float, sigma: float, filter_width: int)` — Smooth the curve using a Gaussian filter
+- `bpy.ops.graph.ghost_curves_clear()` — Clear F-Curve snapshots (Ghosts) for active Graph Editor
+- `bpy.ops.graph.ghost_curves_create()` — Create snapshot (Ghosts) of selected F-Curves as background aid for active Graph Editor
+- `bpy.ops.graph.handle_type(type: enum{FREE, ALIGNED, VECTOR, AUTO, AUTO_CLAMPED})` — Set type of handle for selected keyframes
+- `bpy.ops.graph.hide(unselected: boolean)` — Hide selected curves from Graph Editor view
+- `bpy.ops.graph.interpolation_type(type: enum{CONSTANT, LINEAR, BEZIER, SINE, QUAD, CUBIC, QUART, QUINT, EXPO, CIRC, BACK, BOUNCE, ELASTIC})` — Set interpolation mode for the F-Curve segments starting from the selected keyframes
+- `bpy.ops.graph.keyframe_insert(type: enum{ALL, SEL, ACTIVE, CURSOR_ACTIVE, CURSOR_SEL})` — Insert keyframes for the specified channels
+- `bpy.ops.graph.keyframe_jump(next: boolean)` — Jump to previous/next keyframe
+- `bpy.ops.graph.keys_to_samples()` — Convert selected channels to an uneditable set of samples to save storage space
+- `bpy.ops.graph.local_view(frame_selected: boolean)` — Isolate selected F-Curves in Graph Editor view
+- `bpy.ops.graph.match_slope(factor: float)` — Blend selected keys to the slope of neighboring ones
+- `bpy.ops.graph.mirror(type: enum{CFRA, MARKER, YAXIS, VALUE, XAXIS})` — Flip selected keyframes over the selected mirror line
+- `bpy.ops.graph.paste(offset: enum{START, END, RELATIVE, NONE}, value_offset: enum{LEFT_KEY, RIGHT_KEY, CURRENT_FRAME, CURSOR_VALUE, NONE}, merge: enum{MIX, OVER_ALL, OVER_RANGE, OVER_RANGE_ALL}, flipped: boolean)` — Paste keyframes from the internal clipboard for the selected channels, starting on the current frame
+- `bpy.ops.graph.previewrange_set()` — Set Preview Range based on range of selected keyframes
+- `bpy.ops.graph.push_pull(factor: float)` — Exaggerate or minimize the value of the selected keys
+- `bpy.ops.graph.reveal(select: boolean)` — Make previously hidden curves visible again in Graph Editor view
+- `bpy.ops.graph.samples_to_keys()` — Convert selected channels from samples to keyframes
+- `bpy.ops.graph.scale_average(factor: float)` — Scale selected key values by their combined average
+- `bpy.ops.graph.scale_from_neighbor(factor: float, anchor: enum{LEFT, RIGHT})` — Increase or decrease the value of selected keys in relationship to the neighboring one
+- `bpy.ops.graph.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Toggle selection of all keyframes
+- `bpy.ops.graph.select_box(axis_range: boolean, include_handles: boolean, tweak: boolean, use_curve_selection: boolean, xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Select all keyframes within the specified region
+- `bpy.ops.graph.select_circle(x: int, y: int, radius: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB}, include_handles: boolean, use_curve_selection: boolean)` — Select keyframe points using circle selection
+- `bpy.ops.graph.select_column(mode: enum{KEYS, CFRA, MARKERS_COLUMN, MARKERS_BETWEEN})` — Select all keyframes on the specified frame(s)
+- `bpy.ops.graph.select_key_handles(left_handle_action: enum{SELECT, DESELECT, KEEP}, right_handle_action: enum{SELECT, DESELECT, KEEP}, key_action: enum{SELECT, DESELECT, KEEP})` — For selected keyframes, select/deselect any combination of the key itself and its handles
+- `bpy.ops.graph.select_lasso(path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, mode: enum{SET, ADD, SUB}, include_handles: boolean, use_curve_selection: boolean)` — Select keyframe points using lasso selection
+- `bpy.ops.graph.select_leftright(mode: enum{LEFT, RIGHT, CHECK}, extend: boolean)` — Select keyframes to the left or the right of the current frame
+- `bpy.ops.graph.select_less()` — Deselect keyframes on ends of selection islands
+- `bpy.ops.graph.select_linked()` — Select keyframes occurring in the same F-Curves as selected ones
+- `bpy.ops.graph.select_more()` — Select keyframes beside already selected ones
+- `bpy.ops.graph.shear(factor: float, direction: enum{FROM_LEFT, FROM_RIGHT})` — Affect the value of the keys linearly, keeping the same relationship between them using either the left or the right key as reference
+- `bpy.ops.graph.smooth()` — Apply weighted moving means to make selected F-Curves less bumpy
+- `bpy.ops.graph.snap(type: enum{CFRA, VALUE, NEAREST_FRAME, NEAREST_SECOND, NEAREST_MARKER, HORIZONTAL})` — Snap selected keyframes to the chosen times/values
+- `bpy.ops.graph.snap_cursor_value()` — Place the cursor value on the average value of selected keyframes
+- `bpy.ops.graph.sound_to_samples(filepath: string, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{}, low: float, high: float, attack: float, release: float, threshold: float, use_accumulate: boolean, use_additive: boolean, use_square: boolean, sthreshold: float)` — Bakes a sound wave to samples on selected channels
+- `bpy.ops.graph.time_offset(frame_offset: float)` — Shifts the value of selected keys in time
+- `bpy.ops.graph.view_all(include_handles: boolean)` — Reset viewable area to show full keyframe range
+- `bpy.ops.graph.view_frame()` — Move the view to the current frame
+- `bpy.ops.graph.view_selected(include_handles: boolean)` — Reset viewable area to show selected keyframe range

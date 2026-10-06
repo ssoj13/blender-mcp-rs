@@ -1,0 +1,15 @@
+---
+area: api-ops
+group: sound
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.sound
+
+- `bpy.ops.sound.bake_animation()` — Update the audio animation cache
+- `bpy.ops.sound.mixdown(filepath: string, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{}, accuracy: int, container: enum{AAC, AC3, FLAC, MATROSKA, MP2, MP3, OGG, WAV}, codec: enum{AAC, AC3, FLAC, MP2, MP3, PCM, VORBIS}, channels: enum{MONO, STEREO, STEREO_LFE, SURROUND4, SURROUND5, SURROUND51, SURROUND61, SURROUND71}, format: enum{U8, S16, S24, S32, F32, F64}, mixrate: int, bitrate: int, split_channels: boolean)` — Mix the scene's audio to a sound file
+- `bpy.ops.sound.open(filepath: string, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{}, cache: boolean, mono: boolean)` — Load a sound file
+- `bpy.ops.sound.open_mono(filepath: string, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{}, cache: boolean, mono: boolean)` — Load a sound file as mono
+- `bpy.ops.sound.pack()` — Pack the sound into the current blend file
+- `bpy.ops.sound.unpack(method: enum{REMOVE, USE_LOCAL, WRITE_LOCAL, USE_ORIGINAL, WRITE_ORIGINAL}, id: string)` — Unpack the sound to the samples filename
+- `bpy.ops.sound.update_animation_flags()` — Update animation flags

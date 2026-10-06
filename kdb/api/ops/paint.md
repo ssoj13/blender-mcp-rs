@@ -1,0 +1,63 @@
+---
+area: api-ops
+group: paint
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.paint
+
+- `bpy.ops.paint.add_simple_uvs()` — Add cube map UVs on mesh
+- `bpy.ops.paint.add_texture_paint_slot(type: enum{BASE_COLOR, SPECULAR, ROUGHNESS, METALLIC, NORMAL, BUMP, DISPLACEMENT}, slot_type: enum{IMAGE, COLOR_ATTRIBUTE}, name: string, color: float, width: int, height: int, alpha: boolean, generated_type: enum{BLANK, UV_GRID, COLOR_GRID}, float: boolean, tiled: boolean, domain: enum{POINT, CORNER}, data_type: enum{FLOAT_COLOR, BYTE_COLOR})` — Add a paint slot
+- `bpy.ops.paint.brush_colors_flip()` — Swap primary and secondary brush colors
+- `bpy.ops.paint.face_select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Change selection for all faces
+- `bpy.ops.paint.face_select_hide(unselected: boolean)` — Hide selected faces
+- `bpy.ops.paint.face_select_less(face_step: boolean)` — Deselect Faces connected to existing selection
+- `bpy.ops.paint.face_select_linked()` — Select linked faces
+- `bpy.ops.paint.face_select_linked_pick(deselect: boolean)` — Select linked faces under the cursor
+- `bpy.ops.paint.face_select_loop(select: boolean, extend: boolean)` — Select face loop under the cursor
+- `bpy.ops.paint.face_select_more(face_step: boolean)` — Select Faces connected to existing selection
+- `bpy.ops.paint.face_vert_reveal(select: boolean)` — Reveal hidden faces and vertices
+- `bpy.ops.paint.grab_clone(delta: float)` — Move the clone source image
+- `bpy.ops.paint.hide_show(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, action: enum{HIDE, SHOW}, area: enum{OUTSIDE, Inside}, use_front_faces_only: boolean)` — Hide/show some vertices
+- `bpy.ops.paint.hide_show_all(action: enum{HIDE, SHOW})` — Hide/show all vertices
+- `bpy.ops.paint.hide_show_lasso_gesture(path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, action: enum{HIDE, SHOW}, area: enum{OUTSIDE, Inside}, use_front_faces_only: boolean)` — Hide/show some vertices
+- `bpy.ops.paint.hide_show_line_gesture(xstart: int, xend: int, ystart: int, yend: int, flip: boolean, cursor: int, action: enum{HIDE, SHOW}, area: enum{OUTSIDE, Inside}, use_front_faces_only: boolean, use_limit_to_segment: boolean)` — Hide/show some vertices
+- `bpy.ops.paint.hide_show_masked(action: enum{HIDE, SHOW})` — Hide/show all masked vertices above a threshold
+- `bpy.ops.paint.hide_show_polyline_gesture(path: collection, action: enum{HIDE, SHOW}, area: enum{OUTSIDE, Inside}, use_front_faces_only: boolean)` — Hide/show some vertices
+- `bpy.ops.paint.image_from_view(filepath: string)` — Make an image from biggest 3D view for reprojection
+- `bpy.ops.paint.image_paint(stroke: collection, mode: enum{NORMAL, INVERT}, brush_toggle: enum{None, SMOOTH, ERASE, MASK}, pen_flip: boolean)` — Paint a stroke into the image
+- `bpy.ops.paint.mask_box_gesture(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, use_front_faces_only: boolean, mode: enum{VALUE, VALUE_INVERSE, INVERT}, value: float)` — Mask within a rectangle defined by the cursor
+- `bpy.ops.paint.mask_flood_fill(mode: enum{VALUE, VALUE_INVERSE, INVERT}, value: float)` — Fill the whole mask with a given value, or invert its values
+- `bpy.ops.paint.mask_lasso_gesture(path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, use_front_faces_only: boolean, mode: enum{VALUE, VALUE_INVERSE, INVERT}, value: float)` — Mask within a shape defined by the cursor
+- `bpy.ops.paint.mask_line_gesture(xstart: int, xend: int, ystart: int, yend: int, flip: boolean, cursor: int, use_front_faces_only: boolean, use_limit_to_segment: boolean, mode: enum{VALUE, VALUE_INVERSE, INVERT}, value: float)` — Mask to one side of a line defined by the cursor
+- `bpy.ops.paint.mask_polyline_gesture(path: collection, use_front_faces_only: boolean, mode: enum{VALUE, VALUE_INVERSE, INVERT}, value: float)` — Mask within a shape defined by the cursor
+- `bpy.ops.paint.project_image(image: enum{})` — Project an edited render from the active camera back onto the object
+- `bpy.ops.paint.sample_color(location: int, merged: boolean, palette: boolean)` — Use the mouse to sample a color in the image
+- `bpy.ops.paint.texture_paint_toggle()` — Toggle texture paint mode in 3D view
+- `bpy.ops.paint.vert_select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Change selection for all vertices
+- `bpy.ops.paint.vert_select_hide(unselected: boolean)` — Hide selected vertices
+- `bpy.ops.paint.vert_select_less(face_step: boolean)` — Deselect Vertices connected to existing selection
+- `bpy.ops.paint.vert_select_linked()` — Select linked vertices
+- `bpy.ops.paint.vert_select_linked_pick(select: boolean)` — Select linked vertices under the cursor
+- `bpy.ops.paint.vert_select_loop(select: boolean, extend: boolean)` — Select vertex loop under the cursor
+- `bpy.ops.paint.vert_select_more(face_step: boolean)` — Select Vertices connected to existing selection
+- `bpy.ops.paint.vert_select_ungrouped(extend: boolean)` — Select vertices without a group
+- `bpy.ops.paint.vertex_color_brightness_contrast(brightness: float, contrast: float)` — Adjust vertex color brightness/contrast
+- `bpy.ops.paint.vertex_color_dirt(blur_strength: float, blur_iterations: int, clean_angle: float, dirt_angle: float, dirt_only: boolean, normalize: boolean)` — Generate a dirt map gradient based on cavity
+- `bpy.ops.paint.vertex_color_from_weight()` — Convert active weight into gray scale vertex colors
+- `bpy.ops.paint.vertex_color_hsv(h: float, s: float, v: float)` — Adjust vertex color Hue/Saturation/Value
+- `bpy.ops.paint.vertex_color_invert()` — Invert RGB values
+- `bpy.ops.paint.vertex_color_levels(offset: float, gain: float)` — Adjust levels of vertex colors
+- `bpy.ops.paint.vertex_color_set(use_alpha: boolean)` — Fill the active vertex color layer with the current paint color
+- `bpy.ops.paint.vertex_color_smooth()` — Smooth colors across vertices
+- `bpy.ops.paint.vertex_paint(stroke: collection, mode: enum{NORMAL, INVERT}, brush_toggle: enum{None, SMOOTH, ERASE, MASK}, pen_flip: boolean, override_location: boolean)` — Paint a stroke in the active color attribute layer
+- `bpy.ops.paint.vertex_paint_toggle()` — Toggle the vertex paint mode in 3D view
+- `bpy.ops.paint.visibility_filter(action: enum{GROW, SHRINK}, iterations: int, auto_iteration_count: boolean)` — Edit the visibility of the current mesh
+- `bpy.ops.paint.visibility_invert()` — Invert the visibility of all vertices
+- `bpy.ops.paint.weight_from_bones(type: enum{AUTOMATIC, ENVELOPES})` — Set the weights of the groups matching the attached armature's bones that have "Deform" option enabled, using the distance between the vertices and the bones
+- `bpy.ops.paint.weight_gradient(type: enum{LINEAR, RADIAL}, xstart: int, xend: int, ystart: int, yend: int, flip: boolean, cursor: int)` — Draw a line to apply a weight gradient to selected vertices
+- `bpy.ops.paint.weight_paint(stroke: collection, mode: enum{NORMAL, INVERT}, brush_toggle: enum{None, SMOOTH, ERASE, MASK}, pen_flip: boolean, override_location: boolean)` — Paint a stroke in the current vertex group's weights
+- `bpy.ops.paint.weight_paint_toggle()` — Toggle weight paint mode in 3D view
+- `bpy.ops.paint.weight_sample()` — Use the mouse to sample a weight in the 3D view
+- `bpy.ops.paint.weight_sample_group()` — Select one of the vertex groups available under current mouse position
+- `bpy.ops.paint.weight_set()` — Fill the active vertex group with the current paint weight

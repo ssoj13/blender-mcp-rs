@@ -1,0 +1,512 @@
+---
+area: api-nodes
+group: compositor
+version: 5.2.2
+---
+
+# Blender 5.2.2 compositor nodes: real socket names
+
+- `CompositorNodeAlphaOver` (Alpha Over) — Overlay a foreground image onto a background image
+  - in: Background:RGBA, Foreground:RGBA, Factor:VALUE, Type:MENU, Straight Alpha:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeAntiAliasing` (Anti-Aliasing) — Smooth away jagged edges
+  - in: Image:RGBA, Threshold:VALUE, Contrast Limit:VALUE, Corner Rounding:VALUE
+  - out: Image:RGBA
+- `CompositorNodeBilateralblur` (Bilateral Blur) — Adaptively blur image, while retaining sharp edges
+  - in: Image:RGBA, Determinator:RGBA, Size:INT, Threshold:VALUE
+  - out: Image:RGBA
+- `CompositorNodeBlankImage` (Blank Image) — Returns an image with the given size and constant color
+  - in: Color:RGBA, Size:INT_VECTOR
+  - out: Image:RGBA
+- `CompositorNodeBlur` (Blur) — Blur an image, using several blur modes
+  - in: Image:RGBA, Size:VECTOR, Type:MENU, Extend Bounds:BOOLEAN, Separable:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeBokehBlur` (Bokeh Blur) — Generate a bokeh type blur similar to Defocus. Unlike defocus an in-focus region is defined in the compositor
+  - in: Image:RGBA, Bokeh:RGBA, Size:VALUE, Mask:VALUE, Extend Bounds:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeBokehImage` (Bokeh Image) — Generate image with bokeh shape for use with the Bokeh Blur filter node
+  - in: Flaps:INT, Angle:VALUE, Roundness:VALUE, Catadioptric Size:VALUE, Color Shift:VALUE
+  - out: Image:RGBA
+- `CompositorNodeBoxMask` (Box Mask) — Create rectangular mask suitable for use as a simple matte
+  - in: Operation:MENU, Mask:VALUE, Value:VALUE, Position:VECTOR, Size:VECTOR, Rotation:VALUE
+  - out: Mask:VALUE
+- `CompositorNodeBrightContrast` (Brightness/Contrast) — Adjust brightness and contrast
+  - in: Image:RGBA, Brightness:VALUE, Contrast:VALUE
+  - out: Image:RGBA
+- `CompositorNodeChannelMatte` (Channel Key) — Create matte based on differences in color channels
+  - in: Image:RGBA, Minimum:VALUE, Maximum:VALUE, Color Space:MENU, RGB Key Channel:MENU, HSV Key Channel:MENU, YUV Key Channel:MENU, YCbCr Key Channel:MENU, Limit Method:MENU, RGB Limit Channel:MENU, HSV Limit Channel:MENU, YUV Limit Channel:MENU, YCbCr Limit Channel:MENU
+  - out: Image:RGBA, Matte:VALUE
+- `CompositorNodeChromaMatte` (Chroma Key) — Create matte based on chroma values
+  - in: Image:RGBA, Key Color:RGBA, Minimum:VALUE, Maximum:VALUE, Falloff:VALUE
+  - out: Image:RGBA, Matte:VALUE
+- `CompositorNodeColorBalance` (Color Balance) — Adjust color and values
+  - in: Image:RGBA, Factor:VALUE, Type:MENU, Lift:VALUE, Lift:RGBA, Gamma:VALUE, Gamma:RGBA, Gain:VALUE, Gain:RGBA, Offset:VALUE, Offset:RGBA, Power:VALUE, Power:RGBA, Slope:VALUE, Slope:RGBA, Temperature:VALUE, Tint:VALUE, Temperature:VALUE, Tint:VALUE
+  - out: Image:RGBA
+- `CompositorNodeColorCorrection` (Color Correction) — Adjust the color of an image, separately in several tonal ranges (highlights, midtones and shadows)
+  - in: Image:RGBA, Mask:VALUE, Saturation:VALUE, Contrast:VALUE, Gamma:VALUE, Gain:VALUE, Offset:VALUE, Saturation:VALUE, Contrast:VALUE, Gamma:VALUE, Gain:VALUE, Offset:VALUE, Saturation:VALUE, Contrast:VALUE, Gamma:VALUE, Gain:VALUE, Offset:VALUE, Saturation:VALUE, Contrast:VALUE, Gamma:VALUE, Gain:VALUE, Offset:VALUE, Midtones Start:VALUE, Midtones End:VALUE, Red:BOOLEAN, Green:BOOLEAN, Blue:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeColorMatte` (Color Key) — Create matte using a given color, for green or blue screen footage
+  - in: Image:RGBA, Key Color:RGBA, Hue:VALUE, Saturation:VALUE, Value:VALUE
+  - out: Image:RGBA, Matte:VALUE
+- `CompositorNodeColorSpill` (Color Spill) — Remove colors from a blue or green screen, by reducing one RGB channel compared to the others
+  - in: Image:RGBA, Factor:VALUE, Spill Channel:MENU, Limit Method:MENU, Limit Channel:MENU, Limit Strength:VALUE, Use Spill Strength:BOOLEAN, Strength:RGBA
+  - out: Image:RGBA
+- `CompositorNodeCombineColor` (Combine Color) — Combine an image from its composite color channels
+  - in: Red:VALUE, Green:VALUE, Blue:VALUE, Alpha:VALUE
+  - out: Image:RGBA
+- `CompositorNodeConvertColorSpace` (Convert Colorspace) — Convert between color spaces
+  - in: Image:RGBA
+  - out: Image:RGBA
+- `CompositorNodeConvertToDisplay` (Convert to Display) — Convert from scene linear to display color space, with a view transform and look for tone mapping
+  - in: Image:RGBA, Invert:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeConvolve` (Convolve) — Convolves an image with a kernel
+  - in: Image:RGBA, Kernel Data Type:MENU, Kernel:VALUE, Kernel:RGBA, Normalize Kernel:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeCornerPin` (Corner Pin) — Plane warp transformation using explicit corner values
+  - in: Image:RGBA, Upper Left:VECTOR, Upper Right:VECTOR, Lower Left:VECTOR, Lower Right:VECTOR, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA, Plane:VALUE
+- `CompositorNodeCrop` (Crop) — Crops image to a smaller region, either making the cropped area transparent or resizing the image
+  - in: Image:RGBA, X:INT, Y:INT, Width:INT, Height:INT, Alpha Crop:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeCryptomatte` (Cryptomatte (Legacy)) — Deprecated. Use Cryptomatte Node instead
+  - in: Image:RGBA, Crypto 00:RGBA, Crypto 01:RGBA, Crypto 02:RGBA
+  - out: Image:RGBA, Matte:VALUE, Pick:RGBA
+- `CompositorNodeCryptomatteV2` (Cryptomatte) — Generate matte for individual objects and materials using Cryptomatte render passes
+  - in: Image:RGBA
+  - out: Image:RGBA, Matte:VALUE, Pick:RGBA
+- `CompositorNodeCurveRGB` (RGB Curves) — Perform level adjustments on each color channel of an image
+  - in: Image:RGBA, Factor:VALUE, Black Level:RGBA, White Level:RGBA
+  - out: Image:RGBA
+- `CompositorNodeDBlur` (Directional Blur) — Blur an image along a direction
+  - in: Image:RGBA, Samples:INT, Center:VECTOR, Rotation:VALUE, Scale:VALUE, Amount:VALUE, Direction:VALUE
+  - out: Image:RGBA
+- `CompositorNodeDefocus` (Defocus) — Apply depth of field in 2D, using a Z depth map or mask
+  - in: Image:RGBA, Z:VALUE
+  - out: Image:RGBA
+- `CompositorNodeDenoise` (Denoise) — Denoise renders from Cycles and other ray tracing renderers
+  - in: Image:RGBA, Albedo:RGBA, Normal:VECTOR, HDR:BOOLEAN, Prefilter:MENU, Quality:MENU
+  - out: Image:RGBA
+- `CompositorNodeDespeckle` (Despeckle) — Smooth areas of an image in which noise is noticeable, while leaving complex areas untouched
+  - in: Image:RGBA, Factor:VALUE, Color Threshold:VALUE, Neighbor Threshold:VALUE
+  - out: Image:RGBA
+- `CompositorNodeDiffMatte` (Difference Key) — Produce a matte that isolates foreground content by comparing it with a reference background image
+  - in: Image 1:RGBA, Image 2:RGBA, Tolerance:VALUE, Falloff:VALUE
+  - out: Image:RGBA, Matte:VALUE
+- `CompositorNodeDilateErode` (Dilate/Erode) — Expand and shrink masks
+  - in: Mask:VALUE, Size:INT, Type:MENU, Falloff Size:VALUE, Falloff:MENU
+  - out: Mask:VALUE
+- `CompositorNodeDisplace` (Displace) — Displace pixel position using an offset vector
+  - in: Image:RGBA, Displacement:VECTOR, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA
+- `CompositorNodeDistanceMatte` (Distance Key) — Create matte based on 3D distance between colors
+  - in: Image:RGBA, Key Color:RGBA, Color Space:MENU, Tolerance:VALUE, Falloff:VALUE
+  - out: Image:RGBA, Matte:VALUE
+- `CompositorNodeDoubleEdgeMask` (Double Edge Mask) — Create a gradient between two masks
+  - in: Outer Mask:VALUE, Inner Mask:VALUE, Image Edges:BOOLEAN, Only Inside Outer:BOOLEAN
+  - out: Mask:VALUE
+- `CompositorNodeEllipseMask` (Ellipse Mask) — Create elliptical mask suitable for use as a simple matte or vignette mask
+  - in: Operation:MENU, Mask:VALUE, Value:VALUE, Position:VECTOR, Size:VECTOR, Rotation:VALUE
+  - out: Mask:VALUE
+- `CompositorNodeExposure` (Exposure) — Adjust brightness using a camera exposure parameter
+  - in: Image:RGBA, Exposure:VALUE
+  - out: Image:RGBA
+- `CompositorNodeFilter` (Filter) — Apply common image enhancement filters
+  - in: Image:RGBA, Factor:VALUE, Type:MENU
+  - out: Image:RGBA
+- `CompositorNodeFlip` (Flip) — Flip an image along a defined axis
+  - in: Image:RGBA, Flip X:BOOLEAN, Flip Y:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeGlare` (Glare) — Add lens flares, fog and glows around bright parts of the image
+  - in: Image:RGBA, Type:MENU, Quality:MENU, Threshold:VALUE, Smoothness:VALUE, Clamp:BOOLEAN, Maximum:VALUE, Strength:VALUE, Saturation:VALUE, Tint:RGBA, Size:VALUE, Streaks:INT, Streaks Angle:VALUE, Iterations:INT, Fade:VALUE, Color Modulation:VALUE, Diagonal:BOOLEAN, Sun Position:VECTOR, Jitter:VALUE, Kernel Data Type:MENU, Kernel:VALUE, Kernel:RGBA
+  - out: Image:RGBA, Glare:RGBA, Highlights:RGBA
+- `CompositorNodeGroup` (Group)
+  - in: (none)
+  - out: (none)
+- `CompositorNodeHueCorrect` (Hue Correct) — Adjust hue, saturation, and value with a curve
+  - in: Image:RGBA, Factor:VALUE
+  - out: Image:RGBA
+- `CompositorNodeHueSat` (Hue/Saturation/Value) — Apply a color transformation in the HSV color model
+  - in: Image:RGBA, Hue:VALUE, Saturation:VALUE, Value:VALUE, Factor:VALUE
+  - out: Image:RGBA
+- `CompositorNodeIDMask` (ID Mask) — Create a matte from an object or material index pass
+  - in: ID value:VALUE, Index:INT, Anti-Alias:BOOLEAN
+  - out: Alpha:VALUE
+- `CompositorNodeImage` (Image) — Input image or movie file
+  - in: (none)
+  - out: Image:RGBA, Alpha:VALUE
+- `CompositorNodeImageCoordinates` (Image Coordinates) — Returns the coordinates of the pixels of an image
+  - in: Image:RGBA
+  - out: Uniform:VECTOR, Normalized:VECTOR, Pixel:INT_VECTOR
+- `CompositorNodeImageInfo` (Image Info) — Returns information about an image
+  - in: Image:RGBA
+  - out: Dimensions:INT_VECTOR, Resolution:INT_VECTOR, Location:VECTOR, Rotation:VALUE, Scale:VECTOR
+- `CompositorNodeInpaint` (Inpaint) — Extend borders of an image into transparent or masked regions
+  - in: Image:RGBA, Size:INT
+  - out: Image:RGBA
+- `CompositorNodeInvert` (Invert Color) — Invert colors, producing a negative
+  - in: Color:RGBA, Factor:VALUE, Invert Color:BOOLEAN, Invert Alpha:BOOLEAN
+  - out: Color:RGBA
+- `CompositorNodeKeying` (Keying) — Perform both chroma keying (to remove the backdrop) and despill (to correct color cast from the backdrop)
+  - in: Image:RGBA, Key Color:RGBA, Blur Size:INT, Balance:VALUE, Black Level:VALUE, White Level:VALUE, Size:INT, Tolerance:VALUE, Garbage Matte:VALUE, Core Matte:VALUE, Blur Size:INT, Dilate Size:INT, Feather Size:INT, Feather Falloff:MENU, Strength:VALUE, Balance:VALUE
+  - out: Image:RGBA, Matte:VALUE, Edges:VALUE
+- `CompositorNodeKeyingScreen` (Keying Screen) — Create plates for use as a color reference for keying nodes
+  - in: Smoothness:VALUE
+  - out: Screen:RGBA
+- `CompositorNodeKuwahara` (Kuwahara) — Apply smoothing filter that preserves edges, for stylized and painterly effects
+  - in: Image:RGBA, Size:VALUE, Type:MENU, Uniformity:INT, Sharpness:VALUE, Eccentricity:VALUE, High Precision:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeLensdist` (Lens Distortion) — Simulate distortion and dispersion from camera lenses
+  - in: Image:RGBA, Type:MENU, Distortion:VALUE, Dispersion:VALUE, Jitter:BOOLEAN, Fit:BOOLEAN
+  - out: Image:RGBA
+- `CompositorNodeLevels` (Levels) — Compute average and standard deviation of pixel values
+  - in: Image:RGBA, Channel:MENU
+  - out: Mean:VALUE, Standard Deviation:VALUE, Minimum:VALUE, Maximum:VALUE
+- `CompositorNodeLumaMatte` (Luminance Key) — Create a matte based on luminance (brightness) difference
+  - in: Image:RGBA, Minimum:VALUE, Maximum:VALUE
+  - out: Image:RGBA, Matte:VALUE
+- `CompositorNodeMapUV` (Map UV) — Map a texture using UV coordinates, to apply a texture to objects in compositing
+  - in: Image:RGBA, UV:VECTOR, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA
+- `CompositorNodeMask` (Mask) — Input mask from a mask data-block, created in the image editor
+  - in: Size Source:MENU, Size X:INT, Size Y:INT, Feather:BOOLEAN, Motion Blur:BOOLEAN, Samples:INT, Shutter:VALUE
+  - out: Mask:VALUE
+- `CompositorNodeMaskToSDF` (Mask To SDF) — Computes a signed distance field from the given mask
+  - in: Mask:BOOLEAN
+  - out: SDF:VALUE, Nearest Pixel:INT_VECTOR
+- `CompositorNodeMovieClip` (Movie Clip) — Input image or movie from a movie clip data-block, typically used for motion tracking
+  - in: (none)
+  - out: Image:RGBA, Alpha:VALUE, Offset X:VALUE, Offset Y:VALUE, Scale:VALUE, Angle:VALUE
+- `CompositorNodeMovieDistortion` (Movie Distortion) — Remove lens distortion from footage, using motion tracking camera lens settings
+  - in: Image:RGBA, Type:MENU
+  - out: Image:RGBA
+- `CompositorNodeNormal` (Normal) — Input normalized normal values to other nodes in the tree
+  - in: (none)
+  - out: Normal:VECTOR
+- `CompositorNodeNormalize` (Normalize) — Map values to 0 to 1 range, based on the minimum and maximum pixel values
+  - in: Value:VALUE
+  - out: Value:VALUE
+- `CompositorNodeOutputFile` (File Output) — Write image file to disk
+  - in: :CUSTOM
+  - out: (none)
+- `CompositorNodePixelate` (Pixelate) — Reduce detail in an image by making individual pixels more prominent, for a blocky or mosaic-like appearance
+  - in: Color:RGBA, Size:INT
+  - out: Color:RGBA
+- `CompositorNodePlaneTrackDeform` (Plane Track Deform) — Replace flat planes in footage by another image, detected by plane tracks from motion tracking
+  - in: Image:RGBA, Motion Blur:BOOLEAN, Samples:INT, Shutter:VALUE
+  - out: Image:RGBA, Plane:VALUE
+- `CompositorNodePosterize` (Posterize) — Reduce number of colors in an image, converting smooth gradients into sharp transitions
+  - in: Image:RGBA, Steps:VALUE
+  - out: Image:RGBA
+- `CompositorNodePremulKey` (Alpha Convert) — Convert to and from premultiplied (associated) alpha
+  - in: Image:RGBA, Type:MENU
+  - out: Image:RGBA
+- `CompositorNodeRGB` (Color) — A color picker
+  - in: (none)
+  - out: Color:RGBA
+- `CompositorNodeRGBToBW` (RGB to BW) — Convert RGB input into grayscale using luminance
+  - in: Image:RGBA
+  - out: Val:VALUE
+- `CompositorNodeRLayers` (Render Layers) — Input render passes from a scene render
+  - in: (none)
+  - out: Image:RGBA, Alpha:VALUE
+- `CompositorNodeRelativeToPixel` (Relative To Pixel) — Converts values that are relative to the image size to be in terms of pixels
+  - in: Value:VECTOR, Value:VALUE, Image:RGBA
+  - out: Value:VALUE, Value:VECTOR
+- `CompositorNodeRotate` (Rotate) — Rotate image by specified angle
+  - in: Image:RGBA, Angle:VALUE, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA
+- `CompositorNodeScale` (Scale) — Change the size of the image
+  - in: Image:RGBA, Type:MENU, X:VALUE, Y:VALUE, Frame Type:MENU, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA
+- `CompositorNodeSceneTime` (Scene Time) — Input the current scene time in seconds or frames
+  - in: (none)
+  - out: Seconds:VALUE, Frame:VALUE
+- `CompositorNodeSeparateColor` (Separate Color) — Split an image into its composite color channels
+  - in: Image:RGBA
+  - out: Red:VALUE, Green:VALUE, Blue:VALUE, Alpha:VALUE
+- `CompositorNodeSequencerStripInfo` (Sequencer Strip Info) — Returns information about the active strip of the modifier
+  - in: (none)
+  - out: Start Frame:INT, End Frame:INT, Location:VECTOR, Rotation:VALUE, Scale:VECTOR
+- `CompositorNodeSetAlpha` (Set Alpha) — Add an alpha channel to an image
+  - in: Image:RGBA, Alpha:VALUE, Type:MENU
+  - out: Image:RGBA
+- `CompositorNodeSplit` (Split) — Combine two images for side-by-side display. Typically used in combination with a Viewer node
+  - in: Position:VECTOR, Rotation:VALUE, Image:RGBA, Image:RGBA
+  - out: Image:RGBA
+- `CompositorNodeStabilize` (Stabilize 2D) — Stabilize footage using 2D stabilization motion tracking settings
+  - in: Image:RGBA, Frame:INT, Invert:BOOLEAN, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA
+- `CompositorNodeStringToImage` (String To Image) — Generates an image containing the given paragraph of text
+  - in: String:STRING, Font:FONT, Size:VALUE, Horizontal Alignment:MENU, Vertical Alignment:MENU, Wrap:BOOLEAN, Width:INT
+  - out: Image:VALUE
+- `CompositorNodeSwitch` (Switch) — Switch between two images using a checkbox
+  - in: Switch:BOOLEAN, Off:RGBA, On:RGBA
+  - out: Image:RGBA
+- `CompositorNodeSwitchView` (Switch View) — Combine the views (left and right) into a single stereo 3D output
+  - in: left:RGBA, right:RGBA
+  - out: Image:RGBA
+- `CompositorNodeTime` (Time Curve) — Generate a factor value (from 0.0 to 1.0) between scene start and end time, using a curve mapping
+  - in: Start Frame:INT, End Frame:INT
+  - out: Factor:VALUE
+- `CompositorNodeTonemap` (Tonemap) — Map one set of colors to another in order to approximate the appearance of high dynamic range
+  - in: Image:RGBA, Type:MENU, Key:VALUE, Balance:VALUE, Gamma:VALUE, Intensity:VALUE, Contrast:VALUE, Light Adaptation:VALUE, Chromatic Adaptation:VALUE
+  - out: Image:RGBA
+- `CompositorNodeTrackPos` (Track Position) — Provide information about motion tracking points, such as x and y values
+  - in: Mode:MENU, Frame:INT
+  - out: X:VALUE, Y:VALUE, Speed:VECTOR
+- `CompositorNodeTransform` (Transform) — Scale, translate and rotate an image
+  - in: Image:RGBA, X:VALUE, Y:VALUE, Angle:VALUE, Scale:VALUE, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA
+- `CompositorNodeTranslate` (Translate) — Offset an image
+  - in: Image:RGBA, X:VALUE, Y:VALUE, Interpolation:MENU, Extension X:MENU, Extension Y:MENU
+  - out: Image:RGBA
+- `CompositorNodeVecBlur` (Vector Blur) — Uses the vector speed render pass to blur the image pixels in 2D
+  - in: Image:RGBA, Speed:VECTOR, Depth:VALUE, Samples:INT, Shutter:VALUE
+  - out: Image:RGBA
+- `CompositorNodeViewer` (Viewer) — Visualize data from inside a node graph, in the image editor or as a backdrop
+  - in: Image:RGBA
+  - out: (none)
+- `CompositorNodeZcombine` (Depth Combine) — Combine two images using depth maps
+  - in: A:RGBA, Depth A:VALUE, B:RGBA, Depth B:VALUE, Use Alpha:BOOLEAN, Anti-Alias:BOOLEAN
+  - out: Result:RGBA, Depth:VALUE
+- `FunctionNodeAlignRotationToVector` (Align Rotation to Vector) — Orient a rotation along the given direction
+  - in: Rotation:ROTATION, Factor:VALUE, Vector:VECTOR
+  - out: Rotation:ROTATION
+- `FunctionNodeAxesToRotation` (Axes to Rotation) — Create a rotation from a primary and (ideally orthogonal) secondary axis
+  - in: Primary Axis:VECTOR, Secondary Axis:VECTOR
+  - out: Rotation:ROTATION
+- `FunctionNodeAxisAngleToRotation` (Axis Angle to Rotation) — Build a rotation from an axis and a rotation around that axis
+  - in: Axis:VECTOR, Angle:VALUE
+  - out: Rotation:ROTATION
+- `FunctionNodeCombineMatrix` (Combine Matrix) — Construct a 4x4 matrix from its individual values
+  - in: Column 1 Row 1:VALUE, Column 1 Row 2:VALUE, Column 1 Row 3:VALUE, Column 1 Row 4:VALUE, Column 2 Row 1:VALUE, Column 2 Row 2:VALUE, Column 2 Row 3:VALUE, Column 2 Row 4:VALUE, Column 3 Row 1:VALUE, Column 3 Row 2:VALUE, Column 3 Row 3:VALUE, Column 3 Row 4:VALUE, Column 4 Row 1:VALUE, Column 4 Row 2:VALUE, Column 4 Row 3:VALUE, Column 4 Row 4:VALUE
+  - out: Matrix:MATRIX
+- `FunctionNodeEulerToRotation` (Euler to Rotation) — Build a rotation from separate angles around each axis
+  - in: Euler:VECTOR
+  - out: Rotation:ROTATION
+- `FunctionNodeFindInString` (Find in String) — Find the number of times a given string occurs in another string and the position of the first match
+  - in: String:STRING, Search:STRING, Mode:MENU
+  - out: First Found:INT, Count:INT
+- `FunctionNodeFormatString` (Format String) — Insert values into a string using a Python and path template compatible formatting syntax
+  - in: Format:STRING, :CUSTOM
+  - out: String:STRING
+- `FunctionNodeInputBool` (Boolean) — Provide a True/False value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Boolean:BOOLEAN
+- `FunctionNodeInputInt` (Integer) — Provide an integer value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Integer:INT
+- `FunctionNodeInputIntVector` (Integer Vector) — Provide an integer vector value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Vector:INT_VECTOR
+- `FunctionNodeInputMenu` (Menu) — Provide a menu value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Menu:MENU
+- `FunctionNodeInputRotation` (Rotation) — Provide a rotation value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Rotation:ROTATION
+- `FunctionNodeInputSpecialCharacters` (Special Characters) — Output string characters that cannot be typed directly with the keyboard
+  - in: (none)
+  - out: Line Break:STRING, Tab:STRING
+- `FunctionNodeInputString` (String) — Provide a string value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: String:STRING
+- `FunctionNodeInputVector` (Vector) — Provide a vector value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Vector:VECTOR
+- `FunctionNodeInvertMatrix` (Invert Matrix) — Compute the inverse of the given matrix, if one exists
+  - in: Matrix:MATRIX
+  - out: Matrix:MATRIX, Invertible:BOOLEAN
+- `FunctionNodeInvertRotation` (Invert Rotation) — Compute the inverse of the given rotation
+  - in: Rotation:ROTATION
+  - out: Rotation:ROTATION
+- `FunctionNodeMatchString` (Match String) — Check if a given string exists within another string
+  - in: String:STRING, Operation:MENU, Key:STRING
+  - out: Result:BOOLEAN
+- `FunctionNodeMatrixDeterminant` (Matrix Determinant) — Compute the determinant of the given matrix
+  - in: Matrix:MATRIX
+  - out: Determinant:VALUE
+- `FunctionNodeMatrixMultiply` (Multiply Matrices) — Perform a matrix multiplication on two input matrices
+  - in: Matrix:MATRIX, Matrix:MATRIX
+  - out: Matrix:MATRIX
+- `FunctionNodeProjectPoint` (Project Point) — Project a point using a matrix, using location, rotation, scale, and perspective divide
+  - in: Vector:VECTOR, Transform:MATRIX
+  - out: Vector:VECTOR
+- `FunctionNodeQuaternionToRotation` (Quaternion to Rotation) — Build a rotation from quaternion components
+  - in: W:VALUE, X:VALUE, Y:VALUE, Z:VALUE
+  - out: Rotation:ROTATION
+- `FunctionNodeReplaceString` (Replace String) — Replace a given string segment with another
+  - in: String:STRING, Find:STRING, Replace:STRING
+  - out: String:STRING
+- `FunctionNodeReverseString` (Reverse String) — Reverse the order of the characters in a string
+  - in: String:STRING
+  - out: String:STRING
+- `FunctionNodeRotateRotation` (Rotate Rotation) — Apply a secondary rotation to a given rotation value
+  - in: Rotation:ROTATION, Rotate By:ROTATION
+  - out: Rotation:ROTATION
+- `FunctionNodeRotateVector` (Rotate Vector) — Apply a rotation to a given vector
+  - in: Vector:VECTOR, Rotation:ROTATION
+  - out: Vector:VECTOR
+- `FunctionNodeRotationToAxisAngle` (Rotation to Axis Angle) — Convert a rotation to axis angle components
+  - in: Rotation:ROTATION
+  - out: Axis:VECTOR, Angle:VALUE
+- `FunctionNodeRotationToEuler` (Rotation to Euler) — Convert a standard rotation value to an Euler rotation
+  - in: Rotation:ROTATION
+  - out: Euler:VECTOR
+- `FunctionNodeRotationToQuaternion` (Rotation to Quaternion) — Retrieve the quaternion components representing a rotation
+  - in: Rotation:ROTATION
+  - out: W:VALUE, X:VALUE, Y:VALUE, Z:VALUE
+- `FunctionNodeSeparateMatrix` (Separate Matrix) — Split a 4x4 matrix into its individual values
+  - in: Matrix:MATRIX
+  - out: Column 1 Row 1:VALUE, Column 1 Row 2:VALUE, Column 1 Row 3:VALUE, Column 1 Row 4:VALUE, Column 2 Row 1:VALUE, Column 2 Row 2:VALUE, Column 2 Row 3:VALUE, Column 2 Row 4:VALUE, Column 3 Row 1:VALUE, Column 3 Row 2:VALUE, Column 3 Row 3:VALUE, Column 3 Row 4:VALUE, Column 4 Row 1:VALUE, Column 4 Row 2:VALUE, Column 4 Row 3:VALUE, Column 4 Row 4:VALUE
+- `FunctionNodeSetStringCase` (Set String Case) — Convert the case of a string
+  - in: String:STRING, Case:MENU
+  - out: String:STRING
+- `FunctionNodeSliceString` (Slice String) — Extract a string segment from a larger string
+  - in: String:STRING, Position:INT, Length:INT
+  - out: String:STRING
+- `FunctionNodeStringLength` (String Length) — Output the number of characters in the given string
+  - in: String:STRING
+  - out: Length:INT
+- `FunctionNodeStringToValue` (String to Value) — Derive a numeric value from a given string representation
+  - in: String:STRING, Base:INT
+  - out: Value:VALUE, Length:INT
+- `FunctionNodeTransformDirection` (Transform Direction) — Apply a transformation matrix (excluding translation) to the given vector
+  - in: Direction:VECTOR, Transform:MATRIX
+  - out: Direction:VECTOR
+- `FunctionNodeTransformPoint` (Transform Point) — Apply a transformation matrix to the given vector
+  - in: Vector:VECTOR, Transform:MATRIX
+  - out: Vector:VECTOR
+- `FunctionNodeTransposeMatrix` (Transpose Matrix) — Flip a matrix over its diagonal, turning columns into rows and vice-versa
+  - in: Matrix:MATRIX
+  - out: Matrix:MATRIX
+- `FunctionNodeTrimString` (Trim String) — Remove characters from the beginning and end of a string
+  - in: String:STRING, Characters:STRING, Whitespace:BOOLEAN, Start:BOOLEAN, End:BOOLEAN
+  - out: String:STRING
+- `FunctionNodeValueToString` (Value to String) — Generate a string representation of the given input value
+  - in: Value:VALUE, Decimals:INT, Base:INT, Padding:INT
+  - out: String:STRING
+- `GeometryNodeCameraInfo` (Camera Info) — Retrieve information from a camera object
+  - in: Camera:OBJECT
+  - out: Projection Matrix:MATRIX, Focal Length:VALUE, Sensor:VECTOR, Shift:VECTOR, Clip Start:VALUE, Clip End:VALUE, Focus Distance:VALUE, Is Orthographic:BOOLEAN, Orthographic Scale:VALUE
+- `GeometryNodeIndexSwitch` (Index Switch) — Choose between an arbitrary number of values with an index
+  - in: Index:INT, 0:RGBA, 1:RGBA, :CUSTOM
+  - out: Output:RGBA
+- `GeometryNodeInputActiveCamera` (Active Camera) — Retrieve the scene's active camera
+  - in: (none)
+  - out: Active Camera:OBJECT
+- `GeometryNodeInputFont` (Font) — Output a font
+  - in: (none)
+  - out: Font:FONT
+- `GeometryNodeInputObject` (Object) — Output a single object
+  - in: (none)
+  - out: Object:OBJECT
+- `GeometryNodeMenuSwitch` (Menu Switch) — Select from multiple inputs by name
+  - in: Menu:MENU, A:RGBA, B:RGBA, :CUSTOM
+  - out: Output:RGBA, A:BOOLEAN, B:BOOLEAN
+- `GeometryNodeObjectInfo` (Object Info) — Retrieve information from an object
+  - in: Object:OBJECT, As Instance:BOOLEAN
+  - out: Transform:MATRIX, Location:VECTOR, Rotation:ROTATION, Scale:VECTOR, Geometry:GEOMETRY
+- `GeometryNodeSwitch` (Switch) — Switch between two inputs
+  - in: Switch:BOOLEAN, False:VALUE, True:VALUE
+  - out: Output:VALUE
+- `GeometryNodeWarning` (Warning) — Create custom warnings in node groups
+  - in: Show:BOOLEAN, Message:STRING
+  - out: Show:BOOLEAN
+- `NodeEnableOutput` (Enable Output) — Either pass through the input value or output the fallback value
+  - in: Enable:BOOLEAN, Value:VALUE
+  - out: Value:VALUE
+- `NodeFrame` (Frame) — Collect related nodes together in a common area. Useful for organization when the re-usability of a node group is not required
+  - in: (none)
+  - out: (none)
+- `NodeGroupInput` (Group Input) — Expose connected data from inside a node group as inputs to its interface
+  - in: (none)
+  - out: :CUSTOM
+- `NodeGroupOutput` (Group Output) — Output data from inside of a node group
+  - in: :CUSTOM
+  - out: (none)
+- `NodeImplicitConversion` (Implicit Conversion) — Implicitly convert the input value to a fixed socket type
+  - in: Value:RGBA
+  - out: Value:RGBA
+- `NodeReroute` (Reroute) — A single-socket organization tool that supports one input and multiple outputs
+  - in: Input:RGBA
+  - out: Output:RGBA
+- `ShaderNodeBlackbody` (Blackbody) — Convert a blackbody temperature to an RGB value
+  - in: Temperature:VALUE
+  - out: Color:RGBA
+- `ShaderNodeClamp` (Clamp) — Clamp a value between a minimum and a maximum
+  - in: Value:VALUE, Min:VALUE, Max:VALUE
+  - out: Result:VALUE
+- `ShaderNodeCombineXYZ` (Combine XYZ) — Create a vector from X, Y, and Z components
+  - in: X:VALUE, Y:VALUE, Z:VALUE
+  - out: Vector:VECTOR
+- `ShaderNodeFloatCurve` (Float Curve) — Map an input float to a curve and outputs a float value
+  - in: Factor:VALUE, Value:VALUE
+  - out: Value:VALUE
+- `ShaderNodeGamma` (Gamma) — Apply a gamma correction
+  - in: Color:RGBA, Gamma:VALUE
+  - out: Color:RGBA
+- `ShaderNodeMapRange` (Map Range) — Remap a value from a range to a target range
+  - in: Value:VALUE, From Min:VALUE, From Max:VALUE, To Min:VALUE, To Max:VALUE, Steps:VALUE, Vector:VECTOR, From Min:VECTOR, From Max:VECTOR, To Min:VECTOR, To Max:VECTOR, Steps:VECTOR
+  - out: Result:VALUE, Vector:VECTOR
+- `ShaderNodeMath` (Math) — Perform math operations
+  - in: Value:VALUE, Value:VALUE, Value:VALUE
+  - out: Value:VALUE
+- `ShaderNodeMix` (Mix) — Mix values by a factor
+  - in: Factor:VALUE, Factor:VECTOR, A:VALUE, B:VALUE, A:VECTOR, B:VECTOR, A:RGBA, B:RGBA, A:ROTATION, B:ROTATION
+  - out: Result:VALUE, Result:VECTOR, Result:RGBA, Result:ROTATION
+- `ShaderNodeMixRGB` (Mix (Legacy)) — Mix two input colors
+  - in: Factor:VALUE, Color1:RGBA, Color2:RGBA
+  - out: Color:RGBA
+- `ShaderNodeRGBCurve` (RGB Curves) — Apply color corrections for each color channel
+  - in: Factor:VALUE, Color:RGBA
+  - out: Color:RGBA
+- `ShaderNodeRadialTiling` (Radial Tiling) — Transform Coordinate System for Radial Tiling
+  - in: Vector:VECTOR, Sides:VALUE, Roundness:VALUE
+  - out: Segment Coordinates:VECTOR, Segment ID:VALUE, Segment Width:VALUE, Segment Rotation:VALUE
+- `ShaderNodeSeparateXYZ` (Separate XYZ) — Split a vector into its X, Y, and Z components
+  - in: Vector:VECTOR
+  - out: X:VALUE, Y:VALUE, Z:VALUE
+- `ShaderNodeTexBrick` (Brick Texture) — Generate a procedural texture producing bricks
+  - in: Vector:VECTOR, Color1:RGBA, Color2:RGBA, Mortar:RGBA, Scale:VALUE, Mortar Size:VALUE, Mortar Smooth:VALUE, Bias:VALUE, Brick Width:VALUE, Row Height:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexChecker` (Checker Texture) — Generate a checkerboard texture
+  - in: Vector:VECTOR, Color1:RGBA, Color2:RGBA, Scale:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexGabor` (Gabor Texture) — Generate Gabor noise
+  - in: Vector:VECTOR, Scale:VALUE, Frequency:VALUE, Anisotropy:VALUE, Orientation:VALUE, Orientation:VECTOR
+  - out: Value:VALUE, Phase:VALUE, Intensity:VALUE
+- `ShaderNodeTexGradient` (Gradient Texture) — Generate interpolated color and intensity values based on the input vector
+  - in: Vector:VECTOR
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexMagic` (Magic Texture) — Generate a psychedelic color texture
+  - in: Vector:VECTOR, Scale:VALUE, Distortion:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexNoise` (Noise Texture) — Generate fractal Perlin noise
+  - in: Vector:VECTOR, W:VALUE, Scale:VALUE, Detail:VALUE, Roughness:VALUE, Lacunarity:VALUE, Offset:VALUE, Gain:VALUE, Distortion:VALUE
+  - out: Factor:VALUE, Color:RGBA
+- `ShaderNodeTexVoronoi` (Voronoi Texture) — Generate Worley noise based on the distance to random points. Typically used to generate textures such as stones, water, or biological cells
+  - in: Vector:VECTOR, W:VALUE, Scale:VALUE, Detail:VALUE, Roughness:VALUE, Lacunarity:VALUE, Smoothness:VALUE, Exponent:VALUE, Randomness:VALUE
+  - out: Distance:VALUE, Color:RGBA, Position:VECTOR, W:VALUE, Radius:VALUE
+- `ShaderNodeTexWave` (Wave Texture) — Generate procedural bands or rings with noise
+  - in: Vector:VECTOR, Scale:VALUE, Distortion:VALUE, Detail:VALUE, Detail Scale:VALUE, Detail Roughness:VALUE, Phase Offset:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexWhiteNoise` (White Noise Texture) — Calculate a random value or color based on an input seed
+  - in: Vector:VECTOR, W:VALUE
+  - out: Value:VALUE, Color:RGBA
+- `ShaderNodeValToRGB` (Color Ramp) — Map values to colors with the use of a gradient
+  - in: Factor:VALUE
+  - out: Color:RGBA, Alpha:VALUE
+- `ShaderNodeValue` (Value) — Input numerical values to other nodes in the tree
+  - in: (none)
+  - out: Value:VALUE
+- `ShaderNodeVectorCurve` (Vector Curves) — Map input vector components with curves
+  - in: Factor:VALUE, Vector:VECTOR
+  - out: Vector:VECTOR
+- `ShaderNodeVectorMath` (Vector Math) — Perform vector math operation
+  - in: Vector:VECTOR, Vector:VECTOR, Vector:VECTOR, Scale:VALUE
+  - out: Vector:VECTOR, Value:VALUE
+- `ShaderNodeVectorRotate` (Vector Rotate) — Rotate a vector around a pivot point (center)
+  - in: Vector:VECTOR, Center:VECTOR, Axis:VECTOR, Angle:VALUE, Rotation:VECTOR
+  - out: Vector:VECTOR

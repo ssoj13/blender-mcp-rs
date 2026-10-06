@@ -1,0 +1,13 @@
+blender-mcp-rs is dual-licensed. You may use it under EITHER of:
+
+  1. The BSD 3-Clause License (open source) — see LICENSE-BSD3; or
+  2. A commercial license — see LICENSE-COMMERCIAL.
+
+Choose whichever fits your use. If you comply with the BSD 3-Clause terms, you
+need nothing further. If those terms do not suit you (for example, you want
+different terms, a warranty, or to omit the attribution requirement), a
+commercial license is available.
+
+SPDX-License-Identifier: BSD-3-Clause OR LicenseRef-Commercial
+
+Copyright (c) 2026 ssoj13

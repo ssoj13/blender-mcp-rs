@@ -1,0 +1,63 @@
+---
+area: api-ops
+group: uv
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.uv
+
+- `bpy.ops.uv.align(axis: enum{ALIGN_S, ALIGN_T, ALIGN_U, ALIGN_AUTO, ALIGN_X, ALIGN_Y}, position_mode: enum{MEAN, MIN, MAX})` — Aligns selected UV vertices on a line
+- `bpy.ops.uv.align_rotation(method: enum{AUTO, EDGE, GEOMETRY}, axis: enum{X, Y, Z}, correct_aspect: boolean)` — Align the UV island's rotation
+- `bpy.ops.uv.arrange_islands(initial_position: enum{BOUNDING_BOX, UV_GRID, ACTIVE_UDIM, CURSOR}, axis: enum{X, Y}, align: enum{MIN, MAX, CENTER, NONE}, order: enum{LARGE_TO_SMALL, SMALL_TO_LARGE, Fixed}, margin: float)` — Arrange selected UV islands on a line
+- `bpy.ops.uv.average_islands_scale(scale_uv: boolean, shear: boolean)` — Average the size of separate UV islands, based on their area in 3D space
+- `bpy.ops.uv.copy()` — Copy selected UV vertices
+- `bpy.ops.uv.copy_mirrored_faces(mesh_axis: enum{POS_X, POS_Y, POS_Z, NEG_X, NEG_Y, NEG_Z}, uv_axis: enum{X, Y}, precision: int)` — Copy mirror UV coordinates based on a mirrored mesh
+- `bpy.ops.uv.cube_project(cube_size: float, correct_aspect: boolean, clip_to_bounds: boolean, scale_to_bounds: boolean)` — Project the UV vertices of the mesh over the six faces of a cube
+- `bpy.ops.uv.cursor_set(location: float)` — Set 2D cursor location
+- `bpy.ops.uv.custom_region_set(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean)` — Set the boundaries of the user region
+- `bpy.ops.uv.cylinder_project(direction: enum{VIEW_ON_EQUATOR, VIEW_ON_POLES, ALIGN_TO_OBJECT}, align: enum{POLAR_ZX, POLAR_ZY}, pole: enum{PINCH, FAN}, seam: boolean, radius: float, correct_aspect: boolean, clip_to_bounds: boolean, scale_to_bounds: boolean)` — Project the UV vertices of the mesh over the curved wall of a cylinder
+- `bpy.ops.uv.export_layout(filepath: string, export_all: boolean, export_tiles: enum{NONE, UDIM, UV}, modified: boolean, mode: enum{SVG, EPS, PNG}, size: int, opacity: float, check_existing: boolean)` — Export UV layout to file
+- `bpy.ops.uv.follow_active_quads(mode: enum{EVEN, LENGTH, LENGTH_AVERAGE})` — Follow UVs from active quads along continuous face loops
+- `bpy.ops.uv.hide(unselected: boolean)` — Hide (un)selected UV vertices
+- `bpy.ops.uv.lightmap_pack(PREF_CONTEXT: enum{SEL_FACES, ALL_FACES}, PREF_PACK_IN_ONE: boolean, PREF_NEW_UVLAYER: boolean, PREF_BOX_DIV: int, PREF_MARGIN_DIV: float)` — Pack each face's UVs into the UV bounds
+- `bpy.ops.uv.mark_seam(clear: boolean)` — Mark selected UV edges as seams
+- `bpy.ops.uv.minimize_stretch(fill_holes: boolean, blend: float, iterations: int)` — Reduce UV stretching by relaxing angles
+- `bpy.ops.uv.move_on_axis(type: enum{DYNAMIC, PIXEL, UDIM}, axis: enum{X, Y}, distance: int)` — Move UVs on an axis
+- `bpy.ops.uv.pack_islands(udim_source: enum{CLOSEST_UDIM, ACTIVE_UDIM, ORIGINAL_AABB, CUSTOM_REGION}, rotate: boolean, rotate_method: enum{ANY, CARDINAL, AXIS_ALIGNED, AXIS_ALIGNED_X, AXIS_ALIGNED_Y}, scale: boolean, merge_overlap: boolean, margin_method: enum{SCALED, ADD, FRACTION}, margin: float, pin: boolean, pin_method: enum{SCALE, ROTATION, ROTATION_SCALE, LOCKED}, shape_method: enum{CONCAVE, CONVEX, AABB})` — Transform all islands so that they fill up the UV/UDIM space as much as possible
+- `bpy.ops.uv.paste()` — Paste selected UV vertices
+- `bpy.ops.uv.pin(clear: boolean, invert: boolean)` — Set/clear selected UV vertices as anchored between multiple unwrap operations
+- `bpy.ops.uv.project_from_view(orthographic: boolean, camera_bounds: boolean, correct_aspect: boolean, clip_to_bounds: boolean, scale_to_bounds: boolean)` — Project the UV vertices of the mesh as seen in current 3D view
+- `bpy.ops.uv.randomize_uv_transform(random_seed: int, use_loc: boolean, loc: float, use_rot: boolean, rot: float, use_scale: boolean, scale_even: boolean, scale: float)` — Randomize the UV island's location, rotation, and scale
+- `bpy.ops.uv.remove_doubles(threshold: float, use_unselected: boolean, use_shared_vertex: boolean)` — Selected UV vertices that are within a radius of each other are welded together
+- `bpy.ops.uv.reset()` — Reset UV projection
+- `bpy.ops.uv.reveal(select: boolean)` — Reveal all hidden UV vertices
+- `bpy.ops.uv.rip(mirror: boolean, release_confirm: boolean, use_accurate: boolean, location: float)` — Rip selected vertices or a selected region
+- `bpy.ops.uv.rip_move(UV_OT_rip: pointer, TRANSFORM_OT_translate: pointer)` — Unstitch UVs and move the result
+- `bpy.ops.uv.seams_from_islands(mark_seams: boolean, mark_sharp: boolean)` — Set mesh seams according to island setup in the UV editor
+- `bpy.ops.uv.select(extend: boolean, deselect: boolean, toggle: boolean, deselect_all: boolean, select_passthrough: boolean, location: float)` — Select UV vertices
+- `bpy.ops.uv.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Change selection of all UV vertices
+- `bpy.ops.uv.select_box(pinned: boolean, xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Select UV vertices using box selection
+- `bpy.ops.uv.select_by_winding(winding: enum{POSITIVE, NEGATIVE}, extend: boolean)` — Select UV faces by their winding
+- `bpy.ops.uv.select_circle(x: int, y: int, radius: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Select UV vertices using circle selection
+- `bpy.ops.uv.select_edge_ring(extend: boolean, location: float)` — Select an edge ring of connected UV vertices
+- `bpy.ops.uv.select_lasso(path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, mode: enum{SET, ADD, SUB})` — Select UVs using lasso selection
+- `bpy.ops.uv.select_less()` — Deselect UV vertices at the boundary of each selection region
+- `bpy.ops.uv.select_linked(delimit: enum{SEAM, SHARP, MATERIAL})` — Select all UV vertices linked to the active UV map
+- `bpy.ops.uv.select_linked_pick(extend: boolean, deselect: boolean, delimit: enum{SEAM, SHARP, MATERIAL}, location: float)` — Select all UV vertices linked under the mouse
+- `bpy.ops.uv.select_loop(extend: boolean, location: float)` — Select a loop of connected UV vertices
+- `bpy.ops.uv.select_mode(type: enum{VERTEX, EDGE, FACE})` — Change UV selection mode
+- `bpy.ops.uv.select_more()` — Select more UV vertices connected to initial selection
+- `bpy.ops.uv.select_overlap(extend: boolean)` — Select all UV faces which overlap each other
+- `bpy.ops.uv.select_pinned()` — Select all pinned UV vertices
+- `bpy.ops.uv.select_similar(type: enum{PIN, LENGTH, LENGTH_3D, AREA, AREA_3D, MATERIAL, OBJECT, SIDES, WINDING, FACE}, compare: enum{EQUAL, GREATER, LESS}, threshold: float)` — Select similar UVs by property types
+- `bpy.ops.uv.select_split()` — Select only entirely selected faces
+- `bpy.ops.uv.select_tile(extend: boolean, tile: int)` — Select UVs in specified tile
+- `bpy.ops.uv.shortest_path_pick(use_face_step: boolean, use_topology_distance: boolean, use_fill: boolean, skip: int, nth: int, offset: int, object_index: int, index: int)` — Select shortest path between two selections
+- `bpy.ops.uv.shortest_path_select(use_face_step: boolean, use_topology_distance: boolean, use_fill: boolean, skip: int, nth: int, offset: int)` — Select shortest path between two vertices/edges/faces
+- `bpy.ops.uv.smart_project(angle_limit: float, margin_method: enum{SCALED, ADD, FRACTION}, rotate_method: enum{AXIS_ALIGNED, AXIS_ALIGNED_X, AXIS_ALIGNED_Y}, island_margin: float, area_weight: float, correct_aspect: boolean, scale_to_bounds: boolean)` — Projection unwraps the selected faces of mesh objects
+- `bpy.ops.uv.snap_cursor(target: enum{PIXELS, SELECTED, ORIGIN})` — Snap cursor to target type
+- `bpy.ops.uv.snap_selected(target: enum{PIXELS, CURSOR, CURSOR_OFFSET, ADJACENT_UNSELECTED})` — Snap selected UV vertices to target type
+- `bpy.ops.uv.sphere_project(direction: enum{VIEW_ON_EQUATOR, VIEW_ON_POLES, ALIGN_TO_OBJECT}, align: enum{POLAR_ZX, POLAR_ZY}, pole: enum{PINCH, FAN}, seam: boolean, correct_aspect: boolean, clip_to_bounds: boolean, scale_to_bounds: boolean)` — Project the UV vertices of the mesh over the curved surface of a sphere
+- `bpy.ops.uv.stitch(use_limit: boolean, snap_islands: boolean, limit: float, static_island: int, active_object_index: int, midpoint_snap: boolean, clear_seams: boolean, mode: enum{VERTEX, EDGE}, stored_mode: enum{VERTEX, EDGE}, selection: collection, objects_selection_count: int)` — Stitch selected UV vertices by proximity
+- `bpy.ops.uv.unwrap(method: enum{ANGLE_BASED, CONFORMAL, MINIMUM_STRETCH}, fill_holes: boolean, correct_aspect: boolean, use_subsurf_data: boolean, use_original_bounds: boolean, margin_method: enum{SCALED, ADD, FRACTION}, margin: float, no_flip: boolean, iterations: int, use_weights: boolean, weight_group: string, weight_factor: float)` — Unwrap the mesh of the object being edited
+- `bpy.ops.uv.weld()` — Weld selected UV vertices together

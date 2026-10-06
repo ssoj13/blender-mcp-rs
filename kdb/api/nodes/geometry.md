@@ -1,0 +1,1089 @@
+---
+area: api-nodes
+group: geometry
+version: 5.2.2
+---
+
+# Blender 5.2.2 geometry nodes: real socket names
+
+- `FunctionNodeAlignEulerToVector` (Align Euler to Vector) — Orient an Euler rotation along the given direction
+  - in: Rotation:VECTOR, Factor:VALUE, Vector:VECTOR
+  - out: Rotation:VECTOR
+- `FunctionNodeAlignRotationToVector` (Align Rotation to Vector) — Orient a rotation along the given direction
+  - in: Rotation:ROTATION, Factor:VALUE, Vector:VECTOR
+  - out: Rotation:ROTATION
+- `FunctionNodeAxesToRotation` (Axes to Rotation) — Create a rotation from a primary and (ideally orthogonal) secondary axis
+  - in: Primary Axis:VECTOR, Secondary Axis:VECTOR
+  - out: Rotation:ROTATION
+- `FunctionNodeAxisAngleToRotation` (Axis Angle to Rotation) — Build a rotation from an axis and a rotation around that axis
+  - in: Axis:VECTOR, Angle:VALUE
+  - out: Rotation:ROTATION
+- `FunctionNodeBitMath` (Bit Math) — Perform bitwise operations on 32-bit integers
+  - in: A:INT, B:INT, Shift:INT
+  - out: Value:INT
+- `FunctionNodeBooleanMath` (Boolean Math) — Perform a logical operation on the given boolean inputs
+  - in: Boolean:BOOLEAN, Boolean:BOOLEAN
+  - out: Boolean:BOOLEAN
+- `FunctionNodeCombineColor` (Combine Color) — Combine four channels into a single color, based on a particular color model
+  - in: Red:VALUE, Green:VALUE, Blue:VALUE, Alpha:VALUE
+  - out: Color:RGBA
+- `FunctionNodeCombineMatrix` (Combine Matrix) — Construct a 4x4 matrix from its individual values
+  - in: Column 1 Row 1:VALUE, Column 1 Row 2:VALUE, Column 1 Row 3:VALUE, Column 1 Row 4:VALUE, Column 2 Row 1:VALUE, Column 2 Row 2:VALUE, Column 2 Row 3:VALUE, Column 2 Row 4:VALUE, Column 3 Row 1:VALUE, Column 3 Row 2:VALUE, Column 3 Row 3:VALUE, Column 3 Row 4:VALUE, Column 4 Row 1:VALUE, Column 4 Row 2:VALUE, Column 4 Row 3:VALUE, Column 4 Row 4:VALUE
+  - out: Matrix:MATRIX
+- `FunctionNodeCombineTransform` (Combine Transform) — Combine a translation vector, a rotation, and a scale vector into a transformation matrix
+  - in: Translation:VECTOR, Rotation:ROTATION, Scale:VECTOR
+  - out: Transform:MATRIX
+- `FunctionNodeCompare` (Compare) — Perform a comparison operation on the two given inputs
+  - in: A:VALUE, B:VALUE
+  - out: Result:BOOLEAN
+- `FunctionNodeEulerToRotation` (Euler to Rotation) — Build a rotation from separate angles around each axis
+  - in: Euler:VECTOR
+  - out: Rotation:ROTATION
+- `FunctionNodeFindInString` (Find in String) — Find the number of times a given string occurs in another string and the position of the first match
+  - in: String:STRING, Search:STRING, Mode:MENU
+  - out: First Found:INT, Count:INT
+- `FunctionNodeFloatToInt` (Float to Integer) — Convert the given floating-point number to an integer, with a choice of methods
+  - in: Float:VALUE
+  - out: Integer:INT
+- `FunctionNodeFormatString` (Format String) — Insert values into a string using a Python and path template compatible formatting syntax
+  - in: Format:STRING, :CUSTOM
+  - out: String:STRING
+- `FunctionNodeHashValue` (Hash Value) — Generate a randomized integer using the given input value as a seed
+  - in: Value:INT, Seed:INT
+  - out: Hash:INT
+- `FunctionNodeInputBool` (Boolean) — Provide a True/False value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Boolean:BOOLEAN
+- `FunctionNodeInputColor` (Color) — Output a color value chosen with the color picker widget
+  - in: (none)
+  - out: Color:RGBA
+- `FunctionNodeInputInt` (Integer) — Provide an integer value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Integer:INT
+- `FunctionNodeInputIntVector` (Integer Vector) — Provide an integer vector value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Vector:INT_VECTOR
+- `FunctionNodeInputMenu` (Menu) — Provide a menu value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Menu:MENU
+- `FunctionNodeInputRotation` (Rotation) — Provide a rotation value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Rotation:ROTATION
+- `FunctionNodeInputSpecialCharacters` (Special Characters) — Output string characters that cannot be typed directly with the keyboard
+  - in: (none)
+  - out: Line Break:STRING, Tab:STRING
+- `FunctionNodeInputString` (String) — Provide a string value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: String:STRING
+- `FunctionNodeInputVector` (Vector) — Provide a vector value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Vector:VECTOR
+- `FunctionNodeIntegerMath` (Integer Math) — Perform various math operations on the given integer inputs
+  - in: Value:INT, Value:INT, Value:INT
+  - out: Value:INT
+- `FunctionNodeInvertMatrix` (Invert Matrix) — Compute the inverse of the given matrix, if one exists
+  - in: Matrix:MATRIX
+  - out: Matrix:MATRIX, Invertible:BOOLEAN
+- `FunctionNodeInvertRotation` (Invert Rotation) — Compute the inverse of the given rotation
+  - in: Rotation:ROTATION
+  - out: Rotation:ROTATION
+- `FunctionNodeMatchString` (Match String) — Check if a given string exists within another string
+  - in: String:STRING, Operation:MENU, Key:STRING
+  - out: Result:BOOLEAN
+- `FunctionNodeMatrixDeterminant` (Matrix Determinant) — Compute the determinant of the given matrix
+  - in: Matrix:MATRIX
+  - out: Determinant:VALUE
+- `FunctionNodeMatrixMultiply` (Multiply Matrices) — Perform a matrix multiplication on two input matrices
+  - in: Matrix:MATRIX, Matrix:MATRIX
+  - out: Matrix:MATRIX
+- `FunctionNodeMatrixSVD` (Matrix SVD) — Compute the singular value decomposition of the 3x3 part of a matrix
+  - in: Matrix:MATRIX
+  - out: U:MATRIX, S:VECTOR, V:MATRIX
+- `FunctionNodeProjectPoint` (Project Point) — Project a point using a matrix, using location, rotation, scale, and perspective divide
+  - in: Vector:VECTOR, Transform:MATRIX
+  - out: Vector:VECTOR
+- `FunctionNodeQuaternionToRotation` (Quaternion to Rotation) — Build a rotation from quaternion components
+  - in: W:VALUE, X:VALUE, Y:VALUE, Z:VALUE
+  - out: Rotation:ROTATION
+- `FunctionNodeRandomValue` (Random Value) — Output a randomized value
+  - in: Min:VALUE, Max:VALUE, ID:INT, Seed:INT
+  - out: Value:VALUE
+- `FunctionNodeReplaceString` (Replace String) — Replace a given string segment with another
+  - in: String:STRING, Find:STRING, Replace:STRING
+  - out: String:STRING
+- `FunctionNodeReverseString` (Reverse String) — Reverse the order of the characters in a string
+  - in: String:STRING
+  - out: String:STRING
+- `FunctionNodeRotateEuler` (Rotate Euler) — Apply a secondary Euler rotation to a given Euler rotation
+  - in: Rotation:VECTOR, Rotate By:VECTOR
+  - out: Rotation:VECTOR
+- `FunctionNodeRotateRotation` (Rotate Rotation) — Apply a secondary rotation to a given rotation value
+  - in: Rotation:ROTATION, Rotate By:ROTATION
+  - out: Rotation:ROTATION
+- `FunctionNodeRotateVector` (Rotate Vector) — Apply a rotation to a given vector
+  - in: Vector:VECTOR, Rotation:ROTATION
+  - out: Vector:VECTOR
+- `FunctionNodeRotationToAxisAngle` (Rotation to Axis Angle) — Convert a rotation to axis angle components
+  - in: Rotation:ROTATION
+  - out: Axis:VECTOR, Angle:VALUE
+- `FunctionNodeRotationToEuler` (Rotation to Euler) — Convert a standard rotation value to an Euler rotation
+  - in: Rotation:ROTATION
+  - out: Euler:VECTOR
+- `FunctionNodeRotationToQuaternion` (Rotation to Quaternion) — Retrieve the quaternion components representing a rotation
+  - in: Rotation:ROTATION
+  - out: W:VALUE, X:VALUE, Y:VALUE, Z:VALUE
+- `FunctionNodeSeparateColor` (Separate Color) — Split a color into separate channels, based on a particular color model
+  - in: Color:RGBA
+  - out: Red:VALUE, Green:VALUE, Blue:VALUE, Alpha:VALUE
+- `FunctionNodeSeparateMatrix` (Separate Matrix) — Split a 4x4 matrix into its individual values
+  - in: Matrix:MATRIX
+  - out: Column 1 Row 1:VALUE, Column 1 Row 2:VALUE, Column 1 Row 3:VALUE, Column 1 Row 4:VALUE, Column 2 Row 1:VALUE, Column 2 Row 2:VALUE, Column 2 Row 3:VALUE, Column 2 Row 4:VALUE, Column 3 Row 1:VALUE, Column 3 Row 2:VALUE, Column 3 Row 3:VALUE, Column 3 Row 4:VALUE, Column 4 Row 1:VALUE, Column 4 Row 2:VALUE, Column 4 Row 3:VALUE, Column 4 Row 4:VALUE
+- `FunctionNodeSeparateTransform` (Separate Transform) — Split a transformation matrix into a translation vector, a rotation, and a scale vector
+  - in: Transform:MATRIX
+  - out: Translation:VECTOR, Rotation:ROTATION, Scale:VECTOR
+- `FunctionNodeSetStringCase` (Set String Case) — Convert the case of a string
+  - in: String:STRING, Case:MENU
+  - out: String:STRING
+- `FunctionNodeSliceString` (Slice String) — Extract a string segment from a larger string
+  - in: String:STRING, Position:INT, Length:INT
+  - out: String:STRING
+- `FunctionNodeSplitString` (Split String) — Split a string into a list using a separator
+  - in: String:STRING, Separator:STRING
+  - out: List:STRING
+- `FunctionNodeStringLength` (String Length) — Output the number of characters in the given string
+  - in: String:STRING
+  - out: Length:INT
+- `FunctionNodeStringToValue` (String to Value) — Derive a numeric value from a given string representation
+  - in: String:STRING, Base:INT
+  - out: Value:VALUE, Length:INT
+- `FunctionNodeTransformDirection` (Transform Direction) — Apply a transformation matrix (excluding translation) to the given vector
+  - in: Direction:VECTOR, Transform:MATRIX
+  - out: Direction:VECTOR
+- `FunctionNodeTransformPoint` (Transform Point) — Apply a transformation matrix to the given vector
+  - in: Vector:VECTOR, Transform:MATRIX
+  - out: Vector:VECTOR
+- `FunctionNodeTransposeMatrix` (Transpose Matrix) — Flip a matrix over its diagonal, turning columns into rows and vice-versa
+  - in: Matrix:MATRIX
+  - out: Matrix:MATRIX
+- `FunctionNodeTrimString` (Trim String) — Remove characters from the beginning and end of a string
+  - in: String:STRING, Characters:STRING, Whitespace:BOOLEAN, Start:BOOLEAN, End:BOOLEAN
+  - out: String:STRING
+- `FunctionNodeValueToString` (Value to String) — Generate a string representation of the given input value
+  - in: Value:VALUE, Decimals:INT, Base:INT, Padding:INT
+  - out: String:STRING
+- `GeometryNodeAccumulateField` (Accumulate Field) — Add the values of an evaluated field together and output the running total for each element
+  - in: Value:VALUE, Group ID:INT
+  - out: Leading:VALUE, Trailing:VALUE, Total:VALUE
+- `GeometryNodeAttributeDomainSize` (Domain Size) — Retrieve the number of elements in a geometry for each attribute domain
+  - in: Geometry:GEOMETRY
+  - out: Point Count:INT, Edge Count:INT, Face Count:INT, Face Corner Count:INT, Spline Count:INT, Instance Count:INT, Layer Count:INT
+- `GeometryNodeAttributeStatistic` (Attribute Statistic) — Calculate statistics about a data set from a field evaluated on a geometry
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Attribute:VALUE
+  - out: Mean:VALUE, Median:VALUE, Sum:VALUE, Min:VALUE, Max:VALUE, Range:VALUE, Standard Deviation:VALUE, Variance:VALUE
+- `GeometryNodeBake` (Bake) — Cache the incoming data so that it can be used without recomputation
+  - in: :CUSTOM
+  - out: :CUSTOM
+- `GeometryNodeBlurAttribute` (Blur Attribute) — Mix attribute values of neighboring elements
+  - in: Value:VALUE, Iterations:INT, Weight:VALUE
+  - out: Value:VALUE
+- `GeometryNodeBoneInfo` (Bone Info) — Retrieve information of armature bones
+  - in: Armature:OBJECT, Bone Name:STRING
+  - out: Pose:MATRIX, Local Pose:MATRIX, Transform Pose:MATRIX, Rest Pose:MATRIX, Rest Length:VALUE, Exists:BOOLEAN
+- `GeometryNodeBoundBox` (Bounding Box) — Calculate the limits of a geometry's positions and generate a box mesh with those dimensions
+  - in: Geometry:GEOMETRY, Use Radius:BOOLEAN
+  - out: Bounding Box:GEOMETRY, Min:VECTOR, Max:VECTOR
+- `GeometryNodeCameraInfo` (Camera Info) — Retrieve information from a camera object
+  - in: Camera:OBJECT
+  - out: Projection Matrix:MATRIX, Focal Length:VALUE, Sensor:VECTOR, Shift:VECTOR, Clip Start:VALUE, Clip End:VALUE, Focus Distance:VALUE, Is Orthographic:BOOLEAN, Orthographic Scale:VALUE
+- `GeometryNodeCaptureAttribute` (Capture Attribute) — Store the result of a field on a geometry and output the data as a node socket. Allows remembering or interpolating data as the geometry changes, such as positions before deformation
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, :CUSTOM
+  - out: Geometry:GEOMETRY, Selection:BOOLEAN, :CUSTOM
+- `GeometryNodeClosureToList` (Closure to List) — Create a list of values
+  - in: Count:INT, Closure:CLOSURE
+  - out: :CUSTOM
+- `GeometryNodeClusterByConnected` (Cluster by Connected) — Group mesh vertices connected by edges when they are within a specified distance
+  - in: Selection:BOOLEAN, Position:VECTOR, Distance:VALUE
+  - out: Cluster ID:INT
+- `GeometryNodeClusterByDistance` (Cluster by Distance) — Group elements into integer IDs based on proximity of vector values
+  - in: Selection:BOOLEAN, Group ID:INT, Position:VECTOR, Distance:VALUE
+  - out: Cluster ID:INT
+- `GeometryNodeCollectionChildren` (Collection Children) — Retrieve a collection's object and collection children, in a name-based order
+  - in: Collection:COLLECTION, Recursive:BOOLEAN
+  - out: Collections:COLLECTION, Objects:OBJECT
+- `GeometryNodeCollectionInfo` (Collection Info) — Retrieve geometry instances from a collection
+  - in: Collection:COLLECTION, Separate Children:BOOLEAN, Reset Children:BOOLEAN
+  - out: Instances:GEOMETRY
+- `GeometryNodeConvexHull` (Convex Hull) — Create a mesh that encloses all points in the input geometry with the smallest number of points
+  - in: Geometry:GEOMETRY
+  - out: Convex Hull:GEOMETRY
+- `GeometryNodeCornersOfEdge` (Corners of Edge) — Retrieve face corners connected to edges
+  - in: Edge Index:INT, Weights:VALUE, Sort Index:INT
+  - out: Corner Index:INT, Total:INT
+- `GeometryNodeCornersOfFace` (Corners of Face) — Retrieve corners that make up a face
+  - in: Face Index:INT, Weights:VALUE, Sort Index:INT
+  - out: Corner Index:INT, Total:INT
+- `GeometryNodeCornersOfVertex` (Corners of Vertex) — Retrieve face corners connected to vertices
+  - in: Vertex Index:INT, Weights:VALUE, Sort Index:INT
+  - out: Corner Index:INT, Total:INT
+- `GeometryNodeCubeGridTopology` (Cube Grid Topology) — Create a boolean grid topology with the given dimensions, for use with the Field to Grid node
+  - in: Bounds Min:VECTOR, Bounds Max:VECTOR, Resolution X:INT, Resolution Y:INT, Resolution Z:INT, Min X:INT, Min Y:INT, Min Z:INT
+  - out: Topology:BOOLEAN
+- `GeometryNodeCurveArc` (Arc) — Generate a poly spline arc
+  - in: Resolution:INT, Start:VECTOR, Middle:VECTOR, End:VECTOR, Radius:VALUE, Start Angle:VALUE, Sweep Angle:VALUE, Offset Angle:VALUE, Connect Center:BOOLEAN, Invert Arc:BOOLEAN
+  - out: Curve:GEOMETRY, Center:VECTOR, Normal:VECTOR, Radius:VALUE
+- `GeometryNodeCurveEndpointSelection` (Endpoint Selection) — Provide a selection for an arbitrary number of endpoints in each spline
+  - in: Start Size:INT, End Size:INT
+  - out: Selection:BOOLEAN
+- `GeometryNodeCurveHandleTypeSelection` (Handle Type Selection) — Provide a selection based on the handle types of Bézier control points
+  - in: (none)
+  - out: Selection:BOOLEAN
+- `GeometryNodeCurveLength` (Curve Length) — Retrieve the length of all splines added together
+  - in: Curve:GEOMETRY
+  - out: Length:VALUE
+- `GeometryNodeCurveOfPoint` (Curve of Point) — Retrieve the curve a control point is part of
+  - in: Point Index:INT
+  - out: Curve Index:INT, Index in Curve:INT
+- `GeometryNodeCurvePrimitiveBezierSegment` (Bézier Segment) — Generate a 2D Bézier spline from the given control points and handles
+  - in: Resolution:INT, Start:VECTOR, Start Handle:VECTOR, End Handle:VECTOR, End:VECTOR
+  - out: Curve:GEOMETRY
+- `GeometryNodeCurvePrimitiveCircle` (Curve Circle) — Generate a poly spline circle
+  - in: Resolution:INT, Point 1:VECTOR, Point 2:VECTOR, Point 3:VECTOR, Radius:VALUE
+  - out: Curve:GEOMETRY, Center:VECTOR
+- `GeometryNodeCurvePrimitiveLine` (Curve Line) — Generate a poly spline line with two points
+  - in: Start:VECTOR, End:VECTOR, Direction:VECTOR, Length:VALUE
+  - out: Curve:GEOMETRY
+- `GeometryNodeCurvePrimitiveQuadrilateral` (Quadrilateral) — Generate a polygon with four points
+  - in: Width:VALUE, Height:VALUE, Bottom Width:VALUE, Top Width:VALUE, Offset:VALUE, Bottom Height:VALUE, Top Height:VALUE, Point 1:VECTOR, Point 2:VECTOR, Point 3:VECTOR, Point 4:VECTOR
+  - out: Curve:GEOMETRY
+- `GeometryNodeCurveQuadraticBezier` (Quadratic Bézier) — Generate a poly spline in a parabola shape with control points positions
+  - in: Resolution:INT, Start:VECTOR, Middle:VECTOR, End:VECTOR
+  - out: Curve:GEOMETRY
+- `GeometryNodeCurveSetHandles` (Set Handle Type) — Set the handle type for the control points of a Bézier curve
+  - in: Curve:GEOMETRY, Selection:BOOLEAN
+  - out: Curve:GEOMETRY
+- `GeometryNodeCurveSpiral` (Spiral) — Generate a poly spline in a spiral shape
+  - in: Resolution:INT, Rotations:VALUE, Start Radius:VALUE, End Radius:VALUE, Height:VALUE, Reverse:BOOLEAN
+  - out: Curve:GEOMETRY
+- `GeometryNodeCurveSplineType` (Set Spline Type) — Change the type of curves
+  - in: Curve:GEOMETRY, Selection:BOOLEAN
+  - out: Curve:GEOMETRY
+- `GeometryNodeCurveStar` (Star) — Generate a poly spline in a star pattern by connecting alternating points of two circles
+  - in: Points:INT, Inner Radius:VALUE, Outer Radius:VALUE, Twist:VALUE
+  - out: Curve:GEOMETRY, Outer Points:BOOLEAN
+- `GeometryNodeCurveToMesh` (Curve to Mesh) — Convert curves into a mesh, optionally with a custom profile shape defined by curves
+  - in: Curve:GEOMETRY, Profile Curve:GEOMETRY, Scale:VALUE, Fill Caps:BOOLEAN
+  - out: Mesh:GEOMETRY
+- `GeometryNodeCurveToPoints` (Curve to Points) — Generate a point cloud by sampling positions along curves
+  - in: Curve:GEOMETRY, Count:INT, Length:VALUE
+  - out: Points:GEOMETRY, Tangent:VECTOR, Normal:VECTOR, Rotation:ROTATION
+- `GeometryNodeCurvesToGreasePencil` (Curves to Grease Pencil) — Convert the curves in each top-level instance into Grease Pencil layer
+  - in: Curves:GEOMETRY, Selection:BOOLEAN, Instances as Layers:BOOLEAN
+  - out: Grease Pencil:GEOMETRY
+- `GeometryNodeDeformCurvesOnSurface` (Deform Curves on Surface) — Translate and rotate curves based on changes between the object's original and evaluated surface mesh
+  - in: Curves:GEOMETRY
+  - out: Curves:GEOMETRY
+- `GeometryNodeDeleteGeometry` (Delete Geometry) — Remove selected elements of a geometry
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN
+  - out: Geometry:GEOMETRY
+- `GeometryNodeDistributePointsInGrid` (Distribute Points in Grid) — Generate points inside a volume grid
+  - in: Grid:VALUE, Density:VALUE, Seed:INT, Spacing:VECTOR, Threshold:VALUE
+  - out: Points:GEOMETRY
+- `GeometryNodeDistributePointsInVolume` (Distribute Points in Volume) — Generate points inside a volume
+  - in: Volume:GEOMETRY, Mode:MENU, Density:VALUE, Seed:INT, Spacing:VECTOR, Threshold:VALUE
+  - out: Points:GEOMETRY
+- `GeometryNodeDistributePointsOnFaces` (Distribute Points on Faces) — Generate points spread out on the surface of a mesh
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN, Distance Min:VALUE, Density Max:VALUE, Density:VALUE, Density Factor:VALUE, Seed:INT
+  - out: Points:GEOMETRY, Normal:VECTOR, Rotation:ROTATION
+- `GeometryNodeDualMesh` (Dual Mesh) — Convert Faces into vertices and vertices into faces
+  - in: Mesh:GEOMETRY, Keep Boundaries:BOOLEAN
+  - out: Dual Mesh:GEOMETRY
+- `GeometryNodeDuplicateElements` (Duplicate Elements) — Generate an arbitrary number copies of each selected input element
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Amount:INT
+  - out: Geometry:GEOMETRY, Duplicate Index:INT
+- `GeometryNodeEdgePathsToCurves` (Edge Paths to Curves) — Output curves following paths across mesh edges
+  - in: Mesh:GEOMETRY, Start Vertices:BOOLEAN, Next Vertex Index:INT
+  - out: Curves:GEOMETRY
+- `GeometryNodeEdgePathsToSelection` (Edge Paths to Selection) — Output a selection of edges by following paths across mesh edges
+  - in: Start Vertices:BOOLEAN, Next Vertex Index:INT
+  - out: Selection:BOOLEAN
+- `GeometryNodeEdgesOfCorner` (Edges of Corner) — Retrieve the edges on both sides of a face corner
+  - in: Corner Index:INT
+  - out: Next Edge Index:INT, Previous Edge Index:INT
+- `GeometryNodeEdgesOfVertex` (Edges of Vertex) — Retrieve the edges connected to each vertex
+  - in: Vertex Index:INT, Weights:VALUE, Sort Index:INT
+  - out: Edge Index:INT, Total:INT
+- `GeometryNodeEdgesToFaceGroups` (Edges to Face Groups) — Group faces into regions surrounded by the selected boundary edges
+  - in: Boundary Edges:BOOLEAN
+  - out: Face Group ID:INT
+- `GeometryNodeExtrudeMesh` (Extrude Mesh) — Generate new vertices, edges, or faces from selected elements and move them based on an offset while keeping them connected by their boundary
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN, Offset:VECTOR, Offset Scale:VALUE, Individual:BOOLEAN
+  - out: Mesh:GEOMETRY, Top:BOOLEAN, Side:BOOLEAN
+- `GeometryNodeFaceOfCorner` (Face of Corner) — Retrieve the face each face corner is part of
+  - in: Corner Index:INT
+  - out: Face Index:INT, Index in Face:INT
+- `GeometryNodeFieldAtIndex` (Evaluate at Index) — Retrieve data of other elements in the context's geometry
+  - in: Value:VALUE, Index:INT
+  - out: Value:VALUE
+- `GeometryNodeFieldAverage` (Field Average) — Calculate the mean and median of a given field
+  - in: Value:VALUE, Group ID:INT
+  - out: Mean:VALUE, Median:VALUE
+- `GeometryNodeFieldMinAndMax` (Field Min & Max) — Calculate the minimum and maximum of a given field
+  - in: Value:VALUE, Group ID:INT
+  - out: Min:VALUE, Max:VALUE
+- `GeometryNodeFieldOnDomain` (Evaluate on Domain) — Retrieve values from a field on a different domain besides the domain from the context
+  - in: Value:VALUE
+  - out: Value:VALUE
+- `GeometryNodeFieldToGrid` (Field to Grid) — Create new grids by evaluating new values on an existing volume grid topology
+  - in: Topology:VALUE, :CUSTOM
+  - out: :CUSTOM
+- `GeometryNodeFieldToList` (Field to List) — Create a list of values
+  - in: Count:INT, :CUSTOM
+  - out: :CUSTOM
+- `GeometryNodeFieldVariance` (Field Variance) — Calculate the standard deviation and variance of a given field
+  - in: Value:VALUE, Group ID:INT
+  - out: Standard Deviation:VALUE, Variance:VALUE
+- `GeometryNodeFillCurve` (Fill Curve) — Generate a mesh on the XY plane with faces on the inside of input curves
+  - in: Curve:GEOMETRY, Group ID:INT, Mode:MENU, Fill Rule:MENU
+  - out: Mesh:GEOMETRY
+- `GeometryNodeFilletCurve` (Fillet Curve) — Round corners by generating circular arcs on each control point
+  - in: Curve:GEOMETRY, Radius:VALUE, Limit Radius:BOOLEAN, Mode:MENU, Count:INT
+  - out: Curve:GEOMETRY
+- `GeometryNodeFilterList` (Filter List) — Remove items from a list
+  - in: List:VALUE, Selection:BOOLEAN
+  - out: Selection:VALUE, Inverted:VALUE
+- `GeometryNodeFlipFaces` (Flip Faces) — Reverse the order of the vertices and edges of selected faces, flipping their normal direction
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN
+  - out: Mesh:GEOMETRY
+- `GeometryNodeForeachGeometryElementInput` (For Each Geometry Element Input)
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, :CUSTOM
+  - out: Index:INT, Element:GEOMETRY, :CUSTOM
+- `GeometryNodeForeachGeometryElementOutput` (For Each Geometry Element Output)
+  - in: :CUSTOM, Geometry:GEOMETRY, :CUSTOM
+  - out: Geometry:GEOMETRY, :CUSTOM, Geometry:GEOMETRY, :CUSTOM
+- `GeometryNodeGeometryToInstance` (Geometry to Instance) — Convert each input geometry into an instance, which can be much faster than the Join Geometry node when the inputs are large
+  - in: Geometry:GEOMETRY
+  - out: Instances:GEOMETRY
+- `GeometryNodeGetAttributeNames` (Get Attribute Names) — Retrieves attribute names as a list of strings
+  - in: Geometry:GEOMETRY, Filter Data Type:BOOLEAN, Data Type:MENU, Filter Domain:BOOLEAN, Domain:MENU
+  - out: Names:STRING
+- `GeometryNodeGetGeometryBundle` (Get Geometry Bundle) — Get the bundle of a geometry
+  - in: Geometry:GEOMETRY, Remove:BOOLEAN
+  - out: Geometry:GEOMETRY, Bundle:BUNDLE
+- `GeometryNodeGetGeometryComponent` (Get Geometry Component) — Get a single component of a geometry
+  - in: Geometry:GEOMETRY, Type:MENU, Remove:BOOLEAN
+  - out: Geometry:GEOMETRY, Component:GEOMETRY, Exists:BOOLEAN
+- `GeometryNodeGetNamedGrid` (Get Named Grid) — Get volume grid from a volume geometry with the specified name
+  - in: Volume:GEOMETRY, Name:STRING, Remove:BOOLEAN
+  - out: Volume:GEOMETRY, Grid:VALUE
+- `GeometryNodeGizmoDial` (Dial Gizmo) — Show a dial gizmo in the viewport for a value
+  - in: Value:VALUE, Position:VECTOR, Up:VECTOR, Screen Space:BOOLEAN, Radius:VALUE
+  - out: Transform:GEOMETRY
+- `GeometryNodeGizmoLinear` (Linear Gizmo) — Show a linear gizmo in the viewport for a value
+  - in: Value:VALUE, Position:VECTOR, Direction:VECTOR
+  - out: Transform:GEOMETRY
+- `GeometryNodeGizmoTransform` (Transform Gizmo) — Show a transform gizmo in the viewport
+  - in: Value:MATRIX, Position:VECTOR, Rotation:ROTATION
+  - out: Transform:GEOMETRY
+- `GeometryNodeGreasePencilToCurves` (Grease Pencil to Curves) — Convert Grease Pencil layers into curve instances
+  - in: Grease Pencil:GEOMETRY, Selection:BOOLEAN, Layers as Instances:BOOLEAN
+  - out: Curves:GEOMETRY
+- `GeometryNodeGridAdvect` (Advect Grid) — Move grid values through a velocity field using numerical integration. Supports multiple integration schemes for different accuracy and performance trade-offs
+  - in: Grid:VALUE, Velocity:VECTOR, Time Step:VALUE, Integration Scheme:MENU, Limiter:MENU
+  - out: Grid:VALUE
+- `GeometryNodeGridClip` (Clip Grid) — Deactivate grid voxels outside minimum and maximum coordinates, setting them to the background value.
+  - in: Grid:VALUE, Min X:INT, Min Y:INT, Min Z:INT, Max X:INT, Max Y:INT, Max Z:INT
+  - out: Grid:VALUE
+- `GeometryNodeGridCurl` (Grid Curl) — Calculate the magnitude and direction of circulation of a directional vector grid
+  - in: Grid:VECTOR
+  - out: Curl:VECTOR
+- `GeometryNodeGridDilateAndErode` (Grid Dilate & Erode) — Dilate or erode the active regions of a grid. This changes which voxels are active but does not change their values.
+  - in: Grid:VALUE, Connectivity:MENU, Tiles:MENU, Steps:INT
+  - out: Grid:VALUE
+- `GeometryNodeGridDivergence` (Grid Divergence) — Calculate the flow into and out of each point of a directional vector grid
+  - in: Grid:VECTOR
+  - out: Divergence:VALUE
+- `GeometryNodeGridGradient` (Grid Gradient) — Calculate the direction and magnitude of the change in values of a scalar grid
+  - in: Grid:VALUE
+  - out: Gradient:VECTOR
+- `GeometryNodeGridInfo` (Grid Info) — Retrieve information about a volume grid
+  - in: Grid:VALUE
+  - out: Transform:MATRIX, Background Value:VALUE
+- `GeometryNodeGridLaplacian` (Grid Laplacian) — Compute the divergence of the gradient of the input grid
+  - in: Grid:VALUE
+  - out: Laplacian:VALUE
+- `GeometryNodeGridMean` (Grid Mean) — Apply mean (box) filter smoothing to a voxel. The mean value from surrounding voxels in a box-shape defined by the radius replaces the voxel value.
+  - in: Grid:VALUE, Width:INT, Iterations:INT
+  - out: Grid:VALUE
+- `GeometryNodeGridMedian` (Grid Median) — Apply median (box) filter smoothing to a voxel. The median value from surrounding voxels in a box-shape defined by the radius replaces the voxel value.
+  - in: Grid:VALUE, Width:INT, Iterations:INT
+  - out: Grid:VALUE
+- `GeometryNodeGridPrune` (Prune Grid) — Make the storage of a volume grid more efficient by collapsing data into tiles or inner nodes
+  - in: Grid:VALUE, Mode:MENU, Threshold:VALUE
+  - out: Grid:VALUE
+- `GeometryNodeGridToMesh` (Grid to Mesh) — Generate a mesh on the "surface" of a volume grid
+  - in: Grid:VALUE, Threshold:VALUE, Adaptivity:VALUE
+  - out: Mesh:GEOMETRY
+- `GeometryNodeGridToPoints` (Grid to Points) — Generate a point cloud from a volume grid's active voxels
+  - in: Grid:VALUE
+  - out: Points:GEOMETRY, Value:VALUE, X:INT, Y:INT, Z:INT, Is Tile:BOOLEAN, Extent:INT
+- `GeometryNodeGridVoxelize` (Voxelize Grid) — Remove sparseness from a volume grid by making the active tiles into voxels
+  - in: Grid:VALUE
+  - out: Grid:VALUE
+- `GeometryNodeGroup` (Group)
+  - in: (none)
+  - out: (none)
+- `GeometryNodeImageInfo` (Image Info) — Retrieve information about an image
+  - in: Image:IMAGE, Frame:INT
+  - out: Width:INT, Height:INT, Has Alpha:BOOLEAN, Frame Count:INT, FPS:VALUE
+- `GeometryNodeImageTexture` (Image Texture) — Sample values from an image texture
+  - in: Image:IMAGE, Vector:VECTOR, Frame:INT
+  - out: Color:RGBA, Alpha:VALUE
+- `GeometryNodeImportCSV` (Import CSV) — Import geometry from an CSV file
+  - in: Path:STRING, Delimiter:STRING
+  - out: Point Cloud:GEOMETRY
+- `GeometryNodeImportOBJ` (Import OBJ) — Import geometry from an OBJ file
+  - in: Path:STRING
+  - out: Instances:GEOMETRY
+- `GeometryNodeImportPLY` (Import PLY) — Import a point cloud from a PLY file
+  - in: Path:STRING
+  - out: Mesh:GEOMETRY
+- `GeometryNodeImportSTL` (Import STL) — Import a mesh from an STL file
+  - in: Path:STRING
+  - out: Mesh:GEOMETRY
+- `GeometryNodeImportText` (Import Text) — Import a string from a text file
+  - in: Path:STRING
+  - out: String:STRING
+- `GeometryNodeImportVDB` (Import VDB) — Import volume data from a .vdb file
+  - in: Path:STRING
+  - out: Volume:GEOMETRY
+- `GeometryNodeIndexOfNearest` (Index of Nearest) — Find the nearest element in a group. Similar to the "Sample Nearest" node
+  - in: Position:VECTOR, Group ID:INT
+  - out: Index:INT, Has Neighbor:BOOLEAN
+- `GeometryNodeIndexSwitch` (Index Switch) — Choose between an arbitrary number of values with an index
+  - in: Index:INT, 0:VALUE, 1:VALUE, :CUSTOM
+  - out: Output:VALUE
+- `GeometryNodeInputActiveCamera` (Active Camera) — Retrieve the scene's active camera
+  - in: (none)
+  - out: Active Camera:OBJECT
+- `GeometryNodeInputCollection` (Collection) — Output a single collection
+  - in: (none)
+  - out: Collection:COLLECTION
+- `GeometryNodeInputCurveHandlePositions` (Curve Handle Positions) — Retrieve the position of each Bézier control point's handles
+  - in: Relative:BOOLEAN
+  - out: Left:VECTOR, Right:VECTOR
+- `GeometryNodeInputCurveTilt` (Curve Tilt) — Retrieve the angle at each control point used to twist the curve's normal around its tangent
+  - in: (none)
+  - out: Tilt:VALUE
+- `GeometryNodeInputEdgeSmooth` (Is Edge Smooth) — Retrieve whether each edge is marked for smooth or split normals
+  - in: (none)
+  - out: Smooth:BOOLEAN
+- `GeometryNodeInputFont` (Font) — Output a font
+  - in: (none)
+  - out: Font:FONT
+- `GeometryNodeInputID` (ID) — Retrieve a stable random identifier value from the "id" attribute on the point domain, or the index if the attribute does not exist
+  - in: (none)
+  - out: ID:INT
+- `GeometryNodeInputImage` (Image) — Input an image data-block
+  - in: (none)
+  - out: Image:IMAGE
+- `GeometryNodeInputIndex` (Index) — Retrieve an integer value indicating the position of each element in the list, starting at zero
+  - in: (none)
+  - out: Index:INT
+- `GeometryNodeInputInstanceBounds` (Instance Bounds) — Calculate position bounds of each instance's geometry set
+  - in: Use Radius:BOOLEAN
+  - out: Min:VECTOR, Max:VECTOR
+- `GeometryNodeInputInstanceReference` (Instance Reference) — Output the reference index of the instance
+  - in: (none)
+  - out: Reference Index:INT
+- `GeometryNodeInputInstanceRotation` (Instance Rotation) — Retrieve the rotation of each instance in the geometry
+  - in: (none)
+  - out: Rotation:ROTATION
+- `GeometryNodeInputInstanceScale` (Instance Scale) — Retrieve the scale of each instance in the geometry
+  - in: (none)
+  - out: Scale:VECTOR
+- `GeometryNodeInputMaterial` (Material) — Output a single material
+  - in: (none)
+  - out: Material:MATERIAL
+- `GeometryNodeInputMaterialIndex` (Material Index) — Retrieve the index of the material used for each element in the geometry's list of materials
+  - in: (none)
+  - out: Material Index:INT
+- `GeometryNodeInputMeshEdgeAngle` (Edge Angle) — The angle between the normals of connected manifold faces
+  - in: (none)
+  - out: Unsigned Angle:VALUE, Signed Angle:VALUE
+- `GeometryNodeInputMeshEdgeNeighbors` (Edge Neighbors) — Retrieve the number of faces that use each edge as one of their sides
+  - in: (none)
+  - out: Face Count:INT
+- `GeometryNodeInputMeshEdgeVertices` (Edge Vertices) — Retrieve topology information relating to each edge of a mesh
+  - in: (none)
+  - out: Vertex Index 1:INT, Vertex Index 2:INT, Position 1:VECTOR, Position 2:VECTOR
+- `GeometryNodeInputMeshFaceArea` (Face Area) — Calculate the surface area of a mesh's faces
+  - in: (none)
+  - out: Area:VALUE
+- `GeometryNodeInputMeshFaceIsPlanar` (Is Face Planar) — Retrieve whether all triangles in a face are on the same plane, i.e. whether they have the same normal
+  - in: Threshold:VALUE
+  - out: Planar:BOOLEAN
+- `GeometryNodeInputMeshFaceNeighbors` (Face Neighbors) — Retrieve topology information relating to each face of a mesh
+  - in: (none)
+  - out: Vertex Count:INT, Face Count:INT
+- `GeometryNodeInputMeshIsland` (Mesh Island) — Retrieve information about separate connected regions in a mesh
+  - in: (none)
+  - out: Island Index:INT, Island Count:INT
+- `GeometryNodeInputMeshVertexNeighbors` (Vertex Neighbors) — Retrieve topology information relating to each vertex of a mesh
+  - in: (none)
+  - out: Vertex Count:INT, Face Count:INT
+- `GeometryNodeInputNamedAttribute` (Named Attribute) — Retrieve the data of a specified attribute
+  - in: Name:STRING
+  - out: Attribute:VALUE, Exists:BOOLEAN
+- `GeometryNodeInputNamedLayerSelection` (Named Layer Selection) — Output a selection of a Grease Pencil layer
+  - in: Name:STRING
+  - out: Selection:BOOLEAN
+- `GeometryNodeInputNormal` (Normal) — Retrieve a unit length vector indicating the direction pointing away from the geometry at each element
+  - in: (none)
+  - out: Normal:VECTOR, True Normal:VECTOR
+- `GeometryNodeInputObject` (Object) — Output a single object
+  - in: (none)
+  - out: Object:OBJECT
+- `GeometryNodeInputPosition` (Position) — Retrieve a vector indicating the location of each element
+  - in: (none)
+  - out: Position:VECTOR
+- `GeometryNodeInputRadius` (Radius) — Retrieve the radius at each point on curve or point cloud geometry
+  - in: (none)
+  - out: Radius:VALUE
+- `GeometryNodeInputSceneTime` (Scene Time) — Retrieve the current time in the scene's animation in units of seconds or frames
+  - in: (none)
+  - out: Seconds:VALUE, Frame:VALUE
+- `GeometryNodeInputShadeSmooth` (Is Face Smooth) — Retrieve whether each face is marked for smooth or sharp normals
+  - in: (none)
+  - out: Smooth:BOOLEAN
+- `GeometryNodeInputShortestEdgePaths` (Shortest Edge Paths) — Find the shortest paths along mesh edges to selected end vertices, with customizable cost per edge
+  - in: End Vertex:BOOLEAN, Edge Cost:VALUE
+  - out: Next Vertex Index:INT, Total Cost:VALUE
+- `GeometryNodeInputSplineCyclic` (Is Spline Cyclic) — Retrieve whether each spline endpoint connects to the beginning
+  - in: (none)
+  - out: Cyclic:BOOLEAN
+- `GeometryNodeInputSplineResolution` (Spline Resolution) — Retrieve the number of evaluated points that will be generated for every control point on curves
+  - in: (none)
+  - out: Resolution:INT
+- `GeometryNodeInputTangent` (Curve Tangent) — Retrieve the direction of curves at each control point
+  - in: (none)
+  - out: Tangent:VECTOR
+- `GeometryNodeInputVoxelIndex` (Voxel Index) — Retrieve the integer coordinates of the voxel that the field is evaluated on
+  - in: (none)
+  - out: X:INT, Y:INT, Z:INT, Is Tile:BOOLEAN, Extent X:INT, Extent Y:INT, Extent Z:INT
+- `GeometryNodeInstanceOnPoints` (Instance on Points) — Generate a reference to geometry at each of the input points, without duplicating its underlying data
+  - in: Points:GEOMETRY, Selection:BOOLEAN, Instance:GEOMETRY, Pick Instance:BOOLEAN, Instance Index:INT, Rotation:ROTATION, Scale:VECTOR
+  - out: Instances:GEOMETRY
+- `GeometryNodeInstanceTransform` (Instance Transform) — Retrieve the full transformation of each instance in the geometry
+  - in: (none)
+  - out: Transform:MATRIX
+- `GeometryNodeInstancesToPoints` (Instances to Points) — Generate points at the origins of instances.
+Note: Nested instances are not affected by this node
+  - in: Instances:GEOMETRY, Selection:BOOLEAN, Position:VECTOR, Radius:VALUE
+  - out: Points:GEOMETRY
+- `GeometryNodeInterpolateCurves` (Interpolate Curves) — Generate new curves on points by interpolating between existing curves
+  - in: Guide Curves:GEOMETRY, Guide Up:VECTOR, Guide Group ID:INT, Points:GEOMETRY, Point Up:VECTOR, Point Group ID:INT, Max Neighbors:INT
+  - out: Curves:GEOMETRY, Closest Index:INT, Closest Weight:VALUE
+- `GeometryNodeIsViewport` (Is Viewport) — Retrieve whether the nodes are being evaluated for the viewport rather than the final render
+  - in: (none)
+  - out: Is Viewport:BOOLEAN
+- `GeometryNodeJoinGeometry` (Join Geometry) — Merge separately generated geometries into a single one
+  - in: Geometry:GEOMETRY
+  - out: Geometry:GEOMETRY
+- `GeometryNodeListGetItem` (Get List Item) — Retrieve a value from a list
+  - in: List:VALUE, Index:INT
+  - out: Value:VALUE
+- `GeometryNodeListLength` (List Length) — Count how many items are in a given list
+  - in: List:VALUE
+  - out: Length:INT
+- `GeometryNodeMaterialSelection` (Material Selection) — Provide a selection of faces that use the specified material
+  - in: Material:MATERIAL
+  - out: Selection:BOOLEAN
+- `GeometryNodeMenuSwitch` (Menu Switch) — Select from multiple inputs by name
+  - in: Menu:MENU, A:GEOMETRY, B:GEOMETRY, :CUSTOM
+  - out: Output:GEOMETRY, A:BOOLEAN, B:BOOLEAN
+- `GeometryNodeMergeByDistance` (Merge by Distance) — Merge vertices or points within a given distance
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Mode:MENU, Distance:VALUE
+  - out: Geometry:GEOMETRY
+- `GeometryNodeMergeLayers` (Merge Layers) — Join groups of Grease Pencil layers into one
+  - in: Grease Pencil:GEOMETRY, Selection:BOOLEAN, Group ID:INT
+  - out: Grease Pencil:GEOMETRY
+- `GeometryNodeMergePoints` (Merge Points) — Merge points of a point cloud or mesh based on group ID and selection.
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Merge ID:INT
+  - out: Geometry:GEOMETRY
+- `GeometryNodeMeshBevel` (Mesh Bevel) — Bevel selected edges or vertices
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN, Affect Kind:MENU, Start Left Offset:VALUE, Start Right Offset:VALUE, End Left Offset:VALUE, End Right Offset:VALUE, Offset:VALUE, Miter:BOOLEAN, Spread:VALUE, Segments:INT, Shape:VALUE, Profile:GEOMETRY
+  - out: Mesh:GEOMETRY, Vertex Face:BOOLEAN, Edge Face:BOOLEAN, Outer Edge:BOOLEAN, Mid Edge:BOOLEAN
+- `GeometryNodeMeshBoolean` (Mesh Boolean) — Cut, subtract, or join multiple mesh inputs
+  - in: Mesh 1:GEOMETRY, Mesh 2:GEOMETRY, Self Intersection:BOOLEAN, Hole Tolerant:BOOLEAN
+  - out: Mesh:GEOMETRY, Intersecting Edges:BOOLEAN
+- `GeometryNodeMeshCircle` (Mesh Circle) — Generate a circular ring of edges
+  - in: Vertices:INT, Radius:VALUE
+  - out: Mesh:GEOMETRY
+- `GeometryNodeMeshCone` (Cone) — Generate a cone mesh
+  - in: Vertices:INT, Side Segments:INT, Fill Segments:INT, Radius Top:VALUE, Radius Bottom:VALUE, Depth:VALUE
+  - out: Mesh:GEOMETRY, Top:BOOLEAN, Bottom:BOOLEAN, Side:BOOLEAN, UV Map:VECTOR
+- `GeometryNodeMeshCube` (Cube) — Generate a cuboid mesh with variable side lengths and subdivisions
+  - in: Size:VECTOR, Vertices X:INT, Vertices Y:INT, Vertices Z:INT
+  - out: Mesh:GEOMETRY, UV Map:VECTOR
+- `GeometryNodeMeshCylinder` (Cylinder) — Generate a cylinder mesh
+  - in: Vertices:INT, Side Segments:INT, Fill Segments:INT, Radius:VALUE, Depth:VALUE
+  - out: Mesh:GEOMETRY, Top:BOOLEAN, Side:BOOLEAN, Bottom:BOOLEAN, UV Map:VECTOR
+- `GeometryNodeMeshFaceSetBoundaries` (Face Group Boundaries) — Find edges on the boundaries between groups of faces with the same ID value
+  - in: Face Group ID:INT
+  - out: Boundary Edges:BOOLEAN
+- `GeometryNodeMeshGrid` (Grid) — Generate a planar mesh on the XY plane
+  - in: Size X:VALUE, Size Y:VALUE, Vertices X:INT, Vertices Y:INT
+  - out: Mesh:GEOMETRY, UV Map:VECTOR
+- `GeometryNodeMeshIcoSphere` (Ico Sphere) — Generate a spherical mesh that consists of equally sized triangles
+  - in: Radius:VALUE, Subdivisions:INT
+  - out: Mesh:GEOMETRY, UV Map:VECTOR
+- `GeometryNodeMeshLine` (Mesh Line) — Generate vertices in a line and connect them with edges
+  - in: Count:INT, Resolution:VALUE, Start Location:VECTOR, Offset:VECTOR
+  - out: Mesh:GEOMETRY
+- `GeometryNodeMeshToCurve` (Mesh to Curve) — Generate a curve from a mesh
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN
+  - out: Curve:GEOMETRY
+- `GeometryNodeMeshToDensityGrid` (Mesh to Density Grid) — Create a filled volume grid from a mesh
+  - in: Mesh:GEOMETRY, Density:VALUE, Voxel Size:VALUE, Gradient Width:VALUE
+  - out: Density Grid:VALUE
+- `GeometryNodeMeshToPoints` (Mesh to Points) — Generate a point cloud from a mesh's vertices
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN, Position:VECTOR, Radius:VALUE
+  - out: Points:GEOMETRY
+- `GeometryNodeMeshToSDFGrid` (Mesh to SDF Grid) — Create a signed distance volume grid from a mesh
+  - in: Mesh:GEOMETRY, Voxel Size:VALUE, Band Width:INT
+  - out: SDF Grid:VALUE
+- `GeometryNodeMeshToVolume` (Mesh to Volume) — Create a fog volume with the shape of the input mesh's surface
+  - in: Mesh:GEOMETRY, Density:VALUE, Resolution Mode:MENU, Voxel Size:VALUE, Voxel Amount:VALUE, Interior Band Width:VALUE
+  - out: Volume:GEOMETRY
+- `GeometryNodeMeshUVSphere` (UV Sphere) — Generate a spherical mesh with quads, except for triangles at the top and bottom
+  - in: Segments:INT, Rings:INT, Radius:VALUE
+  - out: Mesh:GEOMETRY, UV Map:VECTOR
+- `GeometryNodeObjectInfo` (Object Info) — Retrieve information from an object
+  - in: Object:OBJECT, As Instance:BOOLEAN
+  - out: Transform:MATRIX, Location:VECTOR, Rotation:ROTATION, Scale:VECTOR, Geometry:GEOMETRY
+- `GeometryNodeOffsetCornerInFace` (Offset Corner in Face) — Retrieve corners in the same face as another
+  - in: Corner Index:INT, Offset:INT
+  - out: Corner Index:INT
+- `GeometryNodeOffsetPointInCurve` (Offset Point in Curve) — Offset a control point index within its curve
+  - in: Point Index:INT, Offset:INT
+  - out: Is Valid Offset:BOOLEAN, Point Index:INT
+- `GeometryNodePoints` (Points) — Generate a point cloud with positions and radii defined by fields
+  - in: Count:INT, Position:VECTOR, Radius:VALUE
+  - out: Points:GEOMETRY
+- `GeometryNodePointsOfCurve` (Points of Curve) — Retrieve a point index within a curve
+  - in: Curve Index:INT, Weights:VALUE, Sort Index:INT
+  - out: Point Index:INT, Total:INT
+- `GeometryNodePointsToCurves` (Points to Curves) — Split all points to curve by its group ID and reorder by weight
+  - in: Points:GEOMETRY, Curve Group ID:INT, Weight:VALUE
+  - out: Curves:GEOMETRY
+- `GeometryNodePointsToSDFGrid` (Points to SDF Grid) — Create a signed distance volume grid from points
+  - in: Points:GEOMETRY, Radius:VALUE, Voxel Size:VALUE
+  - out: SDF Grid:VALUE
+- `GeometryNodePointsToVertices` (Points to Vertices) — Generate a mesh vertex for each point cloud point
+  - in: Points:GEOMETRY, Selection:BOOLEAN
+  - out: Mesh:GEOMETRY
+- `GeometryNodePointsToVolume` (Points to Volume) — Generate a fog volume sphere around every point
+  - in: Points:GEOMETRY, Density:VALUE, Resolution Mode:MENU, Voxel Size:VALUE, Voxel Amount:VALUE, Radius:VALUE
+  - out: Volume:GEOMETRY
+- `GeometryNodeProximity` (Geometry Proximity) — Compute the closest location on the target geometry
+  - in: Geometry:GEOMETRY, Group ID:INT, Sample Position:VECTOR, Sample Group ID:INT
+  - out: Position:VECTOR, Distance:VALUE, Is Valid:BOOLEAN
+- `GeometryNodeRaycast` (Raycast) — Cast rays from the context geometry onto a target geometry, and retrieve information from each hit point
+  - in: Target Geometry:GEOMETRY, Attribute:VALUE, Interpolation:MENU, Source Position:VECTOR, Ray Direction:VECTOR, Ray Length:VALUE
+  - out: Is Hit:BOOLEAN, Hit Position:VECTOR, Hit Normal:VECTOR, Hit Distance:VALUE, Attribute:VALUE
+- `GeometryNodeRealizeInstances` (Realize Instances) — Convert instances into real geometry data
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Realize All:BOOLEAN, Depth:INT
+  - out: Geometry:GEOMETRY
+- `GeometryNodeRemoveAttribute` (Remove Named Attribute) — Delete an attribute with a specified name from a geometry. Typically used to optimize performance
+  - in: Geometry:GEOMETRY, Pattern Mode:MENU, Name:STRING
+  - out: Geometry:GEOMETRY
+- `GeometryNodeRenameAttribute` (Rename Attribute) — Change the name of an attribute
+  - in: Geometry:GEOMETRY, Mode:MENU, Old:STRING, New:STRING, Overwrite:BOOLEAN
+  - out: Geometry:GEOMETRY
+- `GeometryNodeRepeatInput` (Repeat Input)
+  - in: Iterations:INT, :CUSTOM
+  - out: Iteration:INT, :CUSTOM
+- `GeometryNodeRepeatOutput` (Repeat Output)
+  - in: Geometry:GEOMETRY, :CUSTOM
+  - out: Geometry:GEOMETRY, :CUSTOM
+- `GeometryNodeReplaceMaterial` (Replace Material) — Swap one material with another
+  - in: Geometry:GEOMETRY, Old:MATERIAL, New:MATERIAL
+  - out: Geometry:GEOMETRY
+- `GeometryNodeResampleCurve` (Resample Curve) — Generate a poly spline for each input spline
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Mode:MENU, Count:INT, Length:VALUE
+  - out: Curve:GEOMETRY
+- `GeometryNodeReverseCurve` (Reverse Curve) — Change the direction of curves by swapping their start and end data
+  - in: Curve:GEOMETRY, Selection:BOOLEAN
+  - out: Curve:GEOMETRY
+- `GeometryNodeRotateInstances` (Rotate Instances) — Rotate geometry instances in local or global space
+  - in: Instances:GEOMETRY, Selection:BOOLEAN, Rotation:ROTATION, Pivot Point:VECTOR, Local Space:BOOLEAN
+  - out: Instances:GEOMETRY
+- `GeometryNodeSDFGridBoolean` (SDF Grid Boolean) — Cut, subtract, or join multiple SDF volume grid inputs
+  - in: Grid 1:VALUE, Grid 2:VALUE
+  - out: Grid:VALUE
+- `GeometryNodeSDFGridFillet` (SDF Grid Fillet) — Round off concave internal corners in a signed distance field. Only affects areas with negative principal curvature, creating smoother transitions between surfaces
+  - in: Grid:VALUE, Iterations:INT
+  - out: Grid:VALUE
+- `GeometryNodeSDFGridLaplacian` (SDF Grid Laplacian) — Apply Laplacian flow smoothing to a signed distance field. Computationally efficient alternative to mean curvature flow, ideal when combined with SDF normalization
+  - in: Grid:VALUE, Iterations:INT
+  - out: Grid:VALUE
+- `GeometryNodeSDFGridMean` (SDF Grid Mean) — Apply mean (box) filter smoothing to a signed distance field. Fast separable averaging filter for general smoothing of the distance field
+  - in: Grid:VALUE, Width:INT, Iterations:INT
+  - out: Grid:VALUE
+- `GeometryNodeSDFGridMeanCurvature` (SDF Grid Mean Curvature) — Apply mean curvature flow smoothing to a signed distance field. Evolves the surface based on its mean curvature, naturally smoothing high-curvature regions more than flat areas
+  - in: Grid:VALUE, Iterations:INT
+  - out: Grid:VALUE
+- `GeometryNodeSDFGridMedian` (SDF Grid Median) — Apply median filter to a signed distance field. Reduces noise while preserving sharp features and edges in the distance field
+  - in: Grid:VALUE, Width:INT, Iterations:INT
+  - out: Grid:VALUE
+- `GeometryNodeSDFGridOffset` (SDF Grid Offset) — Offset a signed distance field surface by a world-space distance. Dilates (positive) or erodes (negative) while maintaining the signed distance property
+  - in: Grid:VALUE, Distance:VALUE
+  - out: Grid:VALUE
+- `GeometryNodeSampleCurve` (Sample Curve) — Retrieve data from a point on a curve at a certain distance from its start
+  - in: Curves:GEOMETRY, Value:VALUE, Factor:VALUE, Length:VALUE, Curve Index:INT
+  - out: Value:VALUE, Position:VECTOR, Tangent:VECTOR, Normal:VECTOR
+- `GeometryNodeSampleGrid` (Sample Grid) — Retrieve values from the specified volume grid
+  - in: Grid:VALUE, Position:VECTOR, Interpolation:MENU
+  - out: Value:VALUE
+- `GeometryNodeSampleGridIndex` (Sample Grid Index) — Retrieve volume grid values at specific voxels
+  - in: Grid:VALUE, X:INT, Y:INT, Z:INT
+  - out: Value:VALUE
+- `GeometryNodeSampleIndex` (Sample Index) — Retrieve values from specific geometry elements
+  - in: Geometry:GEOMETRY, Value:VALUE, Index:INT
+  - out: Value:VALUE
+- `GeometryNodeSampleNearest` (Sample Nearest) — Find the element of a geometry closest to a position. Similar to the "Index of Nearest" node
+  - in: Geometry:GEOMETRY, Sample Position:VECTOR
+  - out: Index:INT
+- `GeometryNodeSampleNearestSurface` (Sample Nearest Surface) — Calculate the interpolated value of a mesh attribute on the closest point of its surface
+  - in: Mesh:GEOMETRY, Value:VALUE, Group ID:INT, Sample Position:VECTOR, Sample Group ID:INT
+  - out: Value:VALUE, Is Valid:BOOLEAN
+- `GeometryNodeSampleSoundFrequencies` (Sample Sound Frequencies) — Retrieve the amplitude from a sound data-block of a frequency range at a given time
+  - in: Sound:SOUND, Time:VALUE, All Channels:BOOLEAN, Channel:INT, Low:VALUE, High:VALUE, FFT Size:MENU, Window Function:MENU
+  - out: Amplitude:VALUE
+- `GeometryNodeSampleUVSurface` (Sample UV Surface) — Calculate the interpolated values of a mesh attribute at a UV coordinate
+  - in: Mesh:GEOMETRY, Value:VALUE, UV Map:VECTOR, Sample UV:VECTOR
+  - out: Value:VALUE, Is Valid:BOOLEAN
+- `GeometryNodeScaleElements` (Scale Elements) — Scale groups of connected edges and faces
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Scale:VALUE, Center:VECTOR, Scale Mode:MENU, Axis:VECTOR
+  - out: Geometry:GEOMETRY
+- `GeometryNodeScaleInstances` (Scale Instances) — Scale geometry instances in local or global space
+  - in: Instances:GEOMETRY, Selection:BOOLEAN, Scale:VECTOR, Center:VECTOR, Local Space:BOOLEAN
+  - out: Instances:GEOMETRY
+- `GeometryNodeSelfObject` (Self Object) — Retrieve the object that contains the geometry nodes modifier currently being executed
+  - in: (none)
+  - out: Self Object:OBJECT
+- `GeometryNodeSeparateComponents` (Separate Components) — Split a geometry into a separate output for each type of data in the geometry
+  - in: Geometry:GEOMETRY
+  - out: Mesh:GEOMETRY, Curve:GEOMETRY, Grease Pencil:GEOMETRY, Point Cloud:GEOMETRY, Volume:GEOMETRY, Instances:GEOMETRY
+- `GeometryNodeSeparateGeometry` (Separate Geometry) — Split a geometry into two geometry outputs based on a selection
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN
+  - out: Selection:GEOMETRY, Inverted:GEOMETRY
+- `GeometryNodeSetCurveHandlePositions` (Set Handle Positions) — Set the positions for the handles of Bézier curves
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Position:VECTOR, Offset:VECTOR
+  - out: Curve:GEOMETRY
+- `GeometryNodeSetCurveNormal` (Set Curve Normal) — Set the evaluation mode for curve normals
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Mode:MENU, Normal:VECTOR
+  - out: Curve:GEOMETRY
+- `GeometryNodeSetCurveRadius` (Set Curve Radius) — Set the radius of the curve at each control point
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Radius:VALUE
+  - out: Curve:GEOMETRY
+- `GeometryNodeSetCurveTilt` (Set Curve Tilt) — Set the tilt angle at each curve control point
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Tilt:VALUE
+  - out: Curve:GEOMETRY
+- `GeometryNodeSetGeometryBundle` (Set Geometry Bundle) — Set the bundle of a geometry
+  - in: Geometry:GEOMETRY, Bundle:BUNDLE
+  - out: Geometry:GEOMETRY
+- `GeometryNodeSetGeometryName` (Set Geometry Name) — Set the name of a geometry for easier debugging
+  - in: Geometry:GEOMETRY, Name:STRING
+  - out: Geometry:GEOMETRY
+- `GeometryNodeSetGreasePencilColor` (Set Grease Pencil Color) — Set color and opacity attributes on Grease Pencil geometry
+  - in: Grease Pencil:GEOMETRY, Selection:BOOLEAN, Color:RGBA, Opacity:VALUE
+  - out: Grease Pencil:GEOMETRY
+- `GeometryNodeSetGreasePencilDepth` (Set Grease Pencil Depth) — Set the Grease Pencil depth order to use
+  - in: Grease Pencil:GEOMETRY
+  - out: Grease Pencil:GEOMETRY
+- `GeometryNodeSetGreasePencilSoftness` (Set Grease Pencil Softness) — Set softness attribute on Grease Pencil geometry
+  - in: Grease Pencil:GEOMETRY, Selection:BOOLEAN, Softness:VALUE
+  - out: Grease Pencil:GEOMETRY
+- `GeometryNodeSetGridBackground` (Set Grid Background) — Set the background value used for inactive voxels and tiles
+  - in: Grid:VALUE, Background:VALUE, Update Inactive:BOOLEAN
+  - out: Grid:VALUE
+- `GeometryNodeSetGridTransform` (Set Grid Transform) — Set the transform for the grid from index space into object space.
+  - in: Grid:VALUE, Transform:MATRIX
+  - out: Is Valid:BOOLEAN, Grid:VALUE
+- `GeometryNodeSetID` (Set ID) — Set the id attribute on the input geometry, mainly used internally for randomizing
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, ID:INT
+  - out: Geometry:GEOMETRY
+- `GeometryNodeSetInstanceTransform` (Set Instance Transform) — Set the transformation matrix of every instance
+  - in: Instances:GEOMETRY, Selection:BOOLEAN, Transform:MATRIX
+  - out: Instances:GEOMETRY
+- `GeometryNodeSetMaterial` (Set Material) — Assign a material to geometry elements
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Material:MATERIAL
+  - out: Geometry:GEOMETRY
+- `GeometryNodeSetMaterialIndex` (Set Material Index) — Set the material index for each selected geometry element
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Material Index:INT
+  - out: Geometry:GEOMETRY
+- `GeometryNodeSetMeshNormal` (Set Mesh Normal) — Store a normal vector for each mesh element
+  - in: Mesh:GEOMETRY, Remove Custom:BOOLEAN, Edge Sharpness:BOOLEAN, Face Sharpness:BOOLEAN
+  - out: Mesh:GEOMETRY
+- `GeometryNodeSetNURBSOrder` (Set NURBS Order) — Control how many curve control points influence each evaluated point by changing the "nurbs_order" attribute
+  - in: Curves:GEOMETRY, Selection:BOOLEAN, Order:INT
+  - out: Curves:GEOMETRY
+- `GeometryNodeSetNURBSWeight` (Set NURBS Weight) — Control the influence of each NURBS control point on the curve by changing the "nurbs_weight" attribute
+  - in: Curves:GEOMETRY, Selection:BOOLEAN, Weight:VALUE
+  - out: Curves:GEOMETRY
+- `GeometryNodeSetPointRadius` (Set Point Radius) — Set the display size of point cloud points
+  - in: Points:GEOMETRY, Selection:BOOLEAN, Radius:VALUE
+  - out: Points:GEOMETRY
+- `GeometryNodeSetPosition` (Set Position) — Set the location of each point
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Position:VECTOR, Offset:VECTOR
+  - out: Geometry:GEOMETRY
+- `GeometryNodeSetShadeSmooth` (Set Shade Smooth) — Control the smoothness of mesh normals around each face by changing the "shade smooth" attribute
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN, Shade Smooth:BOOLEAN
+  - out: Mesh:GEOMETRY
+- `GeometryNodeSetSplineCyclic` (Set Spline Cyclic) — Control whether each spline loops back on itself by changing the "cyclic" attribute
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Cyclic:BOOLEAN
+  - out: Curve:GEOMETRY
+- `GeometryNodeSetSplineResolution` (Set Spline Resolution) — Control how many evaluated points should be generated on every curve segment
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Resolution:INT
+  - out: Curve:GEOMETRY
+- `GeometryNodeSimulationInput` (Simulation Input) — Input data for the simulation zone
+  - in: (none)
+  - out: Delta Time:VALUE
+- `GeometryNodeSimulationOutput` (Simulation Output) — Output data from the simulation zone
+  - in: Skip:BOOLEAN, Geometry:GEOMETRY, :CUSTOM
+  - out: Geometry:GEOMETRY, :CUSTOM
+- `GeometryNodeSortElements` (Sort Elements) — Rearrange geometry elements, changing their indices
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Group ID:INT, Sort Weight:VALUE
+  - out: Geometry:GEOMETRY
+- `GeometryNodeSortList` (Sort List) — Sort a list based on weights
+  - in: List:VALUE, Selection:BOOLEAN, Group ID:INT, Sort Weight:VALUE
+  - out: List:VALUE
+- `GeometryNodeSplineLength` (Spline Length) — Retrieve the total length of each spline, as a distance or as a number of points
+  - in: (none)
+  - out: Length:VALUE, Point Count:INT
+- `GeometryNodeSplineParameter` (Spline Parameter) — Retrieve how far along each spline a control point is
+  - in: (none)
+  - out: Factor:VALUE, Length:VALUE, Index:INT
+- `GeometryNodeSplitEdges` (Split Edges) — Duplicate mesh edges and break connections with the surrounding faces
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN
+  - out: Mesh:GEOMETRY
+- `GeometryNodeSplitToInstances` (Split to Instances) — Create separate geometries containing the elements from the same group
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Group ID:INT
+  - out: Instances:GEOMETRY, Group ID:INT
+- `GeometryNodeStoreNamedAttribute` (Store Named Attribute) — Store the result of a field on a geometry as an attribute with the specified name
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN, Name:STRING, Value:VALUE
+  - out: Geometry:GEOMETRY
+- `GeometryNodeStoreNamedGrid` (Store Named Grid) — Store grid data in a volume geometry with the specified name
+  - in: Volume:GEOMETRY, Name:STRING, Grid:VALUE
+  - out: Volume:GEOMETRY
+- `GeometryNodeStringJoin` (Join Strings) — Combine any number of input strings
+  - in: Delimiter:STRING, Strings:STRING
+  - out: String:STRING
+- `GeometryNodeStringToCurves` (String to Curves) — Generate a paragraph of text with a specific font, using a curve instance to store each character
+  - in: String:STRING, Size:VALUE, Font:FONT, Align X:MENU, Align Y:MENU, Pivot Point:MENU, Character Spacing:VALUE, Word Spacing:VALUE, Line Spacing:VALUE, Overflow:MENU, Text Box Width:VALUE, Text Box Height:VALUE
+  - out: Curve Instances:GEOMETRY, Remainder:STRING, Line:INT, Word:INT, Pivot Point:VECTOR
+- `GeometryNodeSubdivideCurve` (Subdivide Curve) — Dividing each curve segment into a specified number of pieces
+  - in: Curve:GEOMETRY, Cuts:INT
+  - out: Curve:GEOMETRY
+- `GeometryNodeSubdivideMesh` (Subdivide Mesh) — Divide mesh faces into smaller ones without changing the shape or volume, using linear interpolation to place the new vertices
+  - in: Mesh:GEOMETRY, Level:INT
+  - out: Mesh:GEOMETRY
+- `GeometryNodeSubdivisionSurface` (Subdivision Surface) — Divide mesh faces to form a smooth surface, using the Catmull-Clark subdivision method
+  - in: Mesh:GEOMETRY, Level:INT, Edge Crease:VALUE, Vertex Crease:VALUE, Limit Surface:BOOLEAN, Quality:INT, UV Smooth:MENU, Boundary Smooth:MENU
+  - out: Mesh:GEOMETRY
+- `GeometryNodeSwitch` (Switch) — Switch between two inputs
+  - in: Switch:BOOLEAN, False:VALUE, True:VALUE
+  - out: Output:VALUE
+- `GeometryNodeTagFilter` (Tag Filter) — Check if a filter string matches a list of tags
+  - in: Tag Filter:STRING, Tags:STRING
+  - out: Match:BOOLEAN
+- `GeometryNodeTool3DCursor` (3D Cursor) — The scene's 3D cursor location and rotation
+  - in: (none)
+  - out: Location:VECTOR, Rotation:ROTATION
+- `GeometryNodeToolActiveElement` (Active Element) — Active element indices of the edited geometry, for tool execution
+  - in: (none)
+  - out: Index:INT, Exists:BOOLEAN
+- `GeometryNodeToolFaceSet` (Face Set) — Each face's sculpt face set value
+  - in: (none)
+  - out: Face Set:INT, Exists:BOOLEAN
+- `GeometryNodeToolMousePosition` (Mouse Position) — Retrieve the position of the mouse cursor
+  - in: (none)
+  - out: Mouse X:INT, Mouse Y:INT, Region Width:INT, Region Height:INT
+- `GeometryNodeToolSelection` (Selection) — User selection of the edited geometry, for tool execution
+  - in: (none)
+  - out: Boolean:BOOLEAN, Float:VALUE
+- `GeometryNodeToolSetFaceSet` (Set Face Set) — Set sculpt face set values for faces
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN, Face Set:INT
+  - out: Mesh:GEOMETRY
+- `GeometryNodeToolSetSelection` (Set Selection) — Set selection of the edited geometry, for tool execution
+  - in: Geometry:GEOMETRY, Selection:BOOLEAN
+  - out: Geometry:GEOMETRY
+- `GeometryNodeTransferAttributes` (Transfer Attributes) — Copy attributes from one geometry to another
+  - in: Target:GEOMETRY, Target Point ID:INT, Target Edge ID:INT, Target Face ID:INT, Target Corner ID:INT, Target Curve ID:INT, Target Instance ID:INT, Source:GEOMETRY, Source Point ID:INT, Source Edge ID:INT, Source Face ID:INT, Source Corner ID:INT, Source Curve ID:INT, Source Instance ID:INT, Pattern Mode:MENU, Attribute Names:STRING, Exclude Names:BOOLEAN
+  - out: Target:GEOMETRY, Transferred Names:STRING
+- `GeometryNodeTransform` (Transform Geometry) — Translate, rotate or scale the geometry
+  - in: Geometry:GEOMETRY, Mode:MENU, Translation:VECTOR, Rotation:ROTATION, Scale:VECTOR, Transform:MATRIX
+  - out: Geometry:GEOMETRY
+- `GeometryNodeTranslateInstances` (Translate Instances) — Move top-level geometry instances in local or global space
+  - in: Instances:GEOMETRY, Selection:BOOLEAN, Translation:VECTOR, Local Space:BOOLEAN
+  - out: Instances:GEOMETRY
+- `GeometryNodeTriangulate` (Triangulate) — Convert all faces in a mesh to triangular faces
+  - in: Mesh:GEOMETRY, Selection:BOOLEAN, Quad Method:MENU, N-gon Method:MENU
+  - out: Mesh:GEOMETRY
+- `GeometryNodeTrimCurve` (Trim Curve) — Shorten curves by removing portions at the start or end
+  - in: Curve:GEOMETRY, Selection:BOOLEAN, Start:VALUE, End:VALUE, Start:VALUE, End:VALUE
+  - out: Curve:GEOMETRY
+- `GeometryNodeUVPackIslands` (Pack UV Islands) — Scale islands of a UV map and move them so they fill the UV space as much as possible
+  - in: UV:VECTOR, Selection:BOOLEAN, Margin:VALUE, Rotate:BOOLEAN, Method:MENU, Bottom Left:VECTOR, Top Right:VECTOR
+  - out: UV:VECTOR
+- `GeometryNodeUVTangent` (UV Tangent) — Generate tangent directions based on a UV map
+  - in: Method:MENU, UV:VECTOR
+  - out: Tangent:VECTOR
+- `GeometryNodeUVUnwrap` (UV Unwrap) — Generate a UV map based on seam edges
+  - in: Selection:BOOLEAN, Seam:BOOLEAN, Margin:VALUE, Fill Holes:BOOLEAN, Method:MENU, Iterations:INT, No Flip:BOOLEAN
+  - out: UV:VECTOR
+- `GeometryNodeVertexOfCorner` (Vertex of Corner) — Retrieve the vertex each face corner is attached to
+  - in: Corner Index:INT
+  - out: Vertex Index:INT
+- `GeometryNodeViewer` (Viewer) — Display the input data in the Spreadsheet Editor
+  - in: :CUSTOM
+  - out: (none)
+- `GeometryNodeViewportTransform` (Viewport Transform) — Retrieve the view direction and location of the 3D viewport
+  - in: (none)
+  - out: Projection:MATRIX, View:MATRIX, Is Orthographic:BOOLEAN
+- `GeometryNodeVolumeCube` (Volume Cube) — Generate a dense volume with a field that controls the density at each grid voxel based on its position
+  - in: Density:VALUE, Background:VALUE, Min:VECTOR, Max:VECTOR, Resolution X:INT, Resolution Y:INT, Resolution Z:INT
+  - out: Volume:GEOMETRY
+- `GeometryNodeVolumeToMesh` (Volume to Mesh) — Generate a mesh on the "surface" of a volume
+  - in: Volume:GEOMETRY, Resolution Mode:MENU, Voxel Size:VALUE, Voxel Amount:VALUE, Threshold:VALUE, Adaptivity:VALUE
+  - out: Mesh:GEOMETRY
+- `GeometryNodeWarning` (Warning) — Create custom warnings in node groups
+  - in: Show:BOOLEAN, Message:STRING
+  - out: Show:BOOLEAN
+- `GeometryNodeXPBDSolver` (XPBD Solver) — Simulate physics using the XPBD framework
+  - in: World:BUNDLE, Delta Time:VALUE, Filter:STRING, Simulation to World:MATRIX, Substeps:INT, Constraint Iterations:INT, Solver Path:STRING, Begin:VALUE, End:VALUE
+  - out: World:BUNDLE
+- `NodeClosureInput` (Closure Input)
+  - in: (none)
+  - out: :CUSTOM
+- `NodeClosureOutput` (Closure Output)
+  - in: :CUSTOM
+  - out: Closure:CLOSURE
+- `NodeCombineBundle` (Combine Bundle) — Combine multiple socket values into one.
+  - in: :CUSTOM
+  - out: Bundle:BUNDLE
+- `NodeEnableOutput` (Enable Output) — Either pass through the input value or output the fallback value
+  - in: Enable:BOOLEAN, Value:VALUE
+  - out: Value:VALUE
+- `NodeEvaluateClosure` (Evaluate Closure) — Execute a given closure
+  - in: Closure:CLOSURE, :CUSTOM
+  - out: :CUSTOM
+- `NodeFrame` (Frame) — Collect related nodes together in a common area. Useful for organization when the re-usability of a node group is not required
+  - in: (none)
+  - out: (none)
+- `NodeGetBundleItem` (Get Bundle Item) — Retrieve a bundle item by path.
+  - in: Bundle:BUNDLE, Path:STRING, Remove:BOOLEAN
+  - out: Bundle:BUNDLE, Item:VALUE, Exists:BOOLEAN
+- `NodeGetNestedBundlePaths` (Get Nested Bundle Paths) — Get paths to items in a nested bundle with a filter
+  - in: Bundle:BUNDLE, Mode:MENU, Pattern Mode:MENU, Bundle Type:STRING, Data Type:MENU
+  - out: Paths:STRING
+- `NodeGroupInput` (Group Input) — Expose connected data from inside a node group as inputs to its interface
+  - in: (none)
+  - out: :CUSTOM
+- `NodeGroupOutput` (Group Output) — Output data from inside of a node group
+  - in: :CUSTOM
+  - out: (none)
+- `NodeImplicitConversion` (Implicit Conversion) — Implicitly convert the input value to a fixed socket type
+  - in: Value:RGBA
+  - out: Value:RGBA
+- `NodeJoinBundle` (Join Bundle) — Join multiple bundles together
+  - in: Bundle:BUNDLE
+  - out: Bundle:BUNDLE
+- `NodeReroute` (Reroute) — A single-socket organization tool that supports one input and multiple outputs
+  - in: Input:RGBA
+  - out: Output:RGBA
+- `NodeSeparateBundle` (Separate Bundle) — Split a bundle into multiple sockets.
+  - in: Bundle:BUNDLE
+  - out: :CUSTOM
+- `NodeStoreBundleItem` (Store Bundle Item) — Store a bundle item by path and data type.
+  - in: Bundle:BUNDLE, Path:STRING, Item:VALUE
+  - out: Bundle:BUNDLE
+- `ShaderNodeBlackbody` (Blackbody) — Convert a blackbody temperature to an RGB value
+  - in: Temperature:VALUE
+  - out: Color:RGBA
+- `ShaderNodeClamp` (Clamp) — Clamp a value between a minimum and a maximum
+  - in: Value:VALUE, Min:VALUE, Max:VALUE
+  - out: Result:VALUE
+- `ShaderNodeCombineXYZ` (Combine XYZ) — Create a vector from X, Y, and Z components
+  - in: X:VALUE, Y:VALUE, Z:VALUE
+  - out: Vector:VECTOR
+- `ShaderNodeFloatCurve` (Float Curve) — Map an input float to a curve and outputs a float value
+  - in: Factor:VALUE, Value:VALUE
+  - out: Value:VALUE
+- `ShaderNodeGamma` (Gamma) — Apply a gamma correction
+  - in: Color:RGBA, Gamma:VALUE
+  - out: Color:RGBA
+- `ShaderNodeMapRange` (Map Range) — Remap a value from a range to a target range
+  - in: Value:VALUE, From Min:VALUE, From Max:VALUE, To Min:VALUE, To Max:VALUE, Steps:VALUE, Vector:VECTOR, From Min:VECTOR, From Max:VECTOR, To Min:VECTOR, To Max:VECTOR, Steps:VECTOR
+  - out: Result:VALUE, Vector:VECTOR
+- `ShaderNodeMath` (Math) — Perform math operations
+  - in: Value:VALUE, Value:VALUE, Value:VALUE
+  - out: Value:VALUE
+- `ShaderNodeMix` (Mix) — Mix values by a factor
+  - in: Factor:VALUE, Factor:VECTOR, A:VALUE, B:VALUE, A:VECTOR, B:VECTOR, A:RGBA, B:RGBA, A:ROTATION, B:ROTATION
+  - out: Result:VALUE, Result:VECTOR, Result:RGBA, Result:ROTATION
+- `ShaderNodeMixRGB` (Mix (Legacy)) — Mix two input colors
+  - in: Factor:VALUE, Color1:RGBA, Color2:RGBA
+  - out: Color:RGBA
+- `ShaderNodeRGBCurve` (RGB Curves) — Apply color corrections for each color channel
+  - in: Factor:VALUE, Color:RGBA
+  - out: Color:RGBA
+- `ShaderNodeRadialTiling` (Radial Tiling) — Transform Coordinate System for Radial Tiling
+  - in: Vector:VECTOR, Sides:VALUE, Roundness:VALUE
+  - out: Segment Coordinates:VECTOR, Segment ID:VALUE, Segment Width:VALUE, Segment Rotation:VALUE
+- `ShaderNodeSeparateXYZ` (Separate XYZ) — Split a vector into its X, Y, and Z components
+  - in: Vector:VECTOR
+  - out: X:VALUE, Y:VALUE, Z:VALUE
+- `ShaderNodeTexBrick` (Brick Texture) — Generate a procedural texture producing bricks
+  - in: Vector:VECTOR, Color1:RGBA, Color2:RGBA, Mortar:RGBA, Scale:VALUE, Mortar Size:VALUE, Mortar Smooth:VALUE, Bias:VALUE, Brick Width:VALUE, Row Height:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexChecker` (Checker Texture) — Generate a checkerboard texture
+  - in: Vector:VECTOR, Color1:RGBA, Color2:RGBA, Scale:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexGabor` (Gabor Texture) — Generate Gabor noise
+  - in: Vector:VECTOR, Scale:VALUE, Frequency:VALUE, Anisotropy:VALUE, Orientation:VALUE, Orientation:VECTOR
+  - out: Value:VALUE, Phase:VALUE, Intensity:VALUE
+- `ShaderNodeTexGradient` (Gradient Texture) — Generate interpolated color and intensity values based on the input vector
+  - in: Vector:VECTOR
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexMagic` (Magic Texture) — Generate a psychedelic color texture
+  - in: Vector:VECTOR, Scale:VALUE, Distortion:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexNoise` (Noise Texture) — Generate fractal Perlin noise
+  - in: Vector:VECTOR, W:VALUE, Scale:VALUE, Detail:VALUE, Roughness:VALUE, Lacunarity:VALUE, Offset:VALUE, Gain:VALUE, Distortion:VALUE
+  - out: Factor:VALUE, Color:RGBA
+- `ShaderNodeTexVoronoi` (Voronoi Texture) — Generate Worley noise based on the distance to random points. Typically used to generate textures such as stones, water, or biological cells
+  - in: Vector:VECTOR, W:VALUE, Scale:VALUE, Detail:VALUE, Roughness:VALUE, Lacunarity:VALUE, Smoothness:VALUE, Exponent:VALUE, Randomness:VALUE
+  - out: Distance:VALUE, Color:RGBA, Position:VECTOR, W:VALUE, Radius:VALUE
+- `ShaderNodeTexWave` (Wave Texture) — Generate procedural bands or rings with noise
+  - in: Vector:VECTOR, Scale:VALUE, Distortion:VALUE, Detail:VALUE, Detail Scale:VALUE, Detail Roughness:VALUE, Phase Offset:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexWhiteNoise` (White Noise Texture) — Calculate a random value or color based on an input seed
+  - in: Vector:VECTOR, W:VALUE
+  - out: Value:VALUE, Color:RGBA
+- `ShaderNodeValToRGB` (Color Ramp) — Map values to colors with the use of a gradient
+  - in: Factor:VALUE
+  - out: Color:RGBA, Alpha:VALUE
+- `ShaderNodeValue` (Value) — Input numerical values to other nodes in the tree
+  - in: (none)
+  - out: Value:VALUE
+- `ShaderNodeVectorCurve` (Vector Curves) — Map input vector components with curves
+  - in: Factor:VALUE, Vector:VECTOR
+  - out: Vector:VECTOR
+- `ShaderNodeVectorMath` (Vector Math) — Perform vector math operation
+  - in: Vector:VECTOR, Vector:VECTOR, Vector:VECTOR, Scale:VALUE
+  - out: Vector:VECTOR, Value:VALUE
+- `ShaderNodeVectorRotate` (Vector Rotate) — Rotate a vector around a pivot point (center)
+  - in: Vector:VECTOR, Center:VECTOR, Axis:VECTOR, Angle:VALUE, Rotation:VECTOR
+  - out: Vector:VECTOR

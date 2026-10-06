@@ -1,0 +1,73 @@
+---
+area: api-ops
+group: anim
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.anim
+
+- `bpy.ops.anim.change_frame(frame: float, snap: boolean, seq_solo_preview: boolean, pass_through_on_strip_handles: boolean)` — Interactively change the current frame number
+- `bpy.ops.anim.channel_select_keys(extend: boolean)` — Select all keyframes of channel under mouse
+- `bpy.ops.anim.channel_view_pick(include_handles: boolean, use_preview_range: boolean)` — Reset viewable area to show the channel under the cursor
+- `bpy.ops.anim.channels_bake(use_scene_range: boolean, range: int, step: float, remove_outside_range: boolean, interpolation_type: enum{BEZIER, LIN, CONST}, bake_modifiers: boolean)` — Create keyframes following the current shape of F-Curves of selected channels
+- `bpy.ops.anim.channels_clean_empty()` — Delete all empty animation data containers from visible data-blocks
+- `bpy.ops.anim.channels_click(extend: boolean, extend_range: boolean, children_only: boolean)` — Handle mouse clicks over animation channels
+- `bpy.ops.anim.channels_collapse(all: boolean)` — Collapse (close) all selected expandable animation channels
+- `bpy.ops.anim.channels_delete()` — Delete all selected animation channels
+- `bpy.ops.anim.channels_editable_toggle(mode: enum{TOGGLE, DISABLE, ENABLE, INVERT}, type: enum{PROTECT, MUTE})` — Toggle editability of selected channels
+- `bpy.ops.anim.channels_expand(all: boolean)` — Expand (open) all selected expandable animation channels
+- `bpy.ops.anim.channels_fcurves_enable()` — Clear 'disabled' tag from all F-Curves to get broken F-Curves working again
+- `bpy.ops.anim.channels_group(name: string)` — Add selected F-Curves to a new group
+- `bpy.ops.anim.channels_move(direction: enum{TOP, UP, DOWN, BOTTOM})` — Rearrange selected animation channels
+- `bpy.ops.anim.channels_rename()` — Rename animation channel under mouse
+- `bpy.ops.anim.channels_select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Toggle selection of all animation channels
+- `bpy.ops.anim.channels_select_box(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, deselect: boolean, extend: boolean)` — Select all animation channels within the specified region
+- `bpy.ops.anim.channels_select_filter()` — Start entering text which filters the set of channels shown to only include those with matching names
+- `bpy.ops.anim.channels_setting_disable(mode: enum{TOGGLE, DISABLE, ENABLE, INVERT}, type: enum{PROTECT, MUTE})` — Disable specified setting on all selected animation channels
+- `bpy.ops.anim.channels_setting_enable(mode: enum{TOGGLE, DISABLE, ENABLE, INVERT}, type: enum{PROTECT, MUTE})` — Enable specified setting on all selected animation channels
+- `bpy.ops.anim.channels_setting_toggle(mode: enum{TOGGLE, DISABLE, ENABLE, INVERT}, type: enum{PROTECT, MUTE})` — Toggle specified setting on all selected animation channels
+- `bpy.ops.anim.channels_ungroup()` — Remove selected F-Curves from their current groups
+- `bpy.ops.anim.channels_view_selected(include_handles: boolean, use_preview_range: boolean)` — Reset viewable area to show the selected channels
+- `bpy.ops.anim.clear_useless_actions(only_unused: boolean)` — Mark actions with no F-Curves for deletion after save and reload of file preserving "action libraries"
+- `bpy.ops.anim.copy_driver_button()` — Copy the driver for the highlighted button
+- `bpy.ops.anim.driver_button_add()` — Add driver for the property under the cursor
+- `bpy.ops.anim.driver_button_edit()` — Edit the drivers for the connected property represented by the highlighted button
+- `bpy.ops.anim.driver_button_remove(all: boolean)` — Remove the driver(s) for the connected property(s) represented by the highlighted button
+- `bpy.ops.anim.end_frame_set()` — Set the current frame as the preview or scene end frame
+- `bpy.ops.anim.keyframe_clear_button(all: boolean)` — Clear all keyframes on the currently active property
+- `bpy.ops.anim.keyframe_clear_v3d(confirm: boolean)` — Remove all keyframe animation for selected objects
+- `bpy.ops.anim.keyframe_clear_vse(confirm: boolean)` — Remove all keyframe animation for selected strips
+- `bpy.ops.anim.keyframe_delete(type: enum{DEFAULT})` — Delete keyframes on the current frame for all properties in the specified Keying Set
+- `bpy.ops.anim.keyframe_delete_button(all: boolean)` — Delete current keyframe of current UI-active property
+- `bpy.ops.anim.keyframe_delete_by_name(type: string)` — Alternate access to 'Delete Keyframe' for keymaps to use
+- `bpy.ops.anim.keyframe_delete_v3d(confirm: boolean)` — Remove keyframes on current frame for selected objects and bones
+- `bpy.ops.anim.keyframe_delete_vse(confirm: boolean)` — Remove keyframes on current frame for selected strips
+- `bpy.ops.anim.keyframe_insert(type: enum{DEFAULT})` — Insert keyframes on the current frame using either the active keying set, or the user preferences if no keying set is active
+- `bpy.ops.anim.keyframe_insert_button(all: boolean)` — Insert a keyframe for current UI-active property
+- `bpy.ops.anim.keyframe_insert_by_name(type: string)` — Alternate access to 'Insert Keyframe' for keymaps to use
+- `bpy.ops.anim.keyframe_insert_menu(type: enum{DEFAULT}, always_prompt: boolean)` — Insert Keyframes for specified Keying Set, with menu of available Keying Sets if undefined
+- `bpy.ops.anim.keying_set_active_set(type: enum{DEFAULT})` — Set a new active keying set
+- `bpy.ops.anim.keying_set_add()` — Add a new (empty) keying set to the active Scene
+- `bpy.ops.anim.keying_set_export(filepath: string, filter_folder: boolean, filter_text: boolean, filter_python: boolean)` — Export Keying Set to a Python script
+- `bpy.ops.anim.keying_set_path_add()` — Add empty path to active keying set
+- `bpy.ops.anim.keying_set_path_remove()` — Remove active Path from active keying set
+- `bpy.ops.anim.keying_set_remove()` — Remove the active keying set
+- `bpy.ops.anim.keyingset_button_add(all: boolean)` — Add current UI-active property to current keying set
+- `bpy.ops.anim.keyingset_button_remove()` — Remove current UI-active property from current keying set
+- `bpy.ops.anim.merge_animation()` — Merge the animation of the selected objects into the action of the active object. Actions are not deleted by this, but might end up with zero users
+- `bpy.ops.anim.paste_driver_button()` — Paste the driver in the internal clipboard to the highlighted button
+- `bpy.ops.anim.previewrange_clear()` — Clear preview range
+- `bpy.ops.anim.previewrange_set(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean)` — Interactively define frame range used for playback
+- `bpy.ops.anim.replace_action(old_session_uid: int, new_session_uid: int)` — Swap all users of one action to another one. The normal action slot assignment rules apply. This ignores the NLA and Action Constraints
+- `bpy.ops.anim.replace_action_new(old_session_uid: int)` — Swap all users of one action to a new action. This ignores the NLA and Action Constraints
+- `bpy.ops.anim.scene_range_frame()` — Reset the horizontal view to the current scene frame range, taking the preview range into account if it is active
+- `bpy.ops.anim.separate_slots()` — Move all slots of the action on the active object into newly created, separate actions. All users of those slots will be reassigned to the new actions. The current action won't be deleted but will be empty and might end up having zero users
+- `bpy.ops.anim.slot_channels_move_to_new_action()` — Move the selected slots into a newly created action
+- `bpy.ops.anim.slot_new_for_id()` — Create a new action slot for this data-block, to hold its animation
+- `bpy.ops.anim.slot_unassign_from_constraint()` — Un-assign the action slot from this constraint
+- `bpy.ops.anim.slot_unassign_from_id()` — Un-assign the action slot, effectively making this data-block non-animated
+- `bpy.ops.anim.slot_unassign_from_nla_strip()` — Un-assign the action slot from this NLA strip, effectively making it non-animated
+- `bpy.ops.anim.start_frame_set()` — Set the current frame as the preview or scene start frame
+- `bpy.ops.anim.update_animated_transform_constraints(use_convert_to_radians: boolean)` — Update f-curves/drivers affecting Transform constraints (use it with files from 2.70 and earlier)
+- `bpy.ops.anim.version_bone_hide_property()` — Moves any F-Curves for the `hide` property of selected armatures into the action of the object. This will only operate on the first layer and strip of the action
+- `bpy.ops.anim.view_curve_in_graph_editor(all: boolean, isolate: boolean)` — Frame the property under the cursor in the Graph Editor

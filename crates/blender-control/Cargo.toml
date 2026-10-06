@@ -1,0 +1,16 @@
+[package]
+name = "blender-control"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "BSD-3-Clause OR LicenseRef-Commercial"
+description = "Find, launch, monitor and terminate a Blender process from Rust. Pure std + sysinfo, no pyo3."
+
+[lib]
+name = "blender_control"
+# Descriptive root name over the default lib.rs, per house convention.
+path = "src/blender_control.rs"
+
+[dependencies]
+# Cross-platform process enumeration: is a given PID alive, what is it.
+sysinfo = { version = "0.39", default-features = false, features = ["system"] }

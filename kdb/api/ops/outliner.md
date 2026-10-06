@@ -1,0 +1,81 @@
+---
+area: api-ops
+group: outliner
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.outliner
+
+- `bpy.ops.outliner.action_set(action: enum{})` — Change the active action used
+- `bpy.ops.outliner.animdata_operation(type: enum{CLEAR_ANIMDATA, SET_ACT, CLEAR_ACT, REFRESH_DRIVERS, CLEAR_DRIVERS})` — (undocumented operator)
+- `bpy.ops.outliner.clear_filter()` — Clear the search filter
+- `bpy.ops.outliner.collection_color_tag_set(color: enum{NONE, COLOR_01, COLOR_02, COLOR_03, COLOR_04, COLOR_05, COLOR_06, COLOR_07, COLOR_08})` — Set a color tag for the selected collections
+- `bpy.ops.outliner.collection_disable()` — Disable viewport display in the view layers
+- `bpy.ops.outliner.collection_disable_render()` — Do not render this collection
+- `bpy.ops.outliner.collection_drop()` — Drag to move to collection in Outliner
+- `bpy.ops.outliner.collection_duplicate()` — Recursively duplicate the collection, all its children, objects and object data
+- `bpy.ops.outliner.collection_duplicate_linked()` — Recursively duplicate the collection, all its children and objects, with linked object data
+- `bpy.ops.outliner.collection_enable()` — Enable viewport display in the view layers
+- `bpy.ops.outliner.collection_enable_render()` — Render the collection
+- `bpy.ops.outliner.collection_exclude_clear()` — Include collection in the active view layer
+- `bpy.ops.outliner.collection_exclude_set()` — Exclude collection from the active view layer
+- `bpy.ops.outliner.collection_hide()` — Hide the collection in this view layer
+- `bpy.ops.outliner.collection_hide_inside()` — Hide all the objects and collections inside the collection
+- `bpy.ops.outliner.collection_hierarchy_delete()` — Delete selected collection hierarchies
+- `bpy.ops.outliner.collection_holdout_clear()` — Clear masking of collection in the active view layer
+- `bpy.ops.outliner.collection_holdout_set()` — Mask collection in the active view layer
+- `bpy.ops.outliner.collection_indirect_only_clear()` — Clear collection contributing only indirectly in the view layer
+- `bpy.ops.outliner.collection_indirect_only_set()` — Set collection to only contribute indirectly (through shadows and reflections) in the view layer
+- `bpy.ops.outliner.collection_instance()` — Instance selected collections to active scene
+- `bpy.ops.outliner.collection_isolate(extend: boolean)` — Hide all but this collection and its parents
+- `bpy.ops.outliner.collection_link()` — Link selected collections to active scene
+- `bpy.ops.outliner.collection_new(nested: boolean)` — Add a new collection inside selected collection
+- `bpy.ops.outliner.collection_objects_deselect()` — Deselect objects in collection
+- `bpy.ops.outliner.collection_objects_select()` — Select objects in collection
+- `bpy.ops.outliner.collection_show()` — Show the collection in this view layer
+- `bpy.ops.outliner.collection_show_inside()` — Show all the objects and collections inside the collection
+- `bpy.ops.outliner.constraint_operation(type: enum{ENABLE, DISABLE, DELETE})` — (undocumented operator)
+- `bpy.ops.outliner.data_operation(type: enum{DEFAULT})` — (undocumented operator)
+- `bpy.ops.outliner.datastack_drop()` — Copy or reorder modifiers, constraints, and effects
+- `bpy.ops.outliner.delete(hierarchy: boolean)` — Delete selected objects and collections
+- `bpy.ops.outliner.drivers_add_selected()` — Add drivers to selected items
+- `bpy.ops.outliner.drivers_delete_selected()` — Delete drivers assigned to selected items
+- `bpy.ops.outliner.expanded_toggle()` — Expand/Collapse all items
+- `bpy.ops.outliner.hide()` — Hide selected objects and collections
+- `bpy.ops.outliner.highlight_update()` — Update the item highlight based on the current mouse position
+- `bpy.ops.outliner.id_copy()` — Copy the selected data-blocks to the internal clipboard
+- `bpy.ops.outliner.id_delete()` — Delete the ID under cursor
+- `bpy.ops.outliner.id_linked_relocate()` — Replace the active linked ID (and its dependencies if any) by another one, from the same or a different library
+- `bpy.ops.outliner.id_operation(type: enum{UNLINK, LOCAL, SINGLE, DELETE, REMAP, COPY, PASTE, ADD_FAKE, CLEAR_FAKE, RENAME, SELECT_LINKED})` — General data-block management operations
+- `bpy.ops.outliner.id_paste()` — Paste data-blocks from the internal clipboard
+- `bpy.ops.outliner.id_remap(id_type: enum{ACTION, ARMATURE, BRUSH, CACHEFILE, CAMERA, COLLECTION, CURVE, CURVES, FONT, GREASEPENCIL, GREASEPENCIL_V3, IMAGE, KEY, LATTICE, LIBRARY, LIGHT, LIGHT_PROBE, LINESTYLE, MASK, MATERIAL, MESH, META, MOVIECLIP, NODETREE, OBJECT, PAINTCURVE, PALETTE, PARTICLE, POINTCLOUD, SCENE, SCREEN, SOUND, SPEAKER, TEXT, TEXTURE, VOLUME, WINDOWMANAGER, WORKSPACE, WORLD}, old_id: int, new_id: int)` — (undocumented operator)
+- `bpy.ops.outliner.item_activate(extend: boolean, extend_range: boolean, deselect_all: boolean, recurse: boolean)` — Handle mouse clicks to select and activate items
+- `bpy.ops.outliner.item_drag_drop()` — Drag and drop element to another place
+- `bpy.ops.outliner.item_openclose(all: boolean)` — Toggle whether item under cursor is open or closed
+- `bpy.ops.outliner.item_rename(use_active: boolean)` — Rename the active element
+- `bpy.ops.outliner.keyingset_add_selected()` — Add selected items (blue-gray rows) to active Keying Set
+- `bpy.ops.outliner.keyingset_remove_selected()` — Remove selected items (blue-gray rows) from active Keying Set
+- `bpy.ops.outliner.lib_operation(type: enum{DELETE, RELOCATE, RELOAD})` — (undocumented operator)
+- `bpy.ops.outliner.lib_relocate()` — Relocate the library under cursor
+- `bpy.ops.outliner.liboverride_operation(type: enum{OVERRIDE_LIBRARY_CREATE_HIERARCHY, OVERRIDE_LIBRARY_RESET, OVERRIDE_LIBRARY_CLEAR_SINGLE}, selection_set: enum{SELECTED, CONTENT, SELECTED_AND_CONTENT})` — Create, reset or clear library override hierarchies
+- `bpy.ops.outliner.liboverride_property_remove()` — Remove the selected library override properties, and reset the relevant data to the linked reference values
+- `bpy.ops.outliner.liboverride_troubleshoot_operation(type: enum{OVERRIDE_LIBRARY_RESYNC_HIERARCHY, OVERRIDE_LIBRARY_RESYNC_HIERARCHY_ENFORCE, OVERRIDE_LIBRARY_DELETE_HIERARCHY}, selection_set: enum{SELECTED, CONTENT, SELECTED_AND_CONTENT})` — Advanced operations over library override to help fix broken hierarchies
+- `bpy.ops.outliner.material_drop()` — Drag material to object in Outliner
+- `bpy.ops.outliner.modifier_operation(type: enum{APPLY, DELETE, TOGVIS, TOGREN})` — (undocumented operator)
+- `bpy.ops.outliner.object_operation(type: enum{SELECT, DESELECT, SELECT_HIERARCHY, REMAP, RENAME})` — (undocumented operator)
+- `bpy.ops.outliner.operation()` — Context menu for item operations
+- `bpy.ops.outliner.orphans_manage()` — Open a window to manage unused data
+- `bpy.ops.outliner.orphans_purge(do_local_ids: boolean, do_linked_ids: boolean, do_recursive: boolean)` — Clear all orphaned data-blocks without any users from the file
+- `bpy.ops.outliner.parent_clear()` — Drag to clear parent in Outliner
+- `bpy.ops.outliner.parent_drop()` — Drag to parent in Outliner
+- `bpy.ops.outliner.scene_drop()` — Drag object to scene in Outliner
+- `bpy.ops.outliner.scene_operation(type: enum{DELETE})` — Context menu for scene operations
+- `bpy.ops.outliner.scroll_page(up: boolean)` — Scroll page up or down
+- `bpy.ops.outliner.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Toggle the Outliner selection of items
+- `bpy.ops.outliner.select_box(tweak: boolean, xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Use box selection to select tree elements
+- `bpy.ops.outliner.select_walk(direction: enum{UP, DOWN, LEFT, RIGHT}, extend: boolean, toggle_all: boolean)` — Use walk navigation to select tree elements
+- `bpy.ops.outliner.show_active()` — Open up the tree and adjust the view so that the active object is shown centered
+- `bpy.ops.outliner.show_hierarchy()` — Open all object entries and close all others
+- `bpy.ops.outliner.show_one_level(open: boolean)` — Expand/collapse all entries by one level
+- `bpy.ops.outliner.start_filter()` — Start entering filter text
+- `bpy.ops.outliner.unhide_all()` — Unhide all objects and collections

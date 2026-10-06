@@ -1,0 +1,24 @@
+[book]
+title = "blender-mcp-rs"
+description = "Drive Blender 5 from an AI agent — 241 tools, all in Rust."
+authors = ["ssoj13"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/ssoj13/blender-mcp-rs"
+edit-url-template = "https://github.com/ssoj13/blender-mcp-rs/edit/main/docs/{path}"
+
+# Diagrams are Mermaid. `cargo install mdbook-mermaid` once, then
+# `mdbook-mermaid install docs` drops in the assets referenced below.
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output.html.fold]
+enable = true
+level = 1

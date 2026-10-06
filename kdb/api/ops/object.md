@@ -1,0 +1,258 @@
+---
+area: api-ops
+group: object
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.object
+
+- `bpy.ops.object.add(radius: float, type: enum{MESH, CURVE, SURFACE, META, FONT, CURVES, POINTCLOUD, VOLUME, GREASEPENCIL, ARMATURE, LATTICE, EMPTY, LIGHT, LIGHT_PROBE, CAMERA, SPEAKER}, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add an object to the scene
+- `bpy.ops.object.add_modifier_menu()` — (undocumented operator)
+- `bpy.ops.object.add_named(linked: boolean, name: string, session_uid: int, matrix: float, drop_x: int, drop_y: int)` — Add named object
+- `bpy.ops.object.align(bb_quality: boolean, align_mode: enum{OPT_1, OPT_2, OPT_3}, relative_to: enum{OPT_1, OPT_2, OPT_3, OPT_4}, align_axis: enum{X, Y, Z})` — Align objects
+- `bpy.ops.object.anim_transforms_to_deltas()` — Convert object animation for normal transforms to delta transforms
+- `bpy.ops.object.armature_add(radius: float, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add an armature object to the scene
+- `bpy.ops.object.assign_property_defaults(process_data: boolean, process_bones: boolean)` — Assign the current values of custom properties as their defaults, for use as part of the rest pose state in NLA track mixing
+- `bpy.ops.object.bake(type: enum{COMBINED, AO, SHADOW, POSITION, NORMAL, UV, ROUGHNESS, EMIT, ENVIRONMENT, DIFFUSE, GLOSSY, TRANSMISSION}, pass_filter: enum{NONE, EMIT, DIRECT, INDIRECT, COLOR, DIFFUSE, GLOSSY, TRANSMISSION}, filepath: string, width: int, height: int, margin: int, margin_type: enum{ADJACENT_FACES, EXTEND}, use_selected_to_active: boolean, max_ray_distance: float, cage_extrusion: float, cage_object: string, normal_space: enum{OBJECT, TANGENT}, normal_r: enum{POS_X, POS_Y, POS_Z, NEG_X, NEG_Y, NEG_Z}, normal_g: enum{POS_X, POS_Y, POS_Z, NEG_X, NEG_Y, NEG_Z}, normal_b: enum{POS_X, POS_Y, POS_Z, NEG_X, NEG_Y, NEG_Z}, target: enum{IMAGE_TEXTURES, VERTEX_COLORS}, save_mode: enum{INTERNAL, EXTERNAL}, use_clear: boolean, use_cage: boolean, use_split_materials: boolean, use_automatic_name: boolean, uv_layer: string)` — Bake image textures of selected objects
+- `bpy.ops.object.bake_image()` — Bake image textures of selected objects
+- `bpy.ops.object.camera_add(enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a camera object to the scene
+- `bpy.ops.object.camera_custom_update()` — Update custom camera with new parameters from the shader
+- `bpy.ops.object.clear_override_library()` — Delete the selected local overrides and relink their usages to the linked data-blocks if possible, else reset them and mark them as non editable
+- `bpy.ops.object.collection_add()` — Add an object to a new collection
+- `bpy.ops.object.collection_external_asset_drop(session_uid: int, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float, use_instance: boolean, drop_x: int, drop_y: int, collection: enum{})` — Add the dragged collection to the scene
+- `bpy.ops.object.collection_instance_add(name: string, collection: enum{}, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float, session_uid: int, drop_x: int, drop_y: int)` — Add a collection instance
+- `bpy.ops.object.collection_link(collection: enum{})` — Add an object to an existing collection
+- `bpy.ops.object.collection_objects_select()` — Select all objects in collection
+- `bpy.ops.object.collection_remove()` — Remove the active object from this collection
+- `bpy.ops.object.collection_unlink()` — Unlink the collection from all objects
+- `bpy.ops.object.constraint_add(type: enum{})` — Add a constraint to the active object
+- `bpy.ops.object.constraint_add_with_targets(type: enum{})` — Add a constraint to the active object, with target (where applicable) set to the selected objects/bones
+- `bpy.ops.object.constraints_clear()` — Clear all constraints from the selected objects
+- `bpy.ops.object.constraints_copy()` — Copy constraints to other selected objects
+- `bpy.ops.object.convert(target: enum{CURVE, MESH, POINTCLOUD, CURVES, GREASEPENCIL}, keep_original: boolean, merge_customdata: boolean, thickness: int, faces: boolean, offset: float)` — Convert selected objects to another type
+- `bpy.ops.object.copy_global_transform()` — Copies the matrix of the currently active object or pose bone to the clipboard. Uses world-space matrices
+- `bpy.ops.object.copy_relative_transform()` — Copies the matrix of the currently active object or pose bone to the clipboard. Uses matrices relative to a specific object or the active scene camera
+- `bpy.ops.object.correctivesmooth_bind(modifier: string)` — Bind base pose in Corrective Smooth modifier
+- `bpy.ops.object.curves_empty_hair_add(align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add an empty curve object to the scene with the selected mesh as surface
+- `bpy.ops.object.curves_random_add(align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a curves object with random curves to the scene
+- `bpy.ops.object.data_instance_add(name: string, session_uid: int, type: enum{ACTION, ARMATURE, BRUSH, CACHEFILE, CAMERA, COLLECTION, CURVE, CURVES, FONT, GREASEPENCIL, GREASEPENCIL_V3, IMAGE, KEY, LATTICE, LIBRARY, LIGHT, LIGHT_PROBE, LINESTYLE, MASK, MATERIAL, MESH, META, MOVIECLIP, NODETREE, OBJECT, PAINTCURVE, PALETTE, PARTICLE, POINTCLOUD, SCENE, SCREEN, SOUND, SPEAKER, TEXT, TEXTURE, VOLUME, WINDOWMANAGER, WORKSPACE, WORLD}, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float, drop_x: int, drop_y: int)` — Add an object data instance
+- `bpy.ops.object.data_transfer(use_reverse_transfer: boolean, use_freeze: boolean, data_type: enum{VGROUP_WEIGHTS, BEVEL_WEIGHT_VERT, COLOR_VERTEX, SHARP_EDGE, SEAM, CREASE, BEVEL_WEIGHT_EDGE, FREESTYLE_EDGE, CUSTOM_NORMAL, COLOR_CORNER, UV, SMOOTH, FREESTYLE_FACE}, use_create: boolean, vert_mapping: enum{TOPOLOGY, NEAREST, EDGE_NEAREST, EDGEINTERP_NEAREST, POLY_NEAREST, POLYINTERP_NEAREST, POLYINTERP_VNORPROJ}, edge_mapping: enum{TOPOLOGY, VERT_NEAREST, NEAREST, POLY_NEAREST, EDGEINTERP_VNORPROJ}, loop_mapping: enum{TOPOLOGY, NEAREST_NORMAL, NEAREST_POLYNOR, NEAREST_POLY, POLYINTERP_NEAREST, POLYINTERP_LNORPROJ}, poly_mapping: enum{TOPOLOGY, NEAREST, NORMAL, POLYINTERP_PNORPROJ}, use_auto_transform: boolean, use_object_transform: boolean, use_max_distance: boolean, max_distance: float, ray_radius: float, islands_precision: float, layers_select_src: enum{ACTIVE, ALL, BONE_SELECT, BONE_DEFORM}, layers_select_dst: enum{ACTIVE, NAME, INDEX}, mix_mode: enum{REPLACE, ABOVE_THRESHOLD, BELOW_THRESHOLD, MIX, ADD, SUB, MUL}, mix_factor: float)` — Transfer data layer(s) (weights, edge sharp, etc.) from active to selected meshes
+- `bpy.ops.object.datalayout_transfer(modifier: string, data_type: enum{VGROUP_WEIGHTS, BEVEL_WEIGHT_VERT, COLOR_VERTEX, SHARP_EDGE, SEAM, CREASE, BEVEL_WEIGHT_EDGE, FREESTYLE_EDGE, CUSTOM_NORMAL, COLOR_CORNER, UV, SMOOTH, FREESTYLE_FACE}, use_delete: boolean, layers_select_src: enum{ACTIVE, ALL, BONE_SELECT, BONE_DEFORM}, layers_select_dst: enum{ACTIVE, NAME, INDEX})` — Transfer layout of data layer(s) from active to selected meshes
+- `bpy.ops.object.delete(use_global: boolean, confirm: boolean)` — Delete selected objects
+- `bpy.ops.object.delete_fix_to_camera_keys()` — Delete all keys that were generated by the 'Fix to Scene Camera' operator
+- `bpy.ops.object.drop_geometry_nodes(session_uid: int, show_datablock_in_modifier: boolean)` — (undocumented operator)
+- `bpy.ops.object.drop_named_material(name: string, session_uid: int)` — (undocumented operator)
+- `bpy.ops.object.duplicate(linked: boolean, mode: enum{INIT, DUMMY, TRANSLATION, ROTATION, RESIZE, SKIN_RESIZE, TOSPHERE, SHEAR, BEND, SHRINKFATTEN, TILT, TRACKBALL, PUSHPULL, CREASE, VERTEX_CREASE, MIRROR, BONE_SIZE, BONE_ENVELOPE, BONE_ENVELOPE_DIST, CURVE_SHRINKFATTEN, MASK_SHRINKFATTEN, BONE_ROLL, TIME_TRANSLATE, TIME_SLIDE, TIME_SCALE, TIME_EXTEND, BAKE_TIME, BWEIGHT, ALIGN, EDGESLIDE, SEQSLIDE, GPENCIL_OPACITY})` — Duplicate selected objects
+- `bpy.ops.object.duplicate_move(OBJECT_OT_duplicate: pointer, TRANSFORM_OT_translate: pointer)` — Duplicate the selected objects and move them
+- `bpy.ops.object.duplicate_move_linked(OBJECT_OT_duplicate: pointer, TRANSFORM_OT_translate: pointer)` — Duplicate the selected objects, but not their object data, and move them
+- `bpy.ops.object.duplicates_make_real(use_base_parent: boolean, use_hierarchy: boolean)` — Make instanced objects attached to this object real
+- `bpy.ops.object.editmode_toggle()` — Toggle object's edit mode
+- `bpy.ops.object.effector_add(type: enum{FORCE, WIND, VORTEX, MAGNET, HARMONIC, CHARGE, LENNARDJ, TEXTURE, GUIDE, BOID, TURBULENCE, DRAG, FLUID}, radius: float, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add an empty object with a physics effector to the scene
+- `bpy.ops.object.empty_add(type: enum{PLAIN_AXES, ARROWS, SINGLE_ARROW, CIRCLE, CUBE, SPHERE, CONE, IMAGE}, radius: float, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add an empty object to the scene
+- `bpy.ops.object.empty_image_add(filepath: string, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{DEFAULT, FILE_SORT_ALPHA, FILE_SORT_EXTENSION, FILE_SORT_TIME, FILE_SORT_SIZE, ASSET_CATALOG}, name: string, session_uid: int, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float, background: boolean)` — Add an empty image type to scene with data
+- `bpy.ops.object.explode_refresh(modifier: string)` — Refresh data in the Explode modifier
+- `bpy.ops.object.fix_to_camera(use_location: boolean, use_rotation: boolean, use_scale: boolean)` — Generate new keys to fix the selected object/bone to the camera on unkeyed frames
+- `bpy.ops.object.forcefield_toggle()` — Toggle object's force field
+- `bpy.ops.object.geometry_node_bake_delete_single(session_uid: int, modifier_name: string, bake_id: int)` — Delete baked data of a single bake node or simulation
+- `bpy.ops.object.geometry_node_bake_pack_single(session_uid: int, modifier_name: string, bake_id: int)` — Pack baked data from disk into the .blend file
+- `bpy.ops.object.geometry_node_bake_single(session_uid: int, modifier_name: string, bake_id: int)` — Bake a single bake node or simulation
+- `bpy.ops.object.geometry_node_bake_unpack_single(session_uid: int, modifier_name: string, bake_id: int, method: enum{USE_LOCAL, WRITE_LOCAL, USE_ORIGINAL, WRITE_ORIGINAL})` — Unpack baked data from the .blend file to disk
+- `bpy.ops.object.geometry_node_tree_copy_assign()` — Duplicate the active geometry node group and assign it to the active modifier
+- `bpy.ops.object.geometry_nodes_input_attribute_toggle(input_name: string, modifier_name: string)` — Switch between an attribute and a single value to define the data for every element
+- `bpy.ops.object.geometry_nodes_move_to_nodes(use_selected_objects: boolean)` — Move inputs and outputs from in the modifier to a new node group
+- `bpy.ops.object.grease_pencil_add(type: enum{EMPTY, STROKE, MONKEY, LINEART_SCENE, LINEART_COLLECTION, LINEART_OBJECT}, use_in_front: boolean, stroke_depth_offset: float, use_lights: boolean, stroke_depth_order: enum{2D, 3D}, radius: float, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a Grease Pencil object to the scene
+- `bpy.ops.object.grease_pencil_dash_modifier_segment_add(modifier: string)` — Add a segment to the dash modifier
+- `bpy.ops.object.grease_pencil_dash_modifier_segment_move(modifier: string, type: enum{UP, DOWN})` — Move the active dash segment up or down
+- `bpy.ops.object.grease_pencil_dash_modifier_segment_remove(modifier: string, index: int)` — Remove the active segment from the dash modifier
+- `bpy.ops.object.grease_pencil_time_modifier_segment_add(modifier: string)` — Add a segment to the time modifier
+- `bpy.ops.object.grease_pencil_time_modifier_segment_move(modifier: string, type: enum{UP, DOWN})` — Move the active time segment up or down
+- `bpy.ops.object.grease_pencil_time_modifier_segment_remove(modifier: string, index: int)` — Remove the active segment from the time modifier
+- `bpy.ops.object.hide_collection(collection_index: int, toggle: boolean, extend: boolean)` — Show only objects in collection (Shift to extend)
+- `bpy.ops.object.hide_render_clear_all()` — Reveal all render objects by setting the hide render flag
+- `bpy.ops.object.hide_view_clear(select: boolean)` — Reveal temporarily hidden objects
+- `bpy.ops.object.hide_view_set(unselected: boolean)` — Temporarily hide objects from the viewport
+- `bpy.ops.object.hook_add_newob()` — Hook selected vertices to a newly created object
+- `bpy.ops.object.hook_add_selob(use_bone: boolean)` — Hook selected vertices to the first selected object
+- `bpy.ops.object.hook_assign(modifier: enum{})` — Assign the selected vertices to a hook
+- `bpy.ops.object.hook_recenter(modifier: enum{})` — Set hook center to cursor position
+- `bpy.ops.object.hook_remove(modifier: enum{})` — Remove a hook from the active object
+- `bpy.ops.object.hook_reset(modifier: enum{})` — Recalculate and clear offset transformation
+- `bpy.ops.object.hook_select(modifier: enum{})` — Select affected vertices on mesh
+- `bpy.ops.object.instance_offset_from_cursor()` — Set offset used for collection instances based on cursor position
+- `bpy.ops.object.instance_offset_from_object()` — Set offset used for collection instances based on the active object position
+- `bpy.ops.object.instance_offset_to_cursor()` — Set cursor position to the offset used for collection instances
+- `bpy.ops.object.isolate_type_render()` — Hide unselected render objects of same type as active by setting the hide render flag
+- `bpy.ops.object.join()` — Join selected objects into active object
+- `bpy.ops.object.join_shapes(use_mirror: boolean)` — Add the vertex positions of selected objects as shape keys or update existing shape keys with matching names
+- `bpy.ops.object.join_uvs()` — Transfer UV Maps from active to selected objects (needs matching geometry)
+- `bpy.ops.object.laplaciandeform_bind(modifier: string)` — Bind mesh to system in laplacian deform modifier
+- `bpy.ops.object.lattice_add_to_selected(fit_to_selected: boolean, radius: float, margin: float, add_modifiers: boolean, resolution_u: int, resolution_v: int, resolution_w: int, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a lattice and use it to deform selected objects
+- `bpy.ops.object.light_add(type: enum{POINT, SUN, SPOT, AREA}, radius: float, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a light object to the scene
+- `bpy.ops.object.light_linking_blocker_collection_new()` — Create new light linking collection used by the active emitter
+- `bpy.ops.object.light_linking_blockers_link(link_state: enum{INCLUDE, EXCLUDE})` — Light link selected blockers to the active emitter object
+- `bpy.ops.object.light_linking_blockers_select()` — Select all objects which block light from this emitter
+- `bpy.ops.object.light_linking_receiver_collection_new()` — Create new light linking collection used by the active emitter
+- `bpy.ops.object.light_linking_receivers_link(link_state: enum{INCLUDE, EXCLUDE})` — Light link selected receivers to the active emitter object
+- `bpy.ops.object.light_linking_receivers_select()` — Select all objects which receive light from this emitter
+- `bpy.ops.object.light_linking_unlink_from_collection()` — Remove this object or collection from the light linking collection
+- `bpy.ops.object.lightprobe_add(type: enum{SPHERE, PLANE, VOLUME}, radius: float, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a light probe object
+- `bpy.ops.object.lightprobe_cache_bake(subset: enum{ALL, SELECTED, ACTIVE})` — Bake irradiance volume light cache
+- `bpy.ops.object.lightprobe_cache_free(subset: enum{ALL, SELECTED, ACTIVE})` — Delete cached indirect lighting
+- `bpy.ops.object.lineart_bake_strokes(bake_all: boolean)` — Bake Line Art for current Grease Pencil object
+- `bpy.ops.object.lineart_clear(clear_all: boolean)` — Clear all strokes in current Grease Pencil object
+- `bpy.ops.object.link_to_collection(collection_uid: int, is_new: boolean, new_collection_name: string)` — Link objects to a collection
+- `bpy.ops.object.location_clear(clear_delta: boolean)` — Clear the object's location
+- `bpy.ops.object.make_dupli_face()` — Convert objects into instanced faces
+- `bpy.ops.object.make_links_data(type: enum{OBDATA, MATERIAL, ANIMATION, GROUPS, DUPLICOLLECTION, FONTS, MODIFIERS, CONSTRAINTS, EFFECTS, LIGHT_LINKING, SHADOW_LINKING})` — Transfer data from active object to selected objects
+- `bpy.ops.object.make_links_scene(scene: enum{})` — Link selection to another scene
+- `bpy.ops.object.make_local(type: enum{SELECT_OBJECT, SELECT_OBDATA, SELECT_OBDATA_MATERIAL, ALL})` — Make library linked data-blocks local to this file
+- `bpy.ops.object.make_override_library(collection: int)` — Create a local override of the selected linked objects, and their hierarchy of dependencies
+- `bpy.ops.object.make_single_user(type: enum{SELECTED_OBJECTS, ALL}, object: boolean, obdata: boolean, material: boolean, animation: boolean, obdata_animation: boolean)` — Make linked data local to each object
+- `bpy.ops.object.material_slot_add()` — Add a new material slot
+- `bpy.ops.object.material_slot_assign()` — Assign active material slot to selection
+- `bpy.ops.object.material_slot_copy()` — Copy material to selected objects
+- `bpy.ops.object.material_slot_deselect()` — Deselect by active material slot
+- `bpy.ops.object.material_slot_move(direction: enum{UP, DOWN})` — Move the active material up/down in the list
+- `bpy.ops.object.material_slot_remove()` — Remove the selected material slot
+- `bpy.ops.object.material_slot_remove_all()` — Remove all materials
+- `bpy.ops.object.material_slot_remove_unused()` — Remove unused material slots
+- `bpy.ops.object.material_slot_select()` — Select by active material slot
+- `bpy.ops.object.meshdeform_bind(modifier: string)` — Bind mesh to cage in mesh deform modifier
+- `bpy.ops.object.metaball_add(type: enum{BALL, CAPSULE, PLANE, ELLIPSOID, CUBE}, radius: float, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a metaball object to the scene
+- `bpy.ops.object.mode_set(mode: enum{OBJECT, EDIT, POSE, SCULPT, VERTEX_PAINT, WEIGHT_PAINT, TEXTURE_PAINT, PARTICLE_EDIT, EDIT_GPENCIL, SCULPT_GREASE_PENCIL, PAINT_GREASE_PENCIL, WEIGHT_GREASE_PENCIL, VERTEX_GREASE_PENCIL, SCULPT_CURVES}, toggle: boolean)` — Sets the object interaction mode
+- `bpy.ops.object.mode_set_with_submode(mode: enum{OBJECT, EDIT, POSE, SCULPT, VERTEX_PAINT, WEIGHT_PAINT, TEXTURE_PAINT, PARTICLE_EDIT, EDIT_GPENCIL, SCULPT_GREASE_PENCIL, PAINT_GREASE_PENCIL, WEIGHT_GREASE_PENCIL, VERTEX_GREASE_PENCIL, SCULPT_CURVES}, toggle: boolean, mesh_select_mode: enum{VERT, EDGE, FACE})` — Sets the object interaction mode
+- `bpy.ops.object.modifier_add(type: enum{GREASE_PENCIL_VERTEX_WEIGHT_PROXIMITY, DATA_TRANSFER, MESH_CACHE, MESH_SEQUENCE_CACHE, NORMAL_EDIT, WEIGHTED_NORMAL, UV_PROJECT, UV_WARP, VERTEX_WEIGHT_EDIT, VERTEX_WEIGHT_MIX, VERTEX_WEIGHT_PROXIMITY, GREASE_PENCIL_COLOR, GREASE_PENCIL_TINT, GREASE_PENCIL_OPACITY, GREASE_PENCIL_VERTEX_WEIGHT_ANGLE, GREASE_PENCIL_TIME, GREASE_PENCIL_TEXTURE, ARRAY, BEVEL, BOOLEAN, BUILD, DECIMATE, EDGE_SPLIT, NODES, MASK, MIRROR, MESH_TO_VOLUME, MULTIRES, REMESH, SCREW, SKIN, SOLIDIFY, SUBSURF, TRIANGULATE, VOLUME_TO_MESH, WELD, WIREFRAME, GREASE_PENCIL_ARRAY, GREASE_PENCIL_BUILD, GREASE_PENCIL_LENGTH, LINEART, GREASE_PENCIL_MIRROR, GREASE_PENCIL_MULTIPLY, GREASE_PENCIL_SIMPLIFY, GREASE_PENCIL_SUBDIV, GREASE_PENCIL_ENVELOPE, GREASE_PENCIL_OUTLINE, ARMATURE, CAST, CURVE, DISPLACE, HOOK, LAPLACIANDEFORM, LATTICE, MESH_DEFORM, SHRINKWRAP, SIMPLE_DEFORM, SMOOTH, CORRECTIVE_SMOOTH, LAPLACIANSMOOTH, SURFACE_DEFORM, WARP, WAVE, VOLUME_DISPLACE, GREASE_PENCIL_HOOK, GREASE_PENCIL_NOISE, GREASE_PENCIL_OFFSET, GREASE_PENCIL_SMOOTH, GREASE_PENCIL_THICKNESS, GREASE_PENCIL_LATTICE, GREASE_PENCIL_DASH, GREASE_PENCIL_ARMATURE, GREASE_PENCIL_SHRINKWRAP, CLOTH, COLLISION, DYNAMIC_PAINT, EXPLODE, FLUID, OCEAN, PARTICLE_INSTANCE, PARTICLE_SYSTEM, SOFT_BODY, SURFACE}, use_selected_objects: boolean)` — Add a procedural operation/effect to the active object
+- `bpy.ops.object.modifier_add_node_group(asset_library_type: enum{ALL, LOCAL, ESSENTIALS, ONLINE_ESSENTIALS, CUSTOM}, asset_library_identifier: string, relative_asset_identifier: string, session_uid: int, use_selected_objects: boolean)` — Add a procedural operation/effect to the active object
+- `bpy.ops.object.modifier_apply(modifier: string, report: boolean, merge_customdata: boolean, single_user: boolean, all_keyframes: boolean, use_selected_objects: boolean)` — Apply modifier and remove from the stack
+- `bpy.ops.object.modifier_apply_as_shapekey(keep_modifier: boolean, modifier: string, report: boolean, use_selected_objects: boolean)` — Apply modifier as a new shape key and remove from the stack
+- `bpy.ops.object.modifier_convert(modifier: string)` — Convert particles to a mesh object
+- `bpy.ops.object.modifier_copy(modifier: string, use_selected_objects: boolean)` — Duplicate modifier at the same position in the stack
+- `bpy.ops.object.modifier_copy_to_selected(modifier: string)` — Copy the modifier from the active object to all selected objects
+- `bpy.ops.object.modifier_move_down(modifier: string)` — Move modifier down in the stack
+- `bpy.ops.object.modifier_move_to_index(modifier: string, index: int, use_selected_objects: boolean)` — Change the modifier's index in the stack so it evaluates after the set number of others
+- `bpy.ops.object.modifier_move_up(modifier: string)` — Move modifier up in the stack
+- `bpy.ops.object.modifier_remove(modifier: string, report: boolean, use_selected_objects: boolean)` — Remove a modifier from the active object
+- `bpy.ops.object.modifier_set_active(modifier: string)` — Activate the modifier to use as the context
+- `bpy.ops.object.modifiers_clear()` — Clear all modifiers from the selected objects
+- `bpy.ops.object.modifiers_copy_to_selected()` — Copy modifiers to other selected objects
+- `bpy.ops.object.move_to_collection(collection_uid: int, is_new: boolean, new_collection_name: string)` — Move objects to a collection
+- `bpy.ops.object.multires_base_apply(modifier: string, apply_heuristic: boolean)` — Modify the base mesh to conform to the displaced mesh
+- `bpy.ops.object.multires_external_pack()` — Pack displacements from an external file
+- `bpy.ops.object.multires_external_save(filepath: string, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{}, modifier: string)` — Save displacements to an external file
+- `bpy.ops.object.multires_higher_levels_delete(modifier: string)` — Deletes the higher resolution mesh, potential loss of detail
+- `bpy.ops.object.multires_rebuild_subdiv(modifier: string)` — Rebuilds all possible subdivisions levels to generate a lower resolution base mesh
+- `bpy.ops.object.multires_reshape(modifier: string)` — Copy vertex coordinates from other object
+- `bpy.ops.object.multires_subdivide(modifier: string, mode: enum{CATMULL_CLARK, SIMPLE, LINEAR})` — Add a new level of subdivision
+- `bpy.ops.object.multires_unsubdivide(modifier: string)` — Rebuild a lower subdivision level of the current base mesh
+- `bpy.ops.object.ocean_bake(modifier: string, free: boolean)` — Bake an image sequence of ocean data
+- `bpy.ops.object.origin_clear()` — Clear the object's origin
+- `bpy.ops.object.origin_set(type: enum{GEOMETRY_ORIGIN, ORIGIN_GEOMETRY, ORIGIN_CURSOR, ORIGIN_CENTER_OF_MASS, ORIGIN_CENTER_OF_VOLUME}, center: enum{MEDIAN, BOUNDS})` — Set the object's origin, by either moving the data, or set to center of data, or use 3D cursor
+- `bpy.ops.object.parent_clear(type: enum{CLEAR, CLEAR_KEEP_TRANSFORM, CLEAR_INVERSE})` — Clear the object's parenting
+- `bpy.ops.object.parent_inverse_apply()` — Apply the object's parent inverse to its data
+- `bpy.ops.object.parent_no_inverse_set(keep_transform: boolean)` — Set the object's parenting without setting the inverse parent correction
+- `bpy.ops.object.parent_set(type: enum{OBJECT, ARMATURE, ARMATURE_NAME, ARMATURE_AUTO, ARMATURE_ENVELOPE, BONE, BONE_RELATIVE, CURVE, FOLLOW, PATH_CONST, LATTICE, VERTEX, VERTEX_TRI}, xmirror: boolean, keep_transform: boolean)` — Set the object's parenting
+- `bpy.ops.object.particle_system_add()` — Add a particle system
+- `bpy.ops.object.particle_system_remove()` — Remove the selected particle system
+- `bpy.ops.object.paste_transform(method: enum{CURRENT, EXISTING_KEYS, BAKE}, bake_step: int, use_mirror: boolean, mirror_axis_loc: enum{x, y, z}, mirror_axis_rot: enum{x, y, z}, use_relative: boolean)` — Pastes the matrix from the clipboard to the currently active pose bone or object. Uses world-space matrices
+- `bpy.ops.object.paths_calculate(display_type: enum{CURRENT_FRAME, RANGE}, range: enum{KEYS_ALL, KEYS_SELECTED, SCENE, MANUAL})` — Generate motion paths for the selected objects
+- `bpy.ops.object.paths_clear(only_selected: boolean)` — (undocumented operator)
+- `bpy.ops.object.paths_update()` — Recalculate motion paths for selected objects
+- `bpy.ops.object.paths_update_visible()` — Recalculate all visible motion paths for objects and poses
+- `bpy.ops.object.pointcloud_random_add(align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a point cloud object to the scene
+- `bpy.ops.object.posemode_toggle()` — Enable or disable posing/selecting bones
+- `bpy.ops.object.quadriflow_remesh(use_mesh_symmetry: boolean, use_preserve_sharp: boolean, use_preserve_boundary: boolean, preserve_attributes: boolean, smooth_normals: boolean, mode: enum{RATIO, EDGE, FACES}, target_ratio: float, target_edge_length: float, target_faces: int, mesh_area: float, seed: int)` — Create a new quad based mesh using the surface data of the current mesh. All data layers will be lost
+- `bpy.ops.object.quick_explode(style: enum{EXPLODE, BLEND}, amount: int, frame_duration: int, frame_start: int, frame_end: int, velocity: float, fade: boolean)` — Make selected objects explode
+- `bpy.ops.object.quick_fur(density: enum{LOW, MEDIUM, HIGH}, length: float, radius: float, view_percentage: float, apply_hair_guides: boolean, use_noise: boolean, use_frizz: boolean)` — Add a fur setup to the selected objects
+- `bpy.ops.object.quick_liquid(show_flows: boolean)` — Make selected objects liquid
+- `bpy.ops.object.quick_smoke(style: enum{SMOKE, FIRE, BOTH}, show_flows: boolean)` — Use selected objects as smoke emitters
+- `bpy.ops.object.randomize_transform(random_seed: int, use_delta: boolean, use_loc: boolean, loc: float, use_rot: boolean, rot: float, use_scale: boolean, scale_even: boolean, scale: float)` — Randomize objects location, rotation, and scale
+- `bpy.ops.object.reset_override_library()` — Reset the selected local overrides to their linked references values
+- `bpy.ops.object.rotation_clear(clear_delta: boolean)` — Clear the object's rotation
+- `bpy.ops.object.scale_clear(clear_delta: boolean)` — Clear the object's scale
+- `bpy.ops.object.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Change selection of all visible objects in scene
+- `bpy.ops.object.select_by_type(extend: boolean, type: enum{MESH, CURVE, SURFACE, META, FONT, CURVES, POINTCLOUD, VOLUME, GREASEPENCIL, ARMATURE, LATTICE, EMPTY, LIGHT, LIGHT_PROBE, CAMERA, SPEAKER})` — Select all visible objects that are of a type
+- `bpy.ops.object.select_camera(extend: boolean)` — Select the active camera
+- `bpy.ops.object.select_grouped(extend: boolean, type: enum{CHILDREN_RECURSIVE, CHILDREN, PARENT, SIBLINGS, TYPE, COLLECTION, HOOK, PASS, COLOR, KEYINGSET, LIGHT_TYPE})` — Select all visible objects grouped by various properties
+- `bpy.ops.object.select_hierarchy(direction: enum{PARENT, CHILD}, extend: boolean)` — Select object relative to the active object's position in the hierarchy
+- `bpy.ops.object.select_less()` — Deselect objects at the boundaries of parent/child relationships
+- `bpy.ops.object.select_linked(extend: boolean, type: enum{OBDATA, MATERIAL, DUPGROUP, PARTICLE, LIBRARY, LIBRARY_OBDATA})` — Select all visible objects that are linked
+- `bpy.ops.object.select_mirror(extend: boolean)` — Select the mirror objects of the selected object e.g. "L.sword" and "R.sword"
+- `bpy.ops.object.select_more()` — Select connected parent/child objects
+- `bpy.ops.object.select_pattern(pattern: string, case_sensitive: boolean, extend: boolean)` — Select objects matching a naming pattern
+- `bpy.ops.object.select_random(ratio: float, seed: int, action: enum{SELECT, DESELECT})` — Select or deselect random visible objects
+- `bpy.ops.object.select_same_collection(collection: string)` — Select object in the same collection
+- `bpy.ops.object.shade_auto_smooth(use_auto_smooth: boolean, angle: float)` — Add modifier to automatically set the sharpness of mesh edges based on the angle between the neighboring faces
+- `bpy.ops.object.shade_flat(keep_sharp_edges: boolean)` — Render and display faces uniform, using face normals
+- `bpy.ops.object.shade_smooth(keep_sharp_edges: boolean)` — Render and display faces smooth, using interpolated vertex normals
+- `bpy.ops.object.shade_smooth_by_angle(angle: float, keep_sharp_edges: boolean)` — Set the sharpness of mesh edges based on the angle between the neighboring faces
+- `bpy.ops.object.shaderfx_add(type: enum{FX_BLUR, FX_COLORIZE, FX_FLIP, FX_GLOW, FX_PIXEL, FX_RIM, FX_SHADOW, FX_SWIRL, FX_WAVE})` — Add a visual effect to the active object
+- `bpy.ops.object.shaderfx_copy(shaderfx: string)` — Duplicate effect at the same position in the stack
+- `bpy.ops.object.shaderfx_move_down(shaderfx: string)` — Move effect down in the stack
+- `bpy.ops.object.shaderfx_move_to_index(shaderfx: string, index: int)` — Change the effect's position in the list so it evaluates after the set number of others
+- `bpy.ops.object.shaderfx_move_up(shaderfx: string)` — Move effect up in the stack
+- `bpy.ops.object.shaderfx_remove(shaderfx: string, report: boolean)` — Remove a effect from the active Grease Pencil object
+- `bpy.ops.object.shape_key_add(from_mix: boolean)` — Add shape key to the object
+- `bpy.ops.object.shape_key_apply_to_basis()` — Apply deformations of selected shape keys to the basis key, removing them
+- `bpy.ops.object.shape_key_clear()` — Reset the weights of all shape keys to 0 or to the closest value respecting the limits
+- `bpy.ops.object.shape_key_copy()` — Duplicate the active shape key
+- `bpy.ops.object.shape_key_lock(action: enum{LOCK, UNLOCK})` — Change the lock state of all shape keys of active object
+- `bpy.ops.object.shape_key_make_basis()` — Make this shape key the new basis key, effectively applying it to the mesh. Note that this applies the shape key at its 100% value
+- `bpy.ops.object.shape_key_mirror(use_topology: boolean)` — Mirror the current shape key along the local X axis
+- `bpy.ops.object.shape_key_move(type: enum{TOP, UP, DOWN, BOTTOM})` — Move selected shape keys up/down in the list
+- `bpy.ops.object.shape_key_remove(all: boolean, apply_mix: boolean)` — Remove shape key from the object
+- `bpy.ops.object.shape_key_retime()` — Resets the timing for absolute shape keys
+- `bpy.ops.object.shape_key_transfer(mode: enum{OFFSET, RELATIVE_FACE, RELATIVE_EDGE}, use_clamp: boolean)` — Copy the active shape key of another selected object to this one
+- `bpy.ops.object.simulation_nodes_cache_bake(selected: boolean)` — Bake simulations in geometry nodes modifiers
+- `bpy.ops.object.simulation_nodes_cache_calculate_to_frame(selected: boolean)` — Calculate simulations in geometry nodes modifiers from the start to current frame
+- `bpy.ops.object.simulation_nodes_cache_delete(selected: boolean)` — Delete cached/baked simulations in geometry nodes modifiers
+- `bpy.ops.object.skin_armature_create(modifier: string)` — Create an armature that parallels the skin layout
+- `bpy.ops.object.skin_loose_mark_clear(action: enum{MARK, CLEAR})` — Mark/clear selected vertices as loose
+- `bpy.ops.object.skin_radii_equalize()` — Make skin radii of selected vertices equal on each axis
+- `bpy.ops.object.skin_root_mark()` — Mark selected vertices as roots
+- `bpy.ops.object.speaker_add(enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a speaker object to the scene
+- `bpy.ops.object.subdivision_set(level: int, relative: boolean, ensure_modifier: boolean)` — Sets a Subdivision Surface level (1 to 5)
+- `bpy.ops.object.surfacedeform_bind(modifier: string)` — Bind mesh to target in surface deform modifier
+- `bpy.ops.object.text_add(radius: float, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a text object to the scene
+- `bpy.ops.object.track_clear(type: enum{CLEAR, CLEAR_KEEP_TRANSFORM})` — Clear tracking constraint or flag from object
+- `bpy.ops.object.track_set(type: enum{DAMPTRACK, TRACKTO, LOCKTRACK})` — Make the object track another object, using various methods/constraints
+- `bpy.ops.object.transfer_mode(use_flash_on_transfer: boolean)` — Switches the active object and assigns the same mode to a new one under the mouse cursor, leaving the active mode in the current one
+- `bpy.ops.object.transform_apply(location: boolean, rotation: boolean, scale: boolean, properties: boolean, corrective_flip_normals: boolean, isolate_users: boolean)` — Apply the object's transformation to its data
+- `bpy.ops.object.transform_axis_target()` — Interactively point cameras and lights to the surface under the pointer (Ctrl to translate)
+- `bpy.ops.object.transform_to_mouse(name: string, session_uid: int, matrix: float, drop_x: int, drop_y: int)` — Snap selected item(s) to the mouse location
+- `bpy.ops.object.transforms_to_deltas(mode: enum{ALL, LOC, ROT, SCALE}, reset_values: boolean)` — Convert normal object transforms to delta transforms, any existing delta transforms will be included as well
+- `bpy.ops.object.unlink_data()` — (undocumented operator)
+- `bpy.ops.object.update_shapes(use_mirror: boolean)` — Update existing shape keys with the vertex positions of selected objects with matching names
+- `bpy.ops.object.vertex_group_add()` — Add a new vertex group to the active object
+- `bpy.ops.object.vertex_group_assign()` — Assign the selected vertices to the active vertex group
+- `bpy.ops.object.vertex_group_assign_new()` — Assign the selected vertices to a new vertex group
+- `bpy.ops.object.vertex_group_clean(group_select_mode: enum{}, limit: float, keep_single: boolean)` — Remove vertex group assignments which are not required
+- `bpy.ops.object.vertex_group_copy()` — Make a copy of the active vertex group
+- `bpy.ops.object.vertex_group_copy_to_selected()` — Replace vertex groups of selected objects by vertex groups of active object
+- `bpy.ops.object.vertex_group_deselect()` — Deselect all selected vertices assigned to the active vertex group
+- `bpy.ops.object.vertex_group_invert(group_select_mode: enum{}, auto_assign: boolean, auto_remove: boolean)` — Invert active vertex group's weights
+- `bpy.ops.object.vertex_group_levels(group_select_mode: enum{}, offset: float, gain: float)` — Add some offset and multiply with some gain the weights of the active vertex group
+- `bpy.ops.object.vertex_group_limit_total(group_select_mode: enum{}, limit: int)` — Limit deform weights associated with a vertex to a specified number by removing lowest weights
+- `bpy.ops.object.vertex_group_lock(action: enum{TOGGLE, LOCK, UNLOCK, INVERT}, mask: enum{ALL, SELECTED, UNSELECTED, INVERT_UNSELECTED})` — Change the lock state of all or some vertex groups of active object
+- `bpy.ops.object.vertex_group_mirror(mirror_weights: boolean, flip_group_names: boolean, all_groups: boolean, use_topology: boolean)` — Mirror vertex group, flip weights and/or names, editing only selected vertices, flipping when both sides are selected otherwise copy from unselected
+- `bpy.ops.object.vertex_group_move(direction: enum{UP, DOWN})` — Move the active vertex group up/down in the list
+- `bpy.ops.object.vertex_group_normalize()` — Normalize weights of the active vertex group, so that the highest ones are now 1.0
+- `bpy.ops.object.vertex_group_normalize_all(group_select_mode: enum{}, lock_active: boolean)` — Normalize all weights of all vertex groups, so that for each vertex, the sum of all weights is 1.0
+- `bpy.ops.object.vertex_group_quantize(group_select_mode: enum{}, steps: int)` — Set weights to a fixed number of steps
+- `bpy.ops.object.vertex_group_remove(all: boolean, all_unlocked: boolean)` — Delete the active or all vertex groups from the active object
+- `bpy.ops.object.vertex_group_remove_from(use_all_groups: boolean, use_all_verts: boolean)` — Remove the selected vertices from active or all vertex group(s)
+- `bpy.ops.object.vertex_group_select()` — Select all the vertices assigned to the active vertex group
+- `bpy.ops.object.vertex_group_set_active(group: enum{})` — Set the active vertex group
+- `bpy.ops.object.vertex_group_smooth(group_select_mode: enum{}, factor: float, repeat: int, expand: float)` — Smooth weights for selected vertices
+- `bpy.ops.object.vertex_group_sort(sort_type: enum{NAME, BONE_HIERARCHY})` — Sort vertex groups
+- `bpy.ops.object.vertex_parent_set()` — Parent selected objects to the selected vertices
+- `bpy.ops.object.vertex_weight_copy()` — Copy weights from active to selected
+- `bpy.ops.object.vertex_weight_delete(weight_group: int)` — Delete this weight from the vertex (disabled if vertex group is locked)
+- `bpy.ops.object.vertex_weight_normalize_active_vertex()` — Normalize active vertex's weights
+- `bpy.ops.object.vertex_weight_paste(weight_group: int)` — Copy this group's weight to other selected vertices (disabled if vertex group is locked)
+- `bpy.ops.object.vertex_weight_set_active(weight_group: int)` — Set as active vertex group
+- `bpy.ops.object.visual_geometry_to_objects()` — Convert geometry and instances into editable objects and collections
+- `bpy.ops.object.visual_transform_apply()` — Apply the object's visual transformation to its data
+- `bpy.ops.object.volume_add(align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Add a volume object to the scene
+- `bpy.ops.object.volume_import(filepath: string, directory: string, files: collection, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{}, use_sequence_detection: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Import OpenVDB volume file
+- `bpy.ops.object.voxel_remesh()` — Calculates a new manifold mesh based on the volume of the current mesh. All data layers will be lost
+- `bpy.ops.object.voxel_size_edit()` — Modify the mesh voxel size interactively used in the voxel remesher

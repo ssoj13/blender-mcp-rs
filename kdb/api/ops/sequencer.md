@@ -1,0 +1,119 @@
+---
+area: api-ops
+group: sequencer
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.sequencer
+
+- `bpy.ops.sequencer.add_scene_strip_from_scene_asset(move_strips: boolean, frame_start: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, asset_library_type: enum{ALL, LOCAL, ESSENTIALS, ONLINE_ESSENTIALS, CUSTOM}, asset_library_identifier: string, relative_asset_identifier: string)` — Add a strip using a duplicate of this scene asset as the source
+- `bpy.ops.sequencer.box_blade(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB}, type: enum{SOFT, HARD}, ignore_selection: boolean, ignore_connections: boolean, remove_gaps: boolean)` — Draw a box around the parts of strips you want to cut away
+- `bpy.ops.sequencer.change_effect_type(type: enum{CROSS, ADD, SUBTRACT, ALPHA_OVER, ALPHA_UNDER, GAMMA_CROSS, MULTIPLY, WIPE, GLOW, COLOR, SPEED, MULTICAM, ADJUSTMENT, GAUSSIAN_BLUR, TEXT, COLORMIX, COMPOSITOR})` — Replace effect strip with another that takes the same number of inputs
+- `bpy.ops.sequencer.change_path(filepath: string, directory: string, files: collection, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{}, use_sequence_detection: boolean, use_placeholders: boolean)` — (undocumented operator)
+- `bpy.ops.sequencer.change_scene(scene: enum{})` — Change Scene assigned to Strip
+- `bpy.ops.sequencer.connect(toggle: boolean)` — Link selected strips together for simplified group selection
+- `bpy.ops.sequencer.copy()` — Copy the selected strips to the internal clipboard
+- `bpy.ops.sequencer.crossfade_sounds()` — Do cross-fading volume animation of two selected sound strips
+- `bpy.ops.sequencer.cursor_set(location: float)` — Set 2D cursor location
+- `bpy.ops.sequencer.deinterlace_selected_movies()` — Deinterlace all selected movie sources
+- `bpy.ops.sequencer.delete(delete_data: boolean)` — Delete selected strips from the sequencer
+- `bpy.ops.sequencer.disconnect()` — Unlink selected strips so that they can be selected individually
+- `bpy.ops.sequencer.duplicate(linked: boolean)` — Duplicate the selected strips
+- `bpy.ops.sequencer.duplicate_move(SEQUENCER_OT_duplicate: pointer, TRANSFORM_OT_seq_slide: pointer)` — Duplicate selected strips and move them
+- `bpy.ops.sequencer.duplicate_move_linked(SEQUENCER_OT_duplicate: pointer, TRANSFORM_OT_seq_slide: pointer)` — Duplicate selected strips, but not their data, and move them
+- `bpy.ops.sequencer.effect_strip_add(type: enum{CROSS, ADD, SUBTRACT, ALPHA_OVER, ALPHA_UNDER, GAMMA_CROSS, MULTIPLY, WIPE, GLOW, COLOR, SPEED, MULTICAM, ADJUSTMENT, GAUSSIAN_BLUR, TEXT, COLORMIX, COMPOSITOR}, move_strips: boolean, frame_start: int, length: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, width: int, height: int, color: float)` — Add an effect to the sequencer, most are applied on top of existing strips
+- `bpy.ops.sequencer.enable_proxies(proxy_25: boolean, proxy_50: boolean, proxy_75: boolean, proxy_100: boolean, overwrite: boolean)` — Enable selected proxies on all selected Movie and Image strips
+- `bpy.ops.sequencer.export_subtitles(filepath: string, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{})` — Export .srt file containing text strips
+- `bpy.ops.sequencer.fades_add(duration_seconds: float, type: enum{IN_OUT, IN, OUT, CURSOR_FROM, CURSOR_TO})` — Adds or updates a fade animation for either visual or audio strips
+- `bpy.ops.sequencer.fades_clear()` — Removes fade animation from selected strips
+- `bpy.ops.sequencer.gap_insert(frames: int)` — Insert gap at current frame to first strips at the right, independent of selection or locked state of strips
+- `bpy.ops.sequencer.gap_remove(all: boolean)` — Remove gap at current frame to first strip at the right, independent of selection or locked state of strips
+- `bpy.ops.sequencer.image_strip_add(directory: string, files: collection, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{DEFAULT, FILE_SORT_ALPHA, FILE_SORT_EXTENSION, FILE_SORT_TIME, FILE_SORT_SIZE, ASSET_CATALOG}, move_strips: boolean, frame_start: int, length: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, fit_method: enum{FIT, FILL, STRETCH, ORIGINAL}, set_view_transform: boolean, image_import_type: enum{DETECT, SEQUENCE, INDIVIDUAL}, use_sequence_detection: boolean, use_placeholders: boolean)` — Add an image or image sequence to the sequencer
+- `bpy.ops.sequencer.images_separate(length: int)` — On image sequence strips, it returns a strip for each image
+- `bpy.ops.sequencer.lock()` — Lock strips so they cannot be transformed
+- `bpy.ops.sequencer.mask_strip_add(move_strips: boolean, frame_start: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, mask: enum{})` — Add a mask strip to the sequencer
+- `bpy.ops.sequencer.meta_make()` — Group selected strips into a meta-strip
+- `bpy.ops.sequencer.meta_separate()` — Put the contents of a meta-strip back in the sequencer
+- `bpy.ops.sequencer.meta_toggle()` — Toggle a meta-strip (to edit enclosed strips)
+- `bpy.ops.sequencer.movie_strip_add(filepath: string, directory: string, files: collection, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{DEFAULT, FILE_SORT_ALPHA, FILE_SORT_EXTENSION, FILE_SORT_TIME, FILE_SORT_SIZE, ASSET_CATALOG}, move_strips: boolean, frame_start: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, fit_method: enum{FIT, FILL, STRETCH, ORIGINAL}, set_view_transform: boolean, adjust_playback_rate: boolean, sound: boolean, use_framerate: boolean)` — Add a movie strip to the sequencer
+- `bpy.ops.sequencer.movieclip_strip_add(move_strips: boolean, frame_start: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, clip: enum{})` — Add a movieclip strip to the sequencer
+- `bpy.ops.sequencer.mute(unselected: boolean)` — Mute (un)selected strips
+- `bpy.ops.sequencer.offset_clear()` — Clear strip in/out offsets from the start and end of content
+- `bpy.ops.sequencer.paste(keep_offset: boolean, x: int, y: int)` — Paste strips from the internal clipboard
+- `bpy.ops.sequencer.preview_duplicate_move(SEQUENCER_OT_duplicate: pointer, TRANSFORM_OT_translate: pointer)` — Duplicate selected strips and move them
+- `bpy.ops.sequencer.preview_duplicate_move_linked(SEQUENCER_OT_duplicate: pointer, TRANSFORM_OT_translate: pointer)` — Duplicate selected strips, but not their data, and move them
+- `bpy.ops.sequencer.reassign_inputs()` — Reassign the inputs for the effect strip
+- `bpy.ops.sequencer.rebuild_proxy()` — Rebuild all selected proxies
+- `bpy.ops.sequencer.refresh_all()` — Refresh the sequencer editor
+- `bpy.ops.sequencer.reload(adjust_length: boolean)` — Reload strips in the sequencer
+- `bpy.ops.sequencer.rename_channel()` — (undocumented operator)
+- `bpy.ops.sequencer.rendersize()` — Set render size and aspect from active strip
+- `bpy.ops.sequencer.retiming_add_freeze_frame_slide(SEQUENCER_OT_retiming_freeze_frame_add: pointer, TRANSFORM_OT_seq_slide: pointer)` — Add freeze frame and move it
+- `bpy.ops.sequencer.retiming_add_transition_slide(SEQUENCER_OT_retiming_transition_add: pointer, TRANSFORM_OT_seq_slide: pointer)` — Add smooth transition between 2 retimed segments and change its duration
+- `bpy.ops.sequencer.retiming_freeze_frame_add(duration: int)` — Add freeze frame
+- `bpy.ops.sequencer.retiming_key_add(timeline_frame: int)` — Add retiming Key
+- `bpy.ops.sequencer.retiming_key_delete()` — Delete selected retiming keys from the sequencer
+- `bpy.ops.sequencer.retiming_reset()` — Reset strip retiming
+- `bpy.ops.sequencer.retiming_segment_speed_set(speed: float)` — Set speed of retimed segment
+- `bpy.ops.sequencer.retiming_show()` — Show retiming keys in selected strips
+- `bpy.ops.sequencer.retiming_transition_add(duration: int)` — Add smooth transition between 2 retimed segments
+- `bpy.ops.sequencer.sample(size: int)` — Use mouse to sample color in current frame
+- `bpy.ops.sequencer.scene_frame_range_update()` — Update frame range of scene strip
+- `bpy.ops.sequencer.scene_strip_add(move_strips: boolean, frame_start: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, scene: enum{})` — Add a strip re-using this scene as the source
+- `bpy.ops.sequencer.scene_strip_add_new(move_strips: boolean, frame_start: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, type: enum{NEW, EMPTY, LINK_COPY, FULL_COPY})` — Add a strip using a new scene as the source
+- `bpy.ops.sequencer.select(wait_to_deselect_others: boolean, use_select_on_click: boolean, mouse_x: int, mouse_y: int, extend: boolean, deselect: boolean, toggle: boolean, deselect_all: boolean, select_passthrough: boolean, center: boolean, linked_handle: boolean, linked_time: boolean, side_of_frame: boolean, ignore_connections: boolean)` — Select a strip (last selected becomes the "active strip")
+- `bpy.ops.sequencer.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Select or deselect all strips
+- `bpy.ops.sequencer.select_box(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB}, tweak: boolean, include_handles: boolean, ignore_connections: boolean)` — Select strips using box selection
+- `bpy.ops.sequencer.select_circle(x: int, y: int, radius: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB}, ignore_connections: boolean)` — Select strips using circle selection
+- `bpy.ops.sequencer.select_grouped(type: enum{TYPE, TYPE_BASIC, TYPE_EFFECT, DATA, EFFECT, EFFECT_LINK, OVERLAP}, extend: boolean, use_active_channel: boolean)` — Select all strips grouped by various properties
+- `bpy.ops.sequencer.select_handle(wait_to_deselect_others: boolean, use_select_on_click: boolean, mouse_x: int, mouse_y: int, ignore_connections: boolean)` — Select strip handle
+- `bpy.ops.sequencer.select_handles(side: enum{LEFT, RIGHT, BOTH, LEFT_NEIGHBOR, RIGHT_NEIGHBOR, BOTH_NEIGHBORS})` — Select gizmo handles on the sides of the selected strip
+- `bpy.ops.sequencer.select_lasso(path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, mode: enum{SET, ADD, SUB})` — Select strips using lasso selection
+- `bpy.ops.sequencer.select_less()` — Shrink the current selection of adjacent selected strips
+- `bpy.ops.sequencer.select_linked()` — Select all strips adjacent to the current selection
+- `bpy.ops.sequencer.select_linked_pick(extend: boolean)` — Select a chain of linked strips nearest to the mouse pointer
+- `bpy.ops.sequencer.select_more()` — Select more strips adjacent to the current selection
+- `bpy.ops.sequencer.select_side(side: enum{MOUSE, LEFT, RIGHT, BOTH, NO_CHANGE})` — Select strips on the nominated side of the selected strips
+- `bpy.ops.sequencer.select_side_of_frame(extend: boolean, side: enum{LEFT, RIGHT, CURRENT})` — Select strips relative to the current frame
+- `bpy.ops.sequencer.set_range_to_strips(preview: boolean)` — Set the frame range to the selected strips start and end
+- `bpy.ops.sequencer.slip(offset: float, slip_keyframes: boolean, use_cursor_position: boolean, ignore_connections: boolean)` — Slip the contents of selected strips
+- `bpy.ops.sequencer.snap(frame: int, side: enum{LEFT, RIGHT}, keep_offset: boolean)` — Snap strips to the current frame, using the active (or closest) strip as the anchor, and the mouse cursor relative to the playhead to determine the side of the playhead to snap to
+- `bpy.ops.sequencer.sound_strip_add(filepath: string, directory: string, files: collection, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{DEFAULT, FILE_SORT_ALPHA, FILE_SORT_EXTENSION, FILE_SORT_TIME, FILE_SORT_SIZE, ASSET_CATALOG}, move_strips: boolean, frame_start: int, channel: int, replace_sel: boolean, overlap: boolean, overlap_shuffle_override: boolean, skip_locked_or_muted_channels: boolean, cache: boolean, mono: boolean)` — Add a sound strip to the sequencer
+- `bpy.ops.sequencer.split(frame: int, channel: int, type: enum{SOFT, HARD}, use_cursor_position: boolean, side: enum{MOUSE, LEFT, RIGHT, BOTH, NO_CHANGE}, ignore_selection: boolean, ignore_connections: boolean)` — Split the selected strips in two
+- `bpy.ops.sequencer.split_multicam(camera: int)` — Split multicam strip and select camera
+- `bpy.ops.sequencer.strip_color_tag_set(color: enum{NONE, COLOR_01, COLOR_02, COLOR_03, COLOR_04, COLOR_05, COLOR_06, COLOR_07, COLOR_08, COLOR_09})` — Set a color tag for the selected strips
+- `bpy.ops.sequencer.strip_jump(next: boolean, center: boolean)` — Move playhead to the next or previous edit point, which may be a strip handle or its center
+- `bpy.ops.sequencer.strip_modifier_add(type: enum{})` — Add a modifier to the strip
+- `bpy.ops.sequencer.strip_modifier_add_node_group(asset_library_type: enum{ALL, LOCAL, ESSENTIALS, ONLINE_ESSENTIALS, CUSTOM}, asset_library_identifier: string, relative_asset_identifier: string, session_uid: int)` — Add a modifier to the strip
+- `bpy.ops.sequencer.strip_modifier_copy(type: enum{REPLACE, APPEND}, modifier: string)` — Copy modifiers of the active strip to all selected strips
+- `bpy.ops.sequencer.strip_modifier_duplicate(modifier: string)` — Duplicate (active) modifier of the active strip
+- `bpy.ops.sequencer.strip_modifier_equalizer_redefine(graphs: enum{SIMPLE, DOUBLE, TRIPLE}, name: string)` — Redefine equalizer graphs
+- `bpy.ops.sequencer.strip_modifier_move(name: string, direction: enum{UP, DOWN})` — Move modifier up and down in the stack
+- `bpy.ops.sequencer.strip_modifier_move_to_index(modifier: string, index: int)` — Change the strip modifier's index in the stack so it evaluates after the set number of others
+- `bpy.ops.sequencer.strip_modifier_remove(name: string)` — Remove a modifier from the strip
+- `bpy.ops.sequencer.strip_modifier_set_active(modifier: string)` — Activate the strip modifier to use as the context
+- `bpy.ops.sequencer.strip_transform_clear(property: enum{POSITION, SCALE, ROTATION, ALL})` — Reset image transformation to default value
+- `bpy.ops.sequencer.strip_transform_fit(fit_method: enum{FIT, FILL, STRETCH, ORIGINAL})` — (undocumented operator)
+- `bpy.ops.sequencer.swap(side: enum{LEFT, RIGHT})` — Swap active strip with strip to the right or left
+- `bpy.ops.sequencer.swap_data()` — Swap 2 sequencer strips
+- `bpy.ops.sequencer.swap_inputs()` — Swap the two inputs of the effect strip
+- `bpy.ops.sequencer.text_cursor_move(type: enum{LINE_BEGIN, LINE_END, TEXT_BEGIN, TEXT_END, PREVIOUS_CHARACTER, NEXT_CHARACTER, PREVIOUS_WORD, NEXT_WORD, PREVIOUS_LINE, NEXT_LINE}, select_text: boolean)` — Move cursor in text
+- `bpy.ops.sequencer.text_cursor_set(select_text: boolean)` — Set cursor position in text
+- `bpy.ops.sequencer.text_delete(type: enum{NEXT_OR_SELECTION, PREVIOUS_OR_SELECTION})` — Delete text at cursor position
+- `bpy.ops.sequencer.text_deselect_all()` — Deselect all characters
+- `bpy.ops.sequencer.text_edit_copy()` — Copy text to clipboard
+- `bpy.ops.sequencer.text_edit_cut()` — Cut text to clipboard
+- `bpy.ops.sequencer.text_edit_mode_toggle()` — Toggle text editing
+- `bpy.ops.sequencer.text_edit_paste()` — Paste text from clipboard
+- `bpy.ops.sequencer.text_insert(string: string)` — Insert text at cursor position
+- `bpy.ops.sequencer.text_line_break()` — Insert line break at cursor position
+- `bpy.ops.sequencer.text_select_all()` — Select all characters
+- `bpy.ops.sequencer.text_strip_style_preset_add(name: string, remove_name: boolean, remove_active: boolean)` — Add or remove a text strip style and layout preset
+- `bpy.ops.sequencer.unlock()` — Unlock strips so they can be transformed
+- `bpy.ops.sequencer.unmute(unselected: boolean)` — Unmute (un)selected strips
+- `bpy.ops.sequencer.view_all()` — View all the strips in the sequencer
+- `bpy.ops.sequencer.view_all_preview()` — Zoom preview to fit in the area
+- `bpy.ops.sequencer.view_frame()` — Move the view to the current frame
+- `bpy.ops.sequencer.view_ghost_border(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean)` — Set the boundaries of the border used for offset view
+- `bpy.ops.sequencer.view_selected()` — Zoom the sequencer on the selected strips
+- `bpy.ops.sequencer.view_zoom_ratio(ratio: float)` — Change zoom ratio of sequencer preview

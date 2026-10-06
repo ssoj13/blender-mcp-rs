@@ -1,0 +1,81 @@
+[package]
+name = "blender-mcp-rs"
+version = "0.1.0"
+edition = "2024"
+description = "MCP server for Blender 3D as Python extension"
+license = "BSD-3-Clause OR LicenseRef-Commercial"
+
+# This package is also the workspace root. `blender-control` lives under `crates/` as
+# an internal member, so it shares one target dir and one Cargo.lock instead of being
+# an out-of-tree path or an external git dep.
+[workspace]
+members = ["crates/blender-control"]
+resolver = "3"
+
+[lib]
+name = "blender_mcp"
+# cdylib: Python extension (.pyd); rlib: same crate is linkable by the `blender-mcp-rs` binary (shared types).
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "blender-mcp-rs"
+path = "src/main.rs"
+
+[dependencies]
+# PyO3 for Python bindings (lib only). abi3-py39: stable ABI (PEP 384), one binary for CPython 3.9+.
+include_dir = "0.7"
+pyo3 = { version = "0.29", features = ["extension-module", "abi3-py39"] }
+
+# Local IPC to Blender: named pipe on Windows, Unix socket elsewhere.
+# Pure Rust — no C library to build, no TCP port to bind, no firewall prompt.
+interprocess = "2.4"
+
+# Async Runtime (binary only)
+tokio = { version = "1.52", features = ["full", "sync"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Tool registry: each tool self-registers from its own module (no central match).
+# Verified to work inside the cdylib (.pyd) loaded by Blender's CPython on Windows.
+inventory = "0.3"
+
+# JSON Schema generated from the params struct. Pinned to the version rmcp uses,
+# so schemas produced here drop straight into rmcp's Tool without conversion.
+schemars = "1.2"
+base64 = "0.22"
+regex = "1"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+
+# CLI args
+clap = { version = "4.6", features = ["derive"] }
+
+# Error Handling
+anyhow = "1.0"
+
+# MCP protocol (stdio transport)
+rmcp = { version = "2.2", features = ["transport-io"] }
+
+# `install` / `uninstall` / `status` subcommands: registers this binary as an MCP server in
+# whichever agents the user actually has. Vendored into src/mcp_setup/ rather than a git
+# dependency — see src/mcp_setup/VENDOR.md — so the rest of this dep list covers what that
+# module needs (agent config files are JSONC / TOML, rewritten through a CST to preserve
+# comments and formatting).
+thiserror = "2.0"
+toml_edit = "0.25"
+jsonc-parser = { version = "0.33.1", features = ["cst", "serde"] }
+dirs = "6.0"
+
+# Find/launch/monitor/kill the Blender process (server-side, no bpy). Internal
+# workspace crate under `crates/` — kept separate so the pure process-control logic
+# stays reusable and free of pyo3/MCP, but versioned in this repo (see [workspace]).
+blender-control = { path = "crates/blender-control" }
+
+[dev-dependencies]
+# Used by the vendored mcp_setup roundtrip tests (src/mcp_setup/tests.rs).
+tempfile = "3"

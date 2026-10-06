@@ -1,0 +1,175 @@
+---
+area: api-ops
+group: mesh
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.mesh
+
+- `bpy.ops.mesh.attribute_set(value_float: float, value_float_vector_2d: float, value_float_vector_3d: float, value_float_vector_4d: float, value_int: int, value_int_vector_2d: int, value_color: float, value_bool: boolean)` — Set values of the active attribute for selected elements
+- `bpy.ops.mesh.average_normals(average_type: enum{CUSTOM_NORMAL, FACE_AREA, CORNER_ANGLE}, weight: int, threshold: float)` — Average custom normals of selected vertices
+- `bpy.ops.mesh.beautify_fill(angle_limit: float)` — Rearrange some faces to try to get less degenerated geometry
+- `bpy.ops.mesh.bevel(offset_type: enum{OFFSET, WIDTH, DEPTH, PERCENT, ABSOLUTE}, offset: float, profile_type: enum{SUPERELLIPSE, CUSTOM}, offset_pct: float, segments: int, profile: float, affect: enum{VERTICES, EDGES}, clamp_overlap: boolean, loop_slide: boolean, mark_seam: boolean, mark_sharp: boolean, material: int, harden_normals: boolean, face_strength_mode: enum{NONE, NEW, AFFECTED, ALL}, miter_outer: enum{SHARP, PATCH, ARC}, miter_inner: enum{SHARP, ARC}, spread: float, vmesh_method: enum{ADJ, CUTOFF}, release_confirm: boolean)` — Cut into selected items at an angle to create bevel or chamfer
+- `bpy.ops.mesh.bisect(plane_co: float, plane_no: float, use_fill: boolean, clear_inner: boolean, clear_outer: boolean, threshold: float, xstart: int, xend: int, ystart: int, yend: int, flip: boolean, cursor: int)` — Cut geometry along a plane (click-drag to define plane)
+- `bpy.ops.mesh.blend_from_shape(shape: enum{}, blend: float, add: boolean)` — Blend in shape from a shape key
+- `bpy.ops.mesh.bridge_edge_loops(type: enum{SINGLE, CLOSED, PAIRS}, use_merge: boolean, merge_factor: float, twist_offset: int, number_cuts: int, interpolation: enum{LINEAR, PATH, SURFACE}, smoothness: float, profile_shape_factor: float, profile_shape: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR})` — Create a bridge of faces between two or more selected edge loops
+- `bpy.ops.mesh.circularize(factor: float, fit_method: enum{LEAST_SQUARE, CONTRACT}, angle: float, use_custom_radius: boolean, custom_radius: float, regular: boolean, flatten: float, lock: boolean)` — Shape selected geometry into a circle
+- `bpy.ops.mesh.colors_reverse()` — Flip direction of face corner color attribute inside faces
+- `bpy.ops.mesh.colors_rotate(use_ccw: boolean)` — Rotate face corner color attribute inside faces
+- `bpy.ops.mesh.convex_hull(delete_unused: boolean, use_existing_faces: boolean, make_holes: boolean, join_triangles: boolean, face_threshold: float, shape_threshold: float, topology_influence: float, uvs: boolean, vcols: boolean, seam: boolean, sharp: boolean, materials: boolean, deselect_joined: boolean)` — Enclose selected vertices in a convex polyhedron
+- `bpy.ops.mesh.customdata_custom_splitnormals_add()` — Add a custom normals layer, if none exists yet
+- `bpy.ops.mesh.customdata_custom_splitnormals_clear()` — Remove the custom normals layer, if it exists
+- `bpy.ops.mesh.customdata_face_sets_clear()` — Clear sculpt face set data from the mesh
+- `bpy.ops.mesh.customdata_mask_clear()` — Clear vertex sculpt masking data from the mesh
+- `bpy.ops.mesh.customdata_skin_add()` — Add a vertex skin layer
+- `bpy.ops.mesh.customdata_skin_clear()` — Clear vertex skin layer
+- `bpy.ops.mesh.decimate(ratio: float, use_vertex_group: boolean, vertex_group_factor: float, invert_vertex_group: boolean, use_symmetry: boolean, symmetry_axis: enum{X, Y, Z})` — Simplify geometry by collapsing edges
+- `bpy.ops.mesh.delete(type: enum{VERT, EDGE, FACE, EDGE_FACE, ONLY_FACE})` — Delete selected vertices, edges or faces
+- `bpy.ops.mesh.delete_edgeloop(use_face_split: boolean)` — Delete an edge loop by merging the faces on each side
+- `bpy.ops.mesh.delete_loose(use_verts: boolean, use_edges: boolean, use_faces: boolean)` — Delete loose vertices, edges or faces
+- `bpy.ops.mesh.dissolve_degenerate(threshold: float)` — Dissolve zero area faces and zero length edges
+- `bpy.ops.mesh.dissolve_edges(use_verts: boolean, angle_threshold: float, use_face_split: boolean, use_preserve_quads: boolean)` — Dissolve edges, merging faces
+- `bpy.ops.mesh.dissolve_faces(use_verts: boolean)` — Dissolve faces
+- `bpy.ops.mesh.dissolve_limited(angle_limit: float, use_dissolve_boundaries: boolean, delimit: enum{NORMAL, MATERIAL, SEAM, SHARP, UV})` — Dissolve selected edges and vertices, limited by the angle of surrounding geometry
+- `bpy.ops.mesh.dissolve_mode(use_verts: boolean, angle_threshold: float, use_preserve_quads: boolean, use_face_split: boolean, use_boundary_tear: boolean)` — Dissolve geometry based on the selection mode
+- `bpy.ops.mesh.dissolve_verts(use_face_split: boolean, use_boundary_tear: boolean)` — Dissolve vertices, merge edges and faces
+- `bpy.ops.mesh.dupli_extrude_cursor(rotate_source: boolean)` — Duplicate and extrude selected vertices, edges or faces towards the mouse cursor
+- `bpy.ops.mesh.duplicate(mode: int)` — Duplicate selected vertices, edges or faces
+- `bpy.ops.mesh.duplicate_move(MESH_OT_duplicate: pointer, TRANSFORM_OT_translate: pointer)` — Duplicate mesh and move
+- `bpy.ops.mesh.edge_collapse()` — Collapse isolated edge and face regions, merging data such as UVs and color attributes. This can collapse edge-rings as well as regions of connected faces into vertices
+- `bpy.ops.mesh.edge_face_add()` — Add an edge or face to selected
+- `bpy.ops.mesh.edge_rotate(use_ccw: boolean)` — Rotate selected edge or adjoining faces
+- `bpy.ops.mesh.edge_split(type: enum{EDGE, VERT})` — Split selected edges so that each neighbor face gets its own copy
+- `bpy.ops.mesh.edgering_select(delimit_edge_ring: enum{SEAM, SHARP, MATERIAL, NGONS}, extend: boolean, deselect: boolean, toggle: boolean, object_index: int, edge_index: int, vert_index: int, face_index: int)` — Select an edge ring
+- `bpy.ops.mesh.edges_select_sharp(sharpness: float)` — Select all sharp enough edges
+- `bpy.ops.mesh.extrude_context(use_normal_flip: boolean, use_dissolve_ortho_edges: boolean, mirror: boolean)` — Extrude selection
+- `bpy.ops.mesh.extrude_context_move(MESH_OT_extrude_context: pointer, TRANSFORM_OT_translate: pointer)` — Extrude region together along the average normal
+- `bpy.ops.mesh.extrude_edges_indiv(use_normal_flip: boolean, mirror: boolean)` — Extrude individual edges only
+- `bpy.ops.mesh.extrude_edges_move(MESH_OT_extrude_edges_indiv: pointer, TRANSFORM_OT_translate: pointer)` — Extrude edges and move result
+- `bpy.ops.mesh.extrude_faces_indiv(mirror: boolean)` — Extrude individual faces only
+- `bpy.ops.mesh.extrude_faces_move(MESH_OT_extrude_faces_indiv: pointer, TRANSFORM_OT_shrink_fatten: pointer)` — Extrude each individual face separately along local normals
+- `bpy.ops.mesh.extrude_manifold(MESH_OT_extrude_region: pointer, TRANSFORM_OT_translate: pointer)` — Extrude, dissolves edges whose faces form a flat surface and intersect new edges
+- `bpy.ops.mesh.extrude_region(use_normal_flip: boolean, use_dissolve_ortho_edges: boolean, mirror: boolean)` — Extrude region of faces
+- `bpy.ops.mesh.extrude_region_move(MESH_OT_extrude_region: pointer, TRANSFORM_OT_translate: pointer)` — Extrude region and move result
+- `bpy.ops.mesh.extrude_region_shrink_fatten(MESH_OT_extrude_region: pointer, TRANSFORM_OT_shrink_fatten: pointer)` — Extrude region together along local normals
+- `bpy.ops.mesh.extrude_repeat(steps: int, offset: float, scale_offset: float)` — Extrude selected vertices, edges or faces repeatedly
+- `bpy.ops.mesh.extrude_vertices_move(MESH_OT_extrude_verts_indiv: pointer, TRANSFORM_OT_translate: pointer)` — Extrude vertices and move result
+- `bpy.ops.mesh.extrude_verts_indiv(mirror: boolean)` — Extrude individual vertices only
+- `bpy.ops.mesh.face_make_planar(factor: float, repeat: int)` — Flatten selected faces
+- `bpy.ops.mesh.face_split_by_edges()` — Weld loose edges into faces (splitting them into new faces)
+- `bpy.ops.mesh.faces_select_linked_flat(sharpness: float)` — Select linked faces by angle
+- `bpy.ops.mesh.faces_shade_flat()` — Display faces flat
+- `bpy.ops.mesh.faces_shade_smooth()` — Display faces smooth (using vertex normals)
+- `bpy.ops.mesh.fill(use_beauty: boolean)` — Fill a selected edge loop with faces
+- `bpy.ops.mesh.fill_grid(span: int, offset: int, use_interp_simple: boolean)` — Fill grid from two loops
+- `bpy.ops.mesh.fill_holes(sides: int)` — Fill in holes (boundary edge loops)
+- `bpy.ops.mesh.flatten(factor: float, method: enum{BEST_FIT, NORMAL, VIEW}, lock: boolean)` — Flatten vertices on a best-fitting plane
+- `bpy.ops.mesh.flip_normals(only_clnors: boolean)` — Flip the direction of selected faces' normals (and of their vertices)
+- `bpy.ops.mesh.flip_quad_tessellation()` — Flips the tessellation of selected quads
+- `bpy.ops.mesh.hide(unselected: boolean)` — Hide (un)selected vertices, edges or faces
+- `bpy.ops.mesh.inset(use_boundary: boolean, use_even_offset: boolean, use_relative_offset: boolean, use_edge_rail: boolean, thickness: float, depth: float, use_outset: boolean, use_select_inset: boolean, use_individual: boolean, use_interpolate: boolean, release_confirm: boolean)` — Inset new faces into selected faces
+- `bpy.ops.mesh.intersect(mode: enum{SELECT, SELECT_UNSELECT}, separate_mode: enum{ALL, CUT, NONE}, threshold: float, solver: enum{FLOAT, EXACT})` — Cut an intersection into faces
+- `bpy.ops.mesh.intersect_boolean(operation: enum{INTERSECT, UNION, DIFFERENCE}, use_swap: boolean, use_self: boolean, threshold: float, solver: enum{FLOAT, EXACT})` — Cut solid geometry from selected to unselected
+- `bpy.ops.mesh.knife_project(cut_through: boolean)` — Use other objects outlines and boundaries to project knife cuts
+- `bpy.ops.mesh.knife_tool(use_occlude_geometry: boolean, only_selected: boolean, xray: boolean, visible_measurements: enum{NONE, BOTH, DISTANCE, ANGLE}, angle_snapping: enum{NONE, SCREEN, RELATIVE}, angle_snapping_increment: float, wait_for_input: boolean)` — Cut new topology
+- `bpy.ops.mesh.loop_select(delimit_edge_loop: enum{SEAM, SHARP, NGONS, INNER_CORNERS, OUTER_CORNERS}, delimit_face_loop: enum{SEAM, SHARP, MATERIAL}, extend: boolean, deselect: boolean, toggle: boolean, object_index: int, edge_index: int, vert_index: int, face_index: int)` — Select a loop of connected edges
+- `bpy.ops.mesh.loop_to_region(select_bigger: boolean)` — Select region of faces inside of a selected loop of edges
+- `bpy.ops.mesh.loopcut(number_cuts: int, smoothness: float, falloff: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR}, object_index: int, edge_index: int, mesh_select_mode_init: boolean)` — Add a new loop between existing loops
+- `bpy.ops.mesh.loopcut_slide(MESH_OT_loopcut: pointer, TRANSFORM_OT_edge_slide: pointer)` — Cut mesh loop and slide it
+- `bpy.ops.mesh.mark_freestyle_edge(clear: boolean)` — (Un)mark selected edges as Freestyle feature edges
+- `bpy.ops.mesh.mark_freestyle_face(clear: boolean)` — (Un)mark selected faces for exclusion from Freestyle feature edge detection
+- `bpy.ops.mesh.mark_seam(clear: boolean)` — (Un)mark selected edges as a seam
+- `bpy.ops.mesh.mark_sharp(clear: boolean, use_verts: boolean)` — (Un)mark selected edges as sharp
+- `bpy.ops.mesh.merge(type: enum{CENTER, CURSOR, COLLAPSE, FIRST, LAST}, uvs: boolean)` — Merge selected vertices
+- `bpy.ops.mesh.merge_normals()` — Merge custom normals of selected vertices
+- `bpy.ops.mesh.mod_weighted_strength(set: boolean, face_strength: enum{WEAK, MEDIUM, STRONG})` — Set/Get strength of face (used in Weighted Normal modifier)
+- `bpy.ops.mesh.normals_make_consistent(inside: boolean)` — Make face and vertex normals point either outside or inside the mesh
+- `bpy.ops.mesh.normals_tools(mode: enum{COPY, PASTE, ADD, MULTIPLY, RESET}, absolute: boolean)` — Custom normals tools using Normal Vector of UI
+- `bpy.ops.mesh.offset_edge_loops(use_cap_endpoint: boolean)` — Create offset edge loop from the current selection
+- `bpy.ops.mesh.offset_edge_loops_slide(MESH_OT_offset_edge_loops: pointer, TRANSFORM_OT_edge_slide: pointer)` — Offset edge loop slide
+- `bpy.ops.mesh.point_normals(mode: enum{COORDINATES, MOUSE}, invert: boolean, align: boolean, target_location: float, spherize: boolean, spherize_strength: float)` — Point selected custom normals to specified Target
+- `bpy.ops.mesh.poke(offset: float, use_relative_offset: boolean, center_mode: enum{MEDIAN_WEIGHTED, MEDIAN, BOUNDS})` — Split a face into a fan
+- `bpy.ops.mesh.polybuild_delete_at_cursor(mirror: boolean, use_proportional_edit: boolean, proportional_edit_falloff: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR, CONSTANT, RANDOM}, proportional_size: float, use_proportional_connected: boolean, use_proportional_projected: boolean, release_confirm: boolean, use_accurate: boolean)` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_dissolve_at_cursor()` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_extrude_at_cursor_move(MESH_OT_polybuild_transform_at_cursor: pointer, MESH_OT_extrude_edges_indiv: pointer, TRANSFORM_OT_translate: pointer)` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_face_at_cursor(create_quads: boolean, mirror: boolean, use_proportional_edit: boolean, proportional_edit_falloff: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR, CONSTANT, RANDOM}, proportional_size: float, use_proportional_connected: boolean, use_proportional_projected: boolean, release_confirm: boolean, use_accurate: boolean)` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_face_at_cursor_move(MESH_OT_polybuild_face_at_cursor: pointer, TRANSFORM_OT_translate: pointer)` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_split_at_cursor(mirror: boolean, use_proportional_edit: boolean, proportional_edit_falloff: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR, CONSTANT, RANDOM}, proportional_size: float, use_proportional_connected: boolean, use_proportional_projected: boolean, release_confirm: boolean, use_accurate: boolean)` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_split_at_cursor_move(MESH_OT_polybuild_split_at_cursor: pointer, TRANSFORM_OT_translate: pointer)` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_transform_at_cursor(mirror: boolean, use_proportional_edit: boolean, proportional_edit_falloff: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR, CONSTANT, RANDOM}, proportional_size: float, use_proportional_connected: boolean, use_proportional_projected: boolean, release_confirm: boolean, use_accurate: boolean)` — (undocumented operator)
+- `bpy.ops.mesh.polybuild_transform_at_cursor_move(MESH_OT_polybuild_transform_at_cursor: pointer, TRANSFORM_OT_translate: pointer)` — (undocumented operator)
+- `bpy.ops.mesh.primitive_circle_add(vertices: int, radius: float, fill_type: enum{NOTHING, NGON, TRIFAN}, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a circle mesh
+- `bpy.ops.mesh.primitive_cone_add(vertices: int, radius1: float, radius2: float, depth: float, end_fill_type: enum{NOTHING, NGON, TRIFAN}, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a conic mesh
+- `bpy.ops.mesh.primitive_cube_add(size: float, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a cube mesh that consists of six square faces
+- `bpy.ops.mesh.primitive_cube_add_gizmo(calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float, matrix: float)` — Construct a cube mesh
+- `bpy.ops.mesh.primitive_cylinder_add(vertices: int, radius: float, depth: float, end_fill_type: enum{NOTHING, NGON, TRIFAN}, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a cylinder mesh
+- `bpy.ops.mesh.primitive_grid_add(x_subdivisions: int, y_subdivisions: int, size: float, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a subdivided plane mesh
+- `bpy.ops.mesh.primitive_ico_sphere_add(subdivisions: int, radius: float, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a spherical mesh that consists of equally sized triangles
+- `bpy.ops.mesh.primitive_monkey_add(size: float, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a Suzanne mesh
+- `bpy.ops.mesh.primitive_plane_add(size: float, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a filled planar mesh with 4 vertices
+- `bpy.ops.mesh.primitive_torus_add(align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, major_segments: int, minor_segments: int, mode: enum{MAJOR_MINOR, EXT_INT}, major_radius: float, minor_radius: float, abso_major_rad: float, abso_minor_rad: float, generate_uvs: boolean)` — Construct a torus mesh
+- `bpy.ops.mesh.primitive_uv_sphere_add(segments: int, ring_count: int, radius: float, calc_uvs: boolean, enter_editmode: boolean, align: enum{WORLD, VIEW, CURSOR}, location: float, rotation: float, scale: float)` — Construct a spherical mesh with quad faces, except for triangle faces at the top and bottom
+- `bpy.ops.mesh.quads_convert_to_tris(quad_method: enum{BEAUTY, FIXED, FIXED_ALTERNATE, SHORTEST_DIAGONAL, LONGEST_DIAGONAL}, ngon_method: enum{BEAUTY, CLIP})` — Triangulate selected faces
+- `bpy.ops.mesh.region_to_loop()` — Select boundary edges around the selected faces
+- `bpy.ops.mesh.remove_doubles(threshold: float, use_centroid: boolean, use_unselected: boolean, use_sharp_edge_from_normals: boolean)` — Merge vertices based on their proximity
+- `bpy.ops.mesh.reorder_vertices_spatial()` — Reorder mesh faces and vertices based on their spatial position for better BVH building and sculpting performance.
+- `bpy.ops.mesh.reveal(select: boolean)` — Reveal all hidden vertices, edges and faces
+- `bpy.ops.mesh.rip(mirror: boolean, use_proportional_edit: boolean, proportional_edit_falloff: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR, CONSTANT, RANDOM}, proportional_size: float, use_proportional_connected: boolean, use_proportional_projected: boolean, release_confirm: boolean, use_accurate: boolean, use_fill: boolean)` — Disconnect vertices or edges from connected geometry
+- `bpy.ops.mesh.rip_edge(location: float, direction: float)` — Extend vertices along the edge closest to the cursor
+- `bpy.ops.mesh.rip_edge_move(MESH_OT_rip_edge: pointer, TRANSFORM_OT_translate: pointer)` — Extend vertices and move the result
+- `bpy.ops.mesh.rip_move(MESH_OT_rip: pointer, TRANSFORM_OT_translate: pointer)` — Rip polygons and move the result
+- `bpy.ops.mesh.screw(steps: int, turns: int, center: float, axis: float)` — Extrude selected vertices in screw-shaped rotation around the cursor in indicated viewport
+- `bpy.ops.mesh.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — (De)select all vertices, edges or faces
+- `bpy.ops.mesh.select_axis(orientation: enum{GLOBAL, LOCAL, NORMAL, GIMBAL, VIEW, CURSOR, PARENT}, sign: enum{POS, NEG, ALIGN}, axis: enum{X, Y, Z}, threshold: float)` — Select all data in the mesh on a single axis
+- `bpy.ops.mesh.select_boundary_loop_multi(extend: boolean, delimit_edge_loop: enum{SEAM, SHARP, NGONS, INNER_CORNERS, OUTER_CORNERS})` — Select entire boundary loop of each selected boundary edge
+- `bpy.ops.mesh.select_by_attribute()` — Select elements based on the active boolean attribute
+- `bpy.ops.mesh.select_by_pole_count(pole_count: int, type: enum{LESS, EQUAL, GREATER, NOTEQUAL}, extend: boolean, exclude_nonmanifold: boolean)` — Select vertices at poles by the number of connected edges. In edge and face mode the geometry connected to the vertices is selected
+- `bpy.ops.mesh.select_edge_loop_multi(delimit_edge_loop: enum{SEAM, SHARP, NGONS, INNER_CORNERS, OUTER_CORNERS})` — Select loops of connected edges from each selected edge
+- `bpy.ops.mesh.select_edge_ring_multi(delimit_edge_ring: enum{SEAM, SHARP, MATERIAL, NGONS})` — Select rings of connected edges from each selected edge
+- `bpy.ops.mesh.select_face_by_sides(number: int, type: enum{LESS, EQUAL, GREATER, NOTEQUAL}, extend: boolean)` — Select vertices or faces by the number of face sides
+- `bpy.ops.mesh.select_interior_faces()` — Select faces where all edges have more than 2 face users
+- `bpy.ops.mesh.select_less(use_face_step: boolean)` — Deselect vertices, edges or faces at the boundary of each selection region
+- `bpy.ops.mesh.select_linked(delimit: enum{NORMAL, MATERIAL, SEAM, SHARP, UV})` — Select all vertices connected to the current selection
+- `bpy.ops.mesh.select_linked_pick(deselect: boolean, delimit: enum{NORMAL, MATERIAL, SEAM, SHARP, UV}, object_index: int, index: int)` — (De)select all vertices linked to the edge under the mouse cursor
+- `bpy.ops.mesh.select_loose(extend: boolean)` — Select loose geometry based on the selection mode
+- `bpy.ops.mesh.select_mirror(axis: enum{X, Y, Z}, extend: boolean)` — Select mesh items at mirrored locations
+- `bpy.ops.mesh.select_mode(use_extend: boolean, use_expand: boolean, type: enum{VERT, EDGE, FACE}, action: enum{DISABLE, ENABLE, TOGGLE})` — Change selection mode
+- `bpy.ops.mesh.select_more(use_face_step: boolean)` — Select more vertices, edges or faces connected to initial selection
+- `bpy.ops.mesh.select_next_item()` — Select the next element (using selection order)
+- `bpy.ops.mesh.select_non_manifold(extend: boolean, use_wire: boolean, use_boundary: boolean, use_multi_face: boolean, use_non_contiguous: boolean, use_verts: boolean)` — Select all non-manifold vertices or edges
+- `bpy.ops.mesh.select_nth(skip: int, nth: int, offset: int)` — Deselect every Nth element starting from the active vertex, edge or face
+- `bpy.ops.mesh.select_prev_item()` — Select the previous element (using selection order)
+- `bpy.ops.mesh.select_random(ratio: float, seed: int, action: enum{SELECT, DESELECT})` — Randomly select vertices
+- `bpy.ops.mesh.select_similar(type: enum{VERT_NORMAL, VERT_FACES, VERT_GROUPS, VERT_EDGES, VERT_CREASE, EDGE_LENGTH, EDGE_DIR, EDGE_FACES, EDGE_FACE_ANGLE, EDGE_CREASE, EDGE_BEVEL, EDGE_SEAM, EDGE_SHARP, EDGE_FREESTYLE, FACE_MATERIAL, FACE_AREA, FACE_SIDES, FACE_PERIMETER, FACE_NORMAL, FACE_COPLANAR, FACE_SMOOTH, FACE_FREESTYLE}, compare: enum{EQUAL, GREATER, LESS}, threshold: float)` — Select similar vertices, edges or faces by property types
+- `bpy.ops.mesh.select_similar_region()` — Select similar face regions to the current selection
+- `bpy.ops.mesh.select_ungrouped(extend: boolean)` — Select vertices without a group
+- `bpy.ops.mesh.separate(type: enum{SELECTED, MATERIAL, LOOSE})` — Separate selected geometry into a new mesh
+- `bpy.ops.mesh.set_normals_from_faces(keep_sharp: boolean)` — Set the custom normals from the selected faces ones
+- `bpy.ops.mesh.set_sharpness_by_angle(angle: float, extend: boolean)` — Set edge sharpness based on the angle between neighboring faces
+- `bpy.ops.mesh.shape_propagate_to_all()` — Apply selected vertex locations to all other shape keys
+- `bpy.ops.mesh.shortest_path_pick(edge_mode: enum{SELECT, SEAM, SHARP, CREASE, BEVEL, FREESTYLE}, use_face_step: boolean, use_topology_distance: boolean, use_fill: boolean, skip: int, nth: int, offset: int, index: int)` — Select shortest path between two selections
+- `bpy.ops.mesh.shortest_path_select(edge_mode: enum{SELECT, SEAM, SHARP, CREASE, BEVEL, FREESTYLE}, use_face_step: boolean, use_topology_distance: boolean, use_fill: boolean, skip: int, nth: int, offset: int)` — Select shortest path between two vertices/edges/faces
+- `bpy.ops.mesh.smooth_normals(factor: float)` — Smooth custom normals based on adjacent vertex normals
+- `bpy.ops.mesh.solidify(thickness: float)` — Create a solid skin by extruding, compensating for sharp angles
+- `bpy.ops.mesh.sort_elements(type: enum{VIEW_ZAXIS, VIEW_XAXIS, CURSOR_DISTANCE, MATERIAL, SELECTED, RANDOMIZE, REVERSE}, elements: enum{VERT, EDGE, FACE}, reverse: boolean, seed: int)` — The order of selected vertices/edges/faces is modified, based on a given method
+- `bpy.ops.mesh.space_edge_loops_evenly(factor: float, interpolation: enum{CUBIC, LINEAR}, lock: boolean)` — Space the vertices in a regular distribution on the loop
+- `bpy.ops.mesh.spin(steps: int, dupli: boolean, angle: float, use_auto_merge: boolean, use_normal_flip: boolean, center: float, axis: float)` — Extrude selected vertices in a circle around the cursor in indicated viewport
+- `bpy.ops.mesh.split()` — Split off selected geometry from connected unselected geometry
+- `bpy.ops.mesh.split_normals()` — Split custom normals of selected vertices
+- `bpy.ops.mesh.subdivide(number_cuts: int, smoothness: float, ngon: boolean, quadcorner: enum{INNERVERT, PATH, STRAIGHT_CUT, FAN}, fractal: float, fractal_along_normal: float, seed: int)` — Subdivide selected edges
+- `bpy.ops.mesh.subdivide_edgering(number_cuts: int, interpolation: enum{LINEAR, PATH, SURFACE}, smoothness: float, profile_shape_factor: float, profile_shape: enum{SMOOTH, SPHERE, ROOT, INVERSE_SQUARE, SHARP, LINEAR})` — Subdivide perpendicular edges to the selected edge-ring
+- `bpy.ops.mesh.symmetrize(direction: enum{NEGATIVE_X, POSITIVE_X, NEGATIVE_Y, POSITIVE_Y, NEGATIVE_Z, POSITIVE_Z}, threshold: float)` — Enforce symmetry (both form and topological) across an axis
+- `bpy.ops.mesh.symmetry_snap(direction: enum{NEGATIVE_X, POSITIVE_X, NEGATIVE_Y, POSITIVE_Y, NEGATIVE_Z, POSITIVE_Z}, threshold: float, factor: float, use_center: boolean, use_topology: boolean)` — Snap vertex pairs to their mirrored locations
+- `bpy.ops.mesh.tris_convert_to_quads(face_threshold: float, shape_threshold: float, topology_influence: float, uvs: boolean, vcols: boolean, seam: boolean, sharp: boolean, materials: boolean, deselect_joined: boolean)` — Merge triangles into four sided polygons where possible
+- `bpy.ops.mesh.unsubdivide(iterations: int)` — Un-subdivide selected edges and faces
+- `bpy.ops.mesh.uv_texture_add()` — Add UV map
+- `bpy.ops.mesh.uv_texture_remove()` — Remove UV map
+- `bpy.ops.mesh.uvs_reverse()` — Flip direction of UV coordinates inside faces
+- `bpy.ops.mesh.uvs_rotate(use_ccw: boolean)` — Rotate UV coordinates inside faces
+- `bpy.ops.mesh.vert_connect()` — Connect selected vertices of faces, splitting the face
+- `bpy.ops.mesh.vert_connect_concave()` — Split concave faces by connecting vertices to make them convex
+- `bpy.ops.mesh.vert_connect_nonplanar(angle_limit: float)` — Split non-planar faces that exceed the angle threshold
+- `bpy.ops.mesh.vert_connect_path()` — Connect vertices by their selection order, creating edges, splitting faces
+- `bpy.ops.mesh.vertices_smooth(factor: float, repeat: int, xaxis: boolean, yaxis: boolean, zaxis: boolean, wait_for_input: boolean)` — Flatten angles of selected vertices
+- `bpy.ops.mesh.vertices_smooth_laplacian(repeat: int, lambda_factor: float, lambda_border: float, use_x: boolean, use_y: boolean, use_z: boolean, preserve_volume: boolean)` — Laplacian smooth of selected vertices
+- `bpy.ops.mesh.wireframe(use_boundary: boolean, use_even_offset: boolean, use_relative_offset: boolean, use_replace: boolean, thickness: float, offset: float, use_crease: boolean, crease_weight: float)` — Create a solid wireframe from faces

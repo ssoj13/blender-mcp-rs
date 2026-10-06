@@ -1,0 +1,26 @@
+---
+area: manual-modeling
+source: blender-manual
+version: 5.2
+---
+
+.. _bpy.types.FunctionNodeCombineMatrix:
+.. --- copy below this line ---
+
+*******************
+Combine Matrix Node
+*******************
+
+The *Combine Matrix* node constructs a 4x4 matrix from its individual values.
+
+Inputs
+======
+
+The inputs of this node are split into panels for each column of the matrix.
+Each panel, has four value inputs for the four rows of the matrix.
+
+Outputs
+=======
+
+Matrix
+   The constructed matrix.

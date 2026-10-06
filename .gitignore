@@ -1,0 +1,46 @@
+# Rust
+/target
+Cargo.lock
+
+# mdbook build output
+/docs/book
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local dev scratch plans in the repo root only (root-anchored, so versioned
+# docs under docs/ — e.g. docs/orchestration/PLAN2.md — are NOT ignored).
+/plan*.md
+
+# OMC operational state (skills under .omc/skills/ stay tracked)
+/.omc/*
+!/.omc/skills/

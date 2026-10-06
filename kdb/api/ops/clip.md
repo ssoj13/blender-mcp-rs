@@ -1,0 +1,100 @@
+---
+area: api-ops
+group: clip
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.clip
+
+- `bpy.ops.clip.add_marker(location: float)` — Place new marker at specified location
+- `bpy.ops.clip.add_marker_at_click()` — Place new marker at the desired (clicked) position
+- `bpy.ops.clip.add_marker_move(CLIP_OT_add_marker: pointer, TRANSFORM_OT_translate: pointer)` — Add new marker and move it on movie
+- `bpy.ops.clip.add_marker_slide(CLIP_OT_add_marker: pointer, TRANSFORM_OT_translate: pointer)` — Add new marker and slide it with mouse until mouse button release
+- `bpy.ops.clip.apply_solution_scale(distance: float)` — Apply scale on solution itself to make distance between selected tracks equals to desired
+- `bpy.ops.clip.average_tracks(keep_original: boolean)` — Average selected tracks into active
+- `bpy.ops.clip.bundles_to_mesh()` — Create vertex cloud using coordinates of reconstructed tracks
+- `bpy.ops.clip.camera_preset_add(name: string, remove_name: boolean, remove_active: boolean, use_focal_length: boolean)` — Add or remove a Tracking Camera Intrinsics Preset
+- `bpy.ops.clip.change_frame(frame: int)` — Interactively change the current frame number
+- `bpy.ops.clip.clean_tracks(frames: int, error: float, action: enum{SELECT, DELETE_TRACK, DELETE_SEGMENTS})` — Clean tracks with high error values or few frames
+- `bpy.ops.clip.clear_solution()` — Clear all calculated data
+- `bpy.ops.clip.clear_track_path(action: enum{UPTO, REMAINED, ALL}, clear_active: boolean)` — Clear tracks after/before current position or clear the whole track
+- `bpy.ops.clip.constraint_to_fcurve()` — Create F-Curves for object which will copy object's movement caused by this constraint
+- `bpy.ops.clip.copy_tracks()` — Copy the selected tracks to the internal clipboard
+- `bpy.ops.clip.create_plane_track()` — Create new plane track out of selected point tracks
+- `bpy.ops.clip.cursor_set(location: float)` — Set 2D cursor location
+- `bpy.ops.clip.delete_marker(confirm: boolean)` — Delete marker for current frame from selected tracks
+- `bpy.ops.clip.delete_proxy()` — Delete movie clip proxy files from the hard drive
+- `bpy.ops.clip.delete_track(confirm: boolean)` — Delete selected tracks
+- `bpy.ops.clip.detect_features(placement: enum{FRAME, INSIDE_GPENCIL, OUTSIDE_GPENCIL}, margin: int, threshold: float, min_distance: int)` — Automatically detect features and place markers to track
+- `bpy.ops.clip.disable_markers(action: enum{DISABLE, ENABLE, TOGGLE})` — Disable/enable selected markers
+- `bpy.ops.clip.dopesheet_select_channel(location: float, extend: boolean)` — Select movie tracking channel
+- `bpy.ops.clip.dopesheet_view_all()` — Reset viewable area to show full keyframe range
+- `bpy.ops.clip.filter_tracks(track_threshold: float)` — Filter tracks which has weirdly looking spikes in motion curves
+- `bpy.ops.clip.frame_jump(position: enum{PATHSTART, PATHEND, FAILEDPREV, FAILNEXT})` — Jump to special frame
+- `bpy.ops.clip.graph_center_current_frame()` — Scroll view so current frame would be centered
+- `bpy.ops.clip.graph_delete_curve(confirm: boolean)` — Delete track corresponding to the selected curve
+- `bpy.ops.clip.graph_delete_knot()` — Delete curve knots
+- `bpy.ops.clip.graph_disable_markers(action: enum{DISABLE, ENABLE, TOGGLE})` — Disable/enable selected markers
+- `bpy.ops.clip.graph_select(location: float, extend: boolean)` — Select graph curves
+- `bpy.ops.clip.graph_select_all_markers(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Change selection of all markers of active track
+- `bpy.ops.clip.graph_select_box(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, deselect: boolean, extend: boolean)` — Select curve points using box selection
+- `bpy.ops.clip.graph_view_all()` — View all curves in editor
+- `bpy.ops.clip.hide_tracks(unselected: boolean)` — Hide selected tracks
+- `bpy.ops.clip.hide_tracks_clear()` — Clear hide selected tracks
+- `bpy.ops.clip.join_tracks()` — Join selected tracks
+- `bpy.ops.clip.keyframe_delete()` — Delete a keyframe from selected tracks at current frame
+- `bpy.ops.clip.keyframe_insert()` — Insert a keyframe to selected tracks at current frame
+- `bpy.ops.clip.lock_selection_toggle()` — Toggle Lock Selection option of the current clip editor
+- `bpy.ops.clip.lock_tracks(action: enum{LOCK, UNLOCK, TOGGLE})` — Lock/unlock selected tracks
+- `bpy.ops.clip.mode_set(mode: enum{TRACKING, MASK})` — Set the clip interaction mode
+- `bpy.ops.clip.new_image_from_plane_marker()` — Create new image from the content of the plane marker
+- `bpy.ops.clip.open(directory: string, files: collection, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{DEFAULT, FILE_SORT_ALPHA, FILE_SORT_EXTENSION, FILE_SORT_TIME, FILE_SORT_SIZE, ASSET_CATALOG})` — Load a sequence of frames or a movie file
+- `bpy.ops.clip.paste_tracks()` — Paste tracks from the internal clipboard
+- `bpy.ops.clip.prefetch()` — Prefetch frames from disk for faster playback/tracking
+- `bpy.ops.clip.rebuild_proxy()` — Rebuild all selected proxies in the background
+- `bpy.ops.clip.refine_markers(backwards: boolean)` — Refine selected markers positions by running the tracker from track's reference to current frame
+- `bpy.ops.clip.reload()` — Reload clip
+- `bpy.ops.clip.select(extend: boolean, deselect_all: boolean, location: float)` — Select tracking markers
+- `bpy.ops.clip.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — Change selection of all tracking markers
+- `bpy.ops.clip.select_box(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Select markers using box selection
+- `bpy.ops.clip.select_circle(x: int, y: int, radius: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Select markers using circle selection
+- `bpy.ops.clip.select_grouped(group: enum{KEYFRAMED, ESTIMATED, TRACKED, LOCKED, DISABLED, COLOR, FAILED})` — Select all tracks from specified group
+- `bpy.ops.clip.select_lasso(path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, mode: enum{SET, ADD, SUB})` — Select markers using lasso selection
+- `bpy.ops.clip.set_active_clip()` — (undocumented operator)
+- `bpy.ops.clip.set_axis(axis: enum{X, Y})` — Set the direction of a scene axis by rotating the camera (or its parent if present). This assumes that the selected track lies on a real axis connecting it to the origin
+- `bpy.ops.clip.set_origin(use_median: boolean)` — Set active marker as origin by moving camera (or its parent if present) in 3D space
+- `bpy.ops.clip.set_plane(plane: enum{FLOOR, WALL})` — Set plane based on 3 selected bundles by moving camera (or its parent if present) in 3D space
+- `bpy.ops.clip.set_scale(distance: float)` — Set scale of scene by scaling camera (or its parent if present)
+- `bpy.ops.clip.set_scene_frames()` — Set scene's start and end frame to match clip's start frame and length
+- `bpy.ops.clip.set_solution_scale(distance: float)` — Set object solution scale using distance between two selected tracks
+- `bpy.ops.clip.set_solver_keyframe(keyframe: enum{KEYFRAME_A, KEYFRAME_B})` — Set keyframe used by solver
+- `bpy.ops.clip.set_viewport_background()` — Set current movie clip as a camera background in 3D Viewport (works only when a 3D Viewport is visible)
+- `bpy.ops.clip.setup_tracking_scene()` — Prepare scene for compositing 3D objects into this footage
+- `bpy.ops.clip.slide_marker(offset: float)` — Slide marker areas
+- `bpy.ops.clip.slide_plane_marker()` — Slide plane marker areas
+- `bpy.ops.clip.solve_camera()` — Solve camera motion from tracks
+- `bpy.ops.clip.stabilize_2d_add()` — Add selected tracks to 2D translation stabilization
+- `bpy.ops.clip.stabilize_2d_remove()` — Remove selected track from translation stabilization
+- `bpy.ops.clip.stabilize_2d_rotation_add()` — Add selected tracks to 2D rotation stabilization
+- `bpy.ops.clip.stabilize_2d_rotation_remove()` — Remove selected track from rotation stabilization
+- `bpy.ops.clip.stabilize_2d_rotation_select()` — Select tracks which are used for rotation stabilization
+- `bpy.ops.clip.stabilize_2d_select()` — Select tracks which are used for translation stabilization
+- `bpy.ops.clip.track_color_preset_add(name: string, remove_name: boolean, remove_active: boolean)` — Add or remove a Clip Track Color Preset
+- `bpy.ops.clip.track_copy_color()` — Copy color to all selected tracks
+- `bpy.ops.clip.track_markers(backwards: boolean, sequence: boolean)` — Track selected markers
+- `bpy.ops.clip.track_settings_as_default()` — Copy tracking settings from active track to default settings
+- `bpy.ops.clip.track_settings_to_track()` — Copy tracking settings from active track to selected tracks
+- `bpy.ops.clip.track_to_empty()` — Create an Empty object which will be copying movement of active track
+- `bpy.ops.clip.tracking_object_new()` — Add new object for tracking
+- `bpy.ops.clip.tracking_object_remove()` — Remove object for tracking
+- `bpy.ops.clip.tracking_settings_preset_add(name: string, remove_name: boolean, remove_active: boolean)` — Add or remove a motion tracking settings preset
+- `bpy.ops.clip.update_image_from_plane_marker()` — Update current image used by plane marker from the content of the plane marker
+- `bpy.ops.clip.view_all(fit_view: boolean)` — View whole image with markers
+- `bpy.ops.clip.view_center_cursor()` — Center the view so that the cursor is in the middle of the view
+- `bpy.ops.clip.view_ndof()` — Use a 3D mouse device to pan/zoom the view
+- `bpy.ops.clip.view_pan(offset: float)` — Pan the view
+- `bpy.ops.clip.view_selected()` — View all selected elements
+- `bpy.ops.clip.view_zoom(factor: float, use_cursor_init: boolean)` — Zoom in/out the view
+- `bpy.ops.clip.view_zoom_in(location: float)` — Zoom in the view
+- `bpy.ops.clip.view_zoom_out(location: float)` — Zoom out the view
+- `bpy.ops.clip.view_zoom_ratio(ratio: float)` — Set the zoom ratio (based on clip size)

@@ -1,0 +1,125 @@
+---
+area: api-nodes
+group: texture
+version: 5.2.2
+---
+
+# Blender 5.2.2 texture nodes: real socket names
+
+- `NodeFrame` (Frame) — Collect related nodes together in a common area. Useful for organization when the re-usability of a node group is not required
+  - in: (none)
+  - out: (none)
+- `NodeGroupInput` (Group Input) — Expose connected data from inside a node group as inputs to its interface
+  - in: (none)
+  - out: :CUSTOM
+- `NodeGroupOutput` (Group Output) — Output data from inside of a node group
+  - in: :CUSTOM
+  - out: (none)
+- `NodeImplicitConversion` (Implicit Conversion) — Implicitly convert the input value to a fixed socket type
+  - in: Value:RGBA
+  - out: Value:RGBA
+- `NodeReroute` (Reroute) — A single-socket organization tool that supports one input and multiple outputs
+  - in: Input:RGBA
+  - out: Output:RGBA
+- `TextureNodeAt` (At)
+  - in: Texture:RGBA, Coordinates:VECTOR
+  - out: Texture:RGBA
+- `TextureNodeBricks` (Bricks)
+  - in: Bricks 1:RGBA, Bricks 2:RGBA, Mortar:RGBA, Thickness:VALUE, Bias:VALUE, Brick Width:VALUE, Row Height:VALUE
+  - out: Color:RGBA
+- `TextureNodeChecker` (Checker)
+  - in: Color1:RGBA, Color2:RGBA, Size:VALUE
+  - out: Color:RGBA
+- `TextureNodeCombineColor` (Combine Color)
+  - in: Red:VALUE, Green:VALUE, Blue:VALUE, Alpha:VALUE
+  - out: Color:RGBA
+- `TextureNodeCoordinates` (Coordinates)
+  - in: (none)
+  - out: Coordinates:VECTOR
+- `TextureNodeCurveRGB` (RGB Curves)
+  - in: Color:RGBA
+  - out: Color:RGBA
+- `TextureNodeCurveTime` (Time)
+  - in: (none)
+  - out: Value:VALUE
+- `TextureNodeDistance` (Distance)
+  - in: Coordinate 1:VECTOR, Coordinate 2:VECTOR
+  - out: Value:VALUE
+- `TextureNodeGroup` (Group)
+  - in: (none)
+  - out: (none)
+- `TextureNodeHueSaturation` (Hue/Saturation/Value)
+  - in: Hue:VALUE, Saturation:VALUE, Value:VALUE, Factor:VALUE, Color:RGBA
+  - out: Color:RGBA
+- `TextureNodeImage` (Image)
+  - in: (none)
+  - out: Image:RGBA
+- `TextureNodeInvert` (Invert Color)
+  - in: Color:RGBA
+  - out: Color:RGBA
+- `TextureNodeMath` (Math)
+  - in: Value:VALUE, Value:VALUE, Value:VALUE
+  - out: Value:VALUE
+- `TextureNodeMixRGB` (Mix)
+  - in: Factor:VALUE, Color1:RGBA, Color2:RGBA
+  - out: Color:RGBA
+- `TextureNodeOutput` (Output)
+  - in: Color:RGBA
+  - out: (none)
+- `TextureNodeRGBToBW` (RGB to BW)
+  - in: Color:RGBA
+  - out: Val:VALUE
+- `TextureNodeRotate` (Rotate)
+  - in: Color:RGBA, Turns:VALUE, Axis:VECTOR
+  - out: Color:RGBA
+- `TextureNodeScale` (Scale)
+  - in: Color:RGBA, Scale:VECTOR
+  - out: Color:RGBA
+- `TextureNodeSeparateColor` (Separate Color)
+  - in: Color:RGBA
+  - out: Red:VALUE, Green:VALUE, Blue:VALUE, Alpha:VALUE
+- `TextureNodeTexBlend` (Blend)
+  - in: Color 1:RGBA, Color 2:RGBA
+  - out: Color:RGBA
+- `TextureNodeTexClouds` (Clouds)
+  - in: Color 1:RGBA, Color 2:RGBA, Size:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexDistNoise` (Distorted Noise)
+  - in: Color 1:RGBA, Color 2:RGBA, Size:VALUE, Distortion:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexMagic` (Magic)
+  - in: Color 1:RGBA, Color 2:RGBA, Turbulence:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexMarble` (Marble)
+  - in: Color 1:RGBA, Color 2:RGBA, Size:VALUE, Turbulence:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexMusgrave` (Musgrave)
+  - in: Color 1:RGBA, Color 2:RGBA, H:VALUE, Lacunarity:VALUE, Octaves:VALUE, iScale:VALUE, Size:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexNoise` (Noise)
+  - in: Color 1:RGBA, Color 2:RGBA
+  - out: Color:RGBA
+- `TextureNodeTexStucci` (Stucci)
+  - in: Color 1:RGBA, Color 2:RGBA, Size:VALUE, Turbulence:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexVoronoi` (Voronoi)
+  - in: Color 1:RGBA, Color 2:RGBA, W1:VALUE, W2:VALUE, W3:VALUE, W4:VALUE, iScale:VALUE, Size:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexWood` (Wood)
+  - in: Color 1:RGBA, Color 2:RGBA, Size:VALUE, Turbulence:VALUE
+  - out: Color:RGBA
+- `TextureNodeTexture` (Texture)
+  - in: Color1:RGBA, Color2:RGBA
+  - out: Color:RGBA
+- `TextureNodeTranslate` (Translate)
+  - in: Color:RGBA, Offset:VECTOR
+  - out: Color:RGBA
+- `TextureNodeValToNor` (Value to Normal)
+  - in: Val:VALUE, Nabla:VALUE
+  - out: Normal:VECTOR
+- `TextureNodeValToRGB` (Color Ramp)
+  - in: Fac:VALUE
+  - out: Color:RGBA
+- `TextureNodeViewer` (Viewer)
+  - in: Color:RGBA
+  - out: (none)

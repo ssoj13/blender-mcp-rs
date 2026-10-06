@@ -1,0 +1,376 @@
+---
+area: api-nodes
+group: shader
+version: 5.2.2
+---
+
+# Blender 5.2.2 shader nodes: real socket names
+
+- `FunctionNodeInputBool` (Boolean) — Provide a True/False value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Boolean:BOOLEAN
+- `FunctionNodeInputInt` (Integer) — Provide an integer value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Integer:INT
+- `FunctionNodeInputMenu` (Menu) — Provide a menu value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Menu:MENU
+- `FunctionNodeInputVector` (Vector) — Provide a vector value that can be connected to other nodes in the tree
+  - in: (none)
+  - out: Vector:VECTOR
+- `GeometryNodeInputSceneTime` (Scene Time) — Retrieve the current time in the scene's animation in units of seconds or frames
+  - in: (none)
+  - out: Seconds:VALUE, Frame:VALUE
+- `GeometryNodeMenuSwitch` (Menu Switch) — Select from multiple inputs by name
+  - in: Menu:MENU, A:RGBA, B:RGBA, :CUSTOM
+  - out: Output:RGBA, A:BOOLEAN, B:BOOLEAN
+- `GeometryNodeRepeatInput` (Repeat Input)
+  - in: Iterations:INT, :CUSTOM
+  - out: Iteration:INT, :CUSTOM
+- `GeometryNodeRepeatOutput` (Repeat Output)
+  - in: :CUSTOM
+  - out: :CUSTOM
+- `NodeClosureInput` (Closure Input)
+  - in: (none)
+  - out: :CUSTOM
+- `NodeClosureOutput` (Closure Output)
+  - in: :CUSTOM
+  - out: Closure:CLOSURE
+- `NodeCombineBundle` (Combine Bundle) — Combine multiple socket values into one.
+  - in: :CUSTOM
+  - out: Bundle:BUNDLE
+- `NodeEvaluateClosure` (Evaluate Closure) — Execute a given closure
+  - in: Closure:CLOSURE, :CUSTOM
+  - out: :CUSTOM
+- `NodeFrame` (Frame) — Collect related nodes together in a common area. Useful for organization when the re-usability of a node group is not required
+  - in: (none)
+  - out: (none)
+- `NodeGroupInput` (Group Input) — Expose connected data from inside a node group as inputs to its interface
+  - in: (none)
+  - out: :CUSTOM
+- `NodeGroupOutput` (Group Output) — Output data from inside of a node group
+  - in: :CUSTOM
+  - out: (none)
+- `NodeImplicitConversion` (Implicit Conversion) — Implicitly convert the input value to a fixed socket type
+  - in: Value:RGBA
+  - out: Value:RGBA
+- `NodeJoinBundle` (Join Bundle) — Join multiple bundles together
+  - in: Bundle:BUNDLE
+  - out: Bundle:BUNDLE
+- `NodeReroute` (Reroute) — A single-socket organization tool that supports one input and multiple outputs
+  - in: Input:RGBA
+  - out: Output:RGBA
+- `NodeSeparateBundle` (Separate Bundle) — Split a bundle into multiple sockets.
+  - in: Bundle:BUNDLE
+  - out: :CUSTOM
+- `ShaderNodeAddShader` (Add Shader) — Add two Shaders together
+  - in: Shader:SHADER, Shader:SHADER
+  - out: Shader:SHADER
+- `ShaderNodeAmbientOcclusion` (Ambient Occlusion) — Compute how much the hemisphere above the shading point is occluded, for example to add weathering effects to corners.
+Note: For Cycles, this may slow down renders significantly
+  - in: Color:RGBA, Distance:VALUE, Normal:VECTOR
+  - out: Color:RGBA, AO:VALUE
+- `ShaderNodeAttribute` (Attribute) — Retrieve attributes attached to objects or geometry
+  - in: (none)
+  - out: Color:RGBA, Vector:VECTOR, Factor:VALUE, Alpha:VALUE
+- `ShaderNodeBackground` (Background) — Add background light emission.
+Note: This node should only be used for the world surface output
+  - in: Color:RGBA, Strength:VALUE, Weight:VALUE
+  - out: Background:SHADER
+- `ShaderNodeBevel` (Bevel) — Generates normals with round corners.
+Note: only supported in Cycles, and may slow down renders
+  - in: Radius:VALUE, Normal:VECTOR
+  - out: Normal:VECTOR
+- `ShaderNodeBlackbody` (Blackbody) — Convert a blackbody temperature to an RGB value
+  - in: Temperature:VALUE
+  - out: Color:RGBA
+- `ShaderNodeBrightContrast` (Brightness/Contrast) — Control the brightness and contrast of the input color
+  - in: Color:RGBA, Brightness:VALUE, Contrast:VALUE
+  - out: Color:RGBA
+- `ShaderNodeBsdfAnisotropic` (Glossy BSDF) — Reflection with microfacet distribution, used for materials such as metal or mirrors
+  - in: Color:RGBA, Roughness:VALUE, Anisotropy:VALUE, Rotation:VALUE, Normal:VECTOR, Tangent:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfDiffuse` (Diffuse BSDF) — Lambertian and Oren-Nayar diffuse reflection
+  - in: Color:RGBA, Roughness:VALUE, Normal:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfGlass` (Glass BSDF) — Glass-like shader mixing refraction and reflection at grazing angles
+  - in: Color:RGBA, Roughness:VALUE, IOR:VALUE, Normal:VECTOR, Weight:VALUE, Thin Film Thickness:VALUE, Thin Film IOR:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfHair` (Hair BSDF) — Reflection and transmission shaders optimized for hair rendering
+  - in: Color:RGBA, Offset:VALUE, RoughnessU:VALUE, RoughnessV:VALUE, Tangent:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfHairPrincipled` (Principled Hair BSDF) — Physically-based, easy-to-use shader for rendering hair and fur
+  - in: Color:RGBA, Melanin:VALUE, Melanin Redness:VALUE, Tint:RGBA, Absorption Coefficient:VECTOR, Aspect Ratio:VALUE, Roughness:VALUE, Radial Roughness:VALUE, Coat:VALUE, IOR:VALUE, Offset:VALUE, Random Color:VALUE, Random Roughness:VALUE, Random:VALUE, Weight:VALUE, Reflection:VALUE, Transmission:VALUE, Secondary Reflection:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfMetallic` (Metallic BSDF) — Metallic reflection with microfacet distribution, and metallic fresnel
+  - in: Base Color:RGBA, Edge Tint:RGBA, IOR:VECTOR, Extinction:VECTOR, Roughness:VALUE, Anisotropy:VALUE, Rotation:VALUE, Normal:VECTOR, Tangent:VECTOR, Weight:VALUE, Thin Film Thickness:VALUE, Thin Film IOR:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfPrincipled` (Principled BSDF) — Physically-based, easy-to-use shader for rendering surface materials, based on the OpenPBR model
+  - in: Base Color:RGBA, Metallic:VALUE, Roughness:VALUE, IOR:VALUE, Alpha:VALUE, Thin Wall:BOOLEAN, Normal:VECTOR, Weight:VALUE, Diffuse Roughness:VALUE, Subsurface Weight:VALUE, Subsurface Radius:VECTOR, Subsurface Scale:VALUE, Subsurface IOR:VALUE, Subsurface Anisotropy:VALUE, Specular IOR Level:VALUE, Specular Tint:RGBA, Anisotropic:VALUE, Anisotropic Rotation:VALUE, Tangent:VECTOR, Transmission Weight:VALUE, Coat Weight:VALUE, Coat Roughness:VALUE, Coat IOR:VALUE, Coat Tint:RGBA, Coat Normal:VECTOR, Sheen Weight:VALUE, Sheen Roughness:VALUE, Sheen Tint:RGBA, Emission Color:RGBA, Emission Strength:VALUE, Thin Film Thickness:VALUE, Thin Film IOR:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfRayPortal` (Ray Portal BSDF) — Continue tracing from an arbitrary new position and in a new direction
+  - in: Color:RGBA, Position:VECTOR, Direction:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfRefraction` (Refraction BSDF) — Glossy refraction with sharp or microfacet distribution, typically used for materials that transmit light
+  - in: Color:RGBA, Roughness:VALUE, IOR:VALUE, Normal:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfSheen` (Sheen BSDF) — Reflection for materials such as cloth.
+Typically mixed with other shaders (such as a Diffuse Shader) and is not particularly useful on its own
+  - in: Color:RGBA, Roughness:VALUE, Normal:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfToon` (Toon BSDF) — Diffuse and Glossy shaders with cartoon light effects
+  - in: Color:RGBA, Size:VALUE, Smooth:VALUE, Normal:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfTranslucent` (Translucent BSDF) — Lambertian diffuse transmission
+  - in: Color:RGBA, Normal:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBsdfTransparent` (Transparent BSDF) — Transparency without refraction, passing straight through the surface as if there were no geometry
+  - in: Color:RGBA, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeBump` (Bump) — Generate a perturbed normal from a height texture for bump mapping. Typically used for faking highly detailed surfaces
+  - in: Strength:VALUE, Distance:VALUE, Filter Width:VALUE, Height:VALUE, Normal:VECTOR
+  - out: Normal:VECTOR
+- `ShaderNodeCameraData` (Camera Data) — Retrieve information about the camera and how it relates to the current shading point's position
+  - in: (none)
+  - out: View Vector:VECTOR, View Z Depth:VALUE, View Distance:VALUE
+- `ShaderNodeClamp` (Clamp) — Clamp a value between a minimum and a maximum
+  - in: Value:VALUE, Min:VALUE, Max:VALUE
+  - out: Result:VALUE
+- `ShaderNodeCombineColor` (Combine Color) — Create a color from individual components using multiple models
+  - in: Red:VALUE, Green:VALUE, Blue:VALUE
+  - out: Color:RGBA
+- `ShaderNodeCombineXYZ` (Combine XYZ) — Create a vector from X, Y, and Z components
+  - in: X:VALUE, Y:VALUE, Z:VALUE
+  - out: Vector:VECTOR
+- `ShaderNodeDisplacement` (Displacement) — Displace the surface along the surface normal
+  - in: Height:VALUE, Midlevel:VALUE, Scale:VALUE, Normal:VECTOR
+  - out: Displacement:VECTOR
+- `ShaderNodeEeveeSpecular` (Specular BSDF) — Similar to the Principled BSDF node but uses the specular workflow instead of metallic, which functions by specifying the facing (along normal) reflection color. Energy is not conserved, so the result may not be physically accurate
+  - in: Base Color:RGBA, Specular:RGBA, Roughness:VALUE, Emissive Color:RGBA, Transparency:VALUE, Normal:VECTOR, Clear Coat:VALUE, Clear Coat Roughness:VALUE, Clear Coat Normal:VECTOR, Weight:VALUE
+  - out: BSDF:SHADER
+- `ShaderNodeEmission` (Emission) — Lambertian emission shader
+  - in: Color:RGBA, Strength:VALUE, Weight:VALUE
+  - out: Emission:SHADER
+- `ShaderNodeFloatCurve` (Float Curve) — Map an input float to a curve and outputs a float value
+  - in: Factor:VALUE, Value:VALUE
+  - out: Value:VALUE
+- `ShaderNodeFresnel` (Fresnel) — Produce a blending factor depending on the angle between the surface normal and the view direction using Fresnel equations.
+Typically used for mixing reflections at grazing angles
+  - in: IOR:VALUE, Normal:VECTOR
+  - out: Factor:VALUE
+- `ShaderNodeGamma` (Gamma) — Apply a gamma correction
+  - in: Color:RGBA, Gamma:VALUE
+  - out: Color:RGBA
+- `ShaderNodeGroup` (Group)
+  - in: (none)
+  - out: (none)
+- `ShaderNodeHairInfo` (Curves Info) — Retrieve hair curve information
+  - in: (none)
+  - out: Is Strand:VALUE, Intercept:VALUE, Length:VALUE, Thickness:VALUE, Tangent Normal:VECTOR, Random:VALUE
+- `ShaderNodeHoldout` (Holdout) — Create a "hole" in the image with zero alpha transparency, which is useful for compositing.
+Note: the holdout shader can only create alpha when transparency is enabled in the film settings
+  - in: Weight:VALUE
+  - out: Holdout:SHADER
+- `ShaderNodeHueSaturation` (Hue/Saturation/Value) — Apply a color transformation in the HSV color model
+  - in: Hue:VALUE, Saturation:VALUE, Value:VALUE, Factor:VALUE, Color:RGBA
+  - out: Color:RGBA
+- `ShaderNodeInvert` (Invert Color) — Invert a color, producing a negative
+  - in: Factor:VALUE, Color:RGBA
+  - out: Color:RGBA
+- `ShaderNodeLayerWeight` (Layer Weight) — Produce a blending factor depending on the angle between the surface normal and the view direction.
+Typically used for layering shaders with the Mix Shader node
+  - in: Blend:VALUE, Normal:VECTOR
+  - out: Fresnel:VALUE, Facing:VALUE
+- `ShaderNodeLightFalloff` (Light Falloff) — Manipulate how light intensity decreases over distance. Typically used for non-physically-based effects; in reality light always falls off quadratically
+  - in: Strength:VALUE, Smooth:VALUE
+  - out: Quadratic:VALUE, Linear:VALUE, Constant:VALUE
+- `ShaderNodeLightPath` (Light Path) — Retrieve the type of incoming ray for which the shader is being executed.
+Typically used for non-physically-based tricks
+  - in: (none)
+  - out: Is Camera Ray:VALUE, Is Shadow Ray:VALUE, Is Diffuse Ray:VALUE, Is Glossy Ray:VALUE, Is Singular Ray:VALUE, Is Reflection Ray:VALUE, Is Transmission Ray:VALUE, Is Volume Scatter Ray:VALUE, Ray Length:VALUE, Ray Depth:VALUE, Diffuse Depth:VALUE, Glossy Depth:VALUE, Transparent Depth:VALUE, Transmission Depth:VALUE, Portal Depth:VALUE
+- `ShaderNodeMapRange` (Map Range) — Remap a value from a range to a target range
+  - in: Value:VALUE, From Min:VALUE, From Max:VALUE, To Min:VALUE, To Max:VALUE, Steps:VALUE, Vector:VECTOR, From Min:VECTOR, From Max:VECTOR, To Min:VECTOR, To Max:VECTOR, Steps:VECTOR
+  - out: Result:VALUE, Vector:VECTOR
+- `ShaderNodeMapping` (Mapping) — Transform the input vector by applying translation, rotation, and scale
+  - in: Vector:VECTOR, Location:VECTOR, Rotation:VECTOR, Scale:VECTOR
+  - out: Vector:VECTOR
+- `ShaderNodeMath` (Math) — Perform math operations
+  - in: Value:VALUE, Value:VALUE, Value:VALUE
+  - out: Value:VALUE
+- `ShaderNodeMix` (Mix) — Mix values by a factor
+  - in: Factor:VALUE, Factor:VECTOR, A:VALUE, B:VALUE, A:VECTOR, B:VECTOR, A:RGBA, B:RGBA, A:ROTATION, B:ROTATION
+  - out: Result:VALUE, Result:VECTOR, Result:RGBA, Result:ROTATION
+- `ShaderNodeMixRGB` (Mix (Legacy)) — Mix two input colors
+  - in: Factor:VALUE, Color1:RGBA, Color2:RGBA
+  - out: Color:RGBA
+- `ShaderNodeMixShader` (Mix Shader) — Mix two shaders together. Typically used for material layering
+  - in: Factor:VALUE, Shader:SHADER, Shader:SHADER
+  - out: Shader:SHADER
+- `ShaderNodeNewGeometry` (Geometry) — Retrieve geometric information about the current shading point
+  - in: (none)
+  - out: Position:VECTOR, Normal:VECTOR, Tangent:VECTOR, True Normal:VECTOR, Incoming:VECTOR, Parametric:VECTOR, Backfacing:VALUE, Pointiness:VALUE, Random Per Island:VALUE
+- `ShaderNodeNormal` (Normal) — Generate a normal vector and a dot product
+  - in: Normal:VECTOR
+  - out: Normal:VECTOR, Dot:VALUE
+- `ShaderNodeNormalMap` (Normal Map) — Generate a perturbed normal from an RGB normal map image. Typically used for faking highly detailed surfaces
+  - in: Strength:VALUE, Color:RGBA
+  - out: Normal:VECTOR
+- `ShaderNodeObjectInfo` (Object Info) — Retrieve information about the object instance
+  - in: (none)
+  - out: Location:VECTOR, Color:RGBA, Alpha:VALUE, Object Index:VALUE, Material Index:VALUE, Random:VALUE
+- `ShaderNodeOutputAOV` (AOV Output) — Arbitrary Output Variables.
+Provide custom render passes for arbitrary shader node outputs
+  - in: Color:RGBA, Value:VALUE
+  - out: (none)
+- `ShaderNodeOutputLight` (Light Output) — Output light information to a light object
+  - in: Surface:SHADER
+  - out: (none)
+- `ShaderNodeOutputLineStyle` (Line Style Output) — Control the mixing of texture information into the base color of line styles
+  - in: Color:RGBA, Color Fac:VALUE, Alpha:VALUE, Alpha Fac:VALUE
+  - out: (none)
+- `ShaderNodeOutputMaterial` (Material Output) — Output surface material information for use in rendering
+  - in: Surface:SHADER, Volume:SHADER, Displacement:VECTOR, Thickness:VALUE
+  - out: (none)
+- `ShaderNodeOutputWorld` (World Output) — Output light color information to the scene's World
+  - in: Surface:SHADER, Volume:SHADER
+  - out: (none)
+- `ShaderNodeParticleInfo` (Particle Info) — Retrieve the data of the particle that spawned the object instance, for example to give variation to multiple instances of an object
+  - in: (none)
+  - out: Index:VALUE, Random:VALUE, Age:VALUE, Lifetime:VALUE, Location:VECTOR, Size:VALUE, Velocity:VECTOR, Angular Velocity:VECTOR
+- `ShaderNodePointInfo` (Point Info) — Retrieve information about points in a point cloud
+  - in: (none)
+  - out: Position:VECTOR, Radius:VALUE, Random:VALUE
+- `ShaderNodeRGB` (Color) — A color picker
+  - in: (none)
+  - out: Color:RGBA
+- `ShaderNodeRGBCurve` (RGB Curves) — Apply color corrections for each color channel
+  - in: Factor:VALUE, Color:RGBA
+  - out: Color:RGBA
+- `ShaderNodeRGBToBW` (RGB to BW) — Convert a color's luminance to a grayscale value
+  - in: Color:RGBA
+  - out: Val:VALUE
+- `ShaderNodeRadialTiling` (Radial Tiling) — Transform Coordinate System for Radial Tiling
+  - in: Vector:VECTOR, Sides:VALUE, Roundness:VALUE
+  - out: Segment Coordinates:VECTOR, Segment ID:VALUE, Segment Width:VALUE, Segment Rotation:VALUE
+- `ShaderNodeRaycast` (Raycast) — Cast rays and retrieve information from the hit point
+  - in: Position:VECTOR, Direction:VECTOR, Length:VALUE, :CUSTOM
+  - out: Is Hit:VALUE, Self Hit:VALUE, Hit Distance:VALUE, Hit Position:VECTOR, Hit Normal:VECTOR, :CUSTOM
+- `ShaderNodeScript` (Script) — Generate an OSL shader from a file or text data-block.
+Note: OSL shaders are not supported on all GPU backends
+  - in: (none)
+  - out: (none)
+- `ShaderNodeSeparateColor` (Separate Color) — Split a color into its individual components using multiple models
+  - in: Color:RGBA
+  - out: Red:VALUE, Green:VALUE, Blue:VALUE
+- `ShaderNodeSeparateXYZ` (Separate XYZ) — Split a vector into its X, Y, and Z components
+  - in: Vector:VECTOR
+  - out: X:VALUE, Y:VALUE, Z:VALUE
+- `ShaderNodeShaderToRGB` (Shader to RGB) — Convert rendering effect (such as light and shadow) to color. Typically used for non-photorealistic rendering, to apply additional effects on the output of BSDFs.
+Note: only supported in EEVEE
+  - in: Shader:SHADER
+  - out: Color:RGBA, Alpha:VALUE
+- `ShaderNodeSqueeze` (Squeeze Value (Legacy)) — Deprecated
+  - in: Value:VALUE, Width:VALUE, Center:VALUE
+  - out: Value:VALUE
+- `ShaderNodeSubsurfaceScattering` (Subsurface Scattering) — Subsurface multiple scattering shader to simulate light entering the surface and bouncing internally.
+Typically used for materials such as skin, wax, marble or milk
+  - in: Color:RGBA, Scale:VALUE, Radius:VECTOR, IOR:VALUE, Roughness:VALUE, Anisotropy:VALUE, Normal:VECTOR, Weight:VALUE
+  - out: BSSRDF:SHADER
+- `ShaderNodeTangent` (Tangent) — Generate a tangent direction for the Anisotropic BSDF
+  - in: (none)
+  - out: Tangent:VECTOR
+- `ShaderNodeTexBrick` (Brick Texture) — Generate a procedural texture producing bricks
+  - in: Vector:VECTOR, Color1:RGBA, Color2:RGBA, Mortar:RGBA, Scale:VALUE, Mortar Size:VALUE, Mortar Smooth:VALUE, Bias:VALUE, Brick Width:VALUE, Row Height:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexChecker` (Checker Texture) — Generate a checkerboard texture
+  - in: Vector:VECTOR, Color1:RGBA, Color2:RGBA, Scale:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexCoord` (Texture Coordinate) — Retrieve multiple types of texture coordinates.
+Typically used as inputs for texture nodes
+  - in: (none)
+  - out: Generated:VECTOR, Normal:VECTOR, UV:VECTOR, Object:VECTOR, Camera:VECTOR, Window:VECTOR, Reflection:VECTOR
+- `ShaderNodeTexEnvironment` (Environment Texture) — Sample an image file as an environment texture. Typically used to light the scene with the background node
+  - in: Vector:VECTOR
+  - out: Color:RGBA
+- `ShaderNodeTexGabor` (Gabor Texture) — Generate Gabor noise
+  - in: Vector:VECTOR, Scale:VALUE, Frequency:VALUE, Anisotropy:VALUE, Orientation:VALUE, Orientation:VECTOR
+  - out: Value:VALUE, Phase:VALUE, Intensity:VALUE
+- `ShaderNodeTexGradient` (Gradient Texture) — Generate interpolated color and intensity values based on the input vector
+  - in: Vector:VECTOR
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexIES` (IES Texture) — Match real world lights with IES files, which store the directional intensity distribution of light sources
+  - in: Vector:VECTOR, Strength:VALUE
+  - out: Factor:VALUE
+- `ShaderNodeTexImage` (Image Texture) — Sample an image file as a texture
+  - in: Vector:VECTOR
+  - out: Color:RGBA, Alpha:VALUE
+- `ShaderNodeTexMagic` (Magic Texture) — Generate a psychedelic color texture
+  - in: Vector:VECTOR, Scale:VALUE, Distortion:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexNoise` (Noise Texture) — Generate fractal Perlin noise
+  - in: Vector:VECTOR, W:VALUE, Scale:VALUE, Detail:VALUE, Roughness:VALUE, Lacunarity:VALUE, Offset:VALUE, Gain:VALUE, Distortion:VALUE
+  - out: Factor:VALUE, Color:RGBA
+- `ShaderNodeTexSky` (Sky Texture) — Generate a procedural sky texture
+  - in: Vector:VECTOR
+  - out: Color:RGBA
+- `ShaderNodeTexVoronoi` (Voronoi Texture) — Generate Worley noise based on the distance to random points. Typically used to generate textures such as stones, water, or biological cells
+  - in: Vector:VECTOR, W:VALUE, Scale:VALUE, Detail:VALUE, Roughness:VALUE, Lacunarity:VALUE, Smoothness:VALUE, Exponent:VALUE, Randomness:VALUE
+  - out: Distance:VALUE, Color:RGBA, Position:VECTOR, W:VALUE, Radius:VALUE
+- `ShaderNodeTexWave` (Wave Texture) — Generate procedural bands or rings with noise
+  - in: Vector:VECTOR, Scale:VALUE, Distortion:VALUE, Detail:VALUE, Detail Scale:VALUE, Detail Roughness:VALUE, Phase Offset:VALUE
+  - out: Color:RGBA, Factor:VALUE
+- `ShaderNodeTexWhiteNoise` (White Noise Texture) — Calculate a random value or color based on an input seed
+  - in: Vector:VECTOR, W:VALUE
+  - out: Value:VALUE, Color:RGBA
+- `ShaderNodeUVAlongStroke` (UV Along Stroke) — UV coordinates that map a texture along the stroke length
+  - in: (none)
+  - out: UV:VECTOR
+- `ShaderNodeUVMap` (UV Map) — Retrieve a UV map from the geometry, or the default fallback if none is specified
+  - in: (none)
+  - out: UV:VECTOR
+- `ShaderNodeValToRGB` (Color Ramp) — Map values to colors with the use of a gradient
+  - in: Factor:VALUE
+  - out: Color:RGBA, Alpha:VALUE
+- `ShaderNodeValue` (Value) — Input numerical values to other nodes in the tree
+  - in: (none)
+  - out: Value:VALUE
+- `ShaderNodeVectorCurve` (Vector Curves) — Map input vector components with curves
+  - in: Factor:VALUE, Vector:VECTOR
+  - out: Vector:VECTOR
+- `ShaderNodeVectorDisplacement` (Vector Displacement) — Displace the surface along an arbitrary direction
+  - in: Vector:RGBA, Midlevel:VALUE, Scale:VALUE
+  - out: Displacement:VECTOR
+- `ShaderNodeVectorMath` (Vector Math) — Perform vector math operation
+  - in: Vector:VECTOR, Vector:VECTOR, Vector:VECTOR, Scale:VALUE
+  - out: Vector:VECTOR, Value:VALUE
+- `ShaderNodeVectorRotate` (Vector Rotate) — Rotate a vector around a pivot point (center)
+  - in: Vector:VECTOR, Center:VECTOR, Axis:VECTOR, Angle:VALUE, Rotation:VECTOR
+  - out: Vector:VECTOR
+- `ShaderNodeVectorTransform` (Vector Transform) — Convert a vector, point, or normal between world, camera, and object coordinate space
+  - in: Vector:VECTOR
+  - out: Vector:VECTOR
+- `ShaderNodeVertexColor` (Color Attribute) — Retrieve a color attribute, or the default fallback if none is specified
+  - in: (none)
+  - out: Color:RGBA, Alpha:VALUE
+- `ShaderNodeVolumeAbsorption` (Volume Absorption) — Absorb light as it passes through the volume
+  - in: Color:RGBA, Density:VALUE, Weight:VALUE
+  - out: Volume:SHADER
+- `ShaderNodeVolumeCoefficients` (Volume Coefficients) — Model all three physical processes in a volume, represented by their coefficients
+  - in: Weight:VALUE, Absorption Coefficients:VECTOR, Scatter Coefficients:VECTOR, Anisotropy:VALUE, IOR:VALUE, Backscatter:VALUE, Alpha:VALUE, Diameter:VALUE, Emission Coefficients:VECTOR
+  - out: Volume:SHADER
+- `ShaderNodeVolumeInfo` (Volume Info) — Read volume data attributes from volume grids
+  - in: (none)
+  - out: Color:RGBA, Density:VALUE, Flame:VALUE, Temperature:VALUE
+- `ShaderNodeVolumePrincipled` (Principled Volume) — Combine all volume shading components into a single easy to use node
+  - in: Color:RGBA, Color Attribute:STRING, Density:VALUE, Density Attribute:STRING, Anisotropy:VALUE, Absorption Color:RGBA, Emission Strength:VALUE, Emission Color:RGBA, Blackbody Intensity:VALUE, Blackbody Tint:RGBA, Temperature:VALUE, Temperature Attribute:STRING, Weight:VALUE
+  - out: Volume:SHADER
+- `ShaderNodeVolumeScatter` (Volume Scatter) — Scatter light as it passes through the volume, often used to add fog to a scene
+  - in: Color:RGBA, Density:VALUE, Anisotropy:VALUE, IOR:VALUE, Backscatter:VALUE, Alpha:VALUE, Diameter:VALUE, Weight:VALUE
+  - out: Volume:SHADER
+- `ShaderNodeWavelength` (Wavelength) — Convert a wavelength value to an RGB value
+  - in: Wavelength:VALUE
+  - out: Color:RGBA
+- `ShaderNodeWireframe` (Wireframe) — Retrieve the edges of an object as it appears to Cycles.
+Note: as meshes are triangulated before being processed by Cycles, topology will always appear triangulated
+  - in: Size:VALUE
+  - out: Factor:VALUE

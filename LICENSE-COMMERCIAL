@@ -1,0 +1,33 @@
+Commercial License
+===================
+
+Copyright (c) 2026 ssoj13. All rights reserved.
+
+blender-mcp-rs is available under a commercial license as an alternative to the
+BSD 3-Clause License (see LICENSE-BSD3). This document is a summary, not the
+agreement itself; the binding terms are those of the signed commercial license.
+
+When you may want it
+--------------------
+The BSD 3-Clause License already permits commercial use, modification, and
+redistribution at no cost, provided you keep the copyright notice and
+disclaimer. A commercial license is for cases the BSD terms do not fit, such as:
+
+  - you do not want to reproduce the attribution/notice in your distribution;
+  - you need warranty, indemnification, or a support commitment;
+  - you need terms your legal or procurement process requires that BSD-3 does not provide.
+
+Grant (typical)
+---------------
+A commercial license typically grants a non-exclusive, non-transferable right
+to use, modify, and distribute the Software as part of your product, without the
+BSD-3 attribution obligation, under separately agreed terms on scope, support,
+and warranty.
+
+How to obtain one
+-----------------
+Contact the copyright holder to arrange a commercial license and its terms:
+
+  https://github.com/ssoj13/blender-mcp-rs   (open an issue or see the profile for contact details)
+
+Until a commercial license is signed, your use is governed by the BSD 3-Clause License.

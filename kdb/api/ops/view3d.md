@@ -1,0 +1,76 @@
+---
+area: api-ops
+group: view3d
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.view3d
+
+- `bpy.ops.view3d.bone_select_menu(name: enum{}, extend: boolean, deselect: boolean, toggle: boolean)` — Menu bone selection
+- `bpy.ops.view3d.camera_background_image_add(filepath: string, relative_path: boolean, name: string, session_uid: int)` — Add a new background image to the active camera
+- `bpy.ops.view3d.camera_background_image_remove(index: int)` — Remove a background image from the camera
+- `bpy.ops.view3d.camera_to_view()` — Set camera view to active view
+- `bpy.ops.view3d.camera_to_view_selected()` — Move the camera so selected objects are framed
+- `bpy.ops.view3d.clear_render_border()` — Clear the boundaries of the border render and disable border render
+- `bpy.ops.view3d.clip_border(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean)` — Set the view clipping region
+- `bpy.ops.view3d.copybuffer()` — Copy the selected objects to the internal clipboard
+- `bpy.ops.view3d.cursor3d(use_depth: boolean, orientation: enum{NONE, VIEW, XFORM, GEOM})` — Set the location of the 3D cursor
+- `bpy.ops.view3d.dolly(mx: int, my: int, delta: int, use_cursor_init: boolean)` — Dolly in/out in the view
+- `bpy.ops.view3d.drop_world(name: string, session_uid: int)` — Drop a world into the scene
+- `bpy.ops.view3d.edit_mesh_extrude_individual_move()` — Extrude each individual face separately along local normals
+- `bpy.ops.view3d.edit_mesh_extrude_manifold_normal()` — Extrude manifold region along normals
+- `bpy.ops.view3d.edit_mesh_extrude_move_normal(dissolve_and_intersect: boolean)` — Extrude region together along the average normal
+- `bpy.ops.view3d.edit_mesh_extrude_move_shrink_fatten()` — Extrude region together along local normals
+- `bpy.ops.view3d.fly()` — Interactively fly around the scene
+- `bpy.ops.view3d.interactive_add(primitive_type: enum{CUBE, CYLINDER, CONE, SPHERE_UV, SPHERE_ICO}, plane_origin_base: enum{EDGE, CENTER}, plane_origin_depth: enum{EDGE, CENTER}, plane_aspect_base: enum{FREE, FIXED}, plane_aspect_depth: enum{FREE, FIXED}, wait_for_input: boolean)` — Interactively add an object
+- `bpy.ops.view3d.localview(frame_selected: boolean)` — Toggle display of selected object(s) separately and centered in view
+- `bpy.ops.view3d.localview_remove_from()` — Move selected objects out of local view
+- `bpy.ops.view3d.move(use_cursor_init: boolean)` — Move the view
+- `bpy.ops.view3d.navigate()` — Interactively navigate around the scene (uses the mode (walk/fly) preference)
+- `bpy.ops.view3d.ndof_all()` — Pan and rotate the view with the 3D mouse
+- `bpy.ops.view3d.ndof_orbit()` — Orbit the view using the 3D mouse
+- `bpy.ops.view3d.ndof_orbit_zoom()` — Orbit and zoom the view using the 3D mouse
+- `bpy.ops.view3d.ndof_pan()` — Pan the view with the 3D mouse
+- `bpy.ops.view3d.object_as_camera()` — Set the active object as the active camera for this view or scene
+- `bpy.ops.view3d.object_mode_pie_or_toggle()` — (undocumented operator)
+- `bpy.ops.view3d.pastebuffer(autoselect: boolean, active_collection: boolean)` — Paste objects from the internal clipboard
+- `bpy.ops.view3d.render_border(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean)` — Set the boundaries of the border render and enable border render
+- `bpy.ops.view3d.rotate(use_cursor_init: boolean)` — Rotate the view
+- `bpy.ops.view3d.ruler_add()` — Add ruler
+- `bpy.ops.view3d.ruler_remove()` — (undocumented operator)
+- `bpy.ops.view3d.select(extend: boolean, deselect: boolean, toggle: boolean, deselect_all: boolean, select_passthrough: boolean, center: boolean, enumerate: boolean, object: boolean, location: int)` — Select and activate item(s)
+- `bpy.ops.view3d.select_box(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB, XOR, AND})` — Select items using box selection
+- `bpy.ops.view3d.select_circle(x: int, y: int, radius: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Select items using circle selection
+- `bpy.ops.view3d.select_lasso(path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, mode: enum{SET, ADD, SUB, XOR, AND})` — Select items using lasso selection
+- `bpy.ops.view3d.select_menu(name: enum{}, extend: boolean, deselect: boolean, toggle: boolean)` — Menu object selection
+- `bpy.ops.view3d.smoothview()` — (undocumented operator)
+- `bpy.ops.view3d.snap_cursor_to_active()` — Snap 3D cursor to the active item
+- `bpy.ops.view3d.snap_cursor_to_center()` — Snap 3D cursor to the world origin
+- `bpy.ops.view3d.snap_cursor_to_grid()` — Snap 3D cursor to the nearest grid division
+- `bpy.ops.view3d.snap_cursor_to_selected()` — Snap 3D cursor to the middle of the selected item(s)
+- `bpy.ops.view3d.snap_selected_to_active()` — Snap selected item(s) to the active item
+- `bpy.ops.view3d.snap_selected_to_cursor(use_offset: boolean, use_rotation: boolean)` — Snap selected item(s) to the 3D cursor
+- `bpy.ops.view3d.snap_selected_to_grid()` — Snap selected item(s) to their nearest grid division
+- `bpy.ops.view3d.toggle_matcap_flip()` — Flip MatCap
+- `bpy.ops.view3d.toggle_shading(type: enum{WIREFRAME, SOLID, MATERIAL, RENDERED})` — Toggle shading type in 3D viewport
+- `bpy.ops.view3d.toggle_xray()` — Transparent scene display. Allow selecting through items
+- `bpy.ops.view3d.transform_gizmo_set(extend: boolean, type: enum{TRANSLATE, ROTATE, SCALE})` — Set the current transform gizmo
+- `bpy.ops.view3d.view_all(use_all_regions: boolean, center: boolean)` — View all objects in scene
+- `bpy.ops.view3d.view_axis(type: enum{LEFT, RIGHT, BOTTOM, TOP, FRONT, BACK}, align_active: boolean, relative: boolean)` — Use a preset viewpoint
+- `bpy.ops.view3d.view_camera()` — Toggle the camera view
+- `bpy.ops.view3d.view_center_camera()` — Center the camera view, resizing the view to fit its bounds
+- `bpy.ops.view3d.view_center_cursor()` — Center the view so that the cursor is in the middle of the view
+- `bpy.ops.view3d.view_center_lock()` — Center the view lock offset
+- `bpy.ops.view3d.view_center_pick()` — Center the view to the Z-depth position under the mouse cursor
+- `bpy.ops.view3d.view_lock_clear()` — Clear all view locking
+- `bpy.ops.view3d.view_lock_to_active()` — Lock the view to the active object/bone
+- `bpy.ops.view3d.view_orbit(angle: float, type: enum{ORBITLEFT, ORBITRIGHT, ORBITUP, ORBITDOWN})` — Orbit the view
+- `bpy.ops.view3d.view_pan(type: enum{PANLEFT, PANRIGHT, PANUP, PANDOWN})` — Pan the view in a given direction
+- `bpy.ops.view3d.view_persportho()` — Switch the current view from perspective/orthographic projection
+- `bpy.ops.view3d.view_roll(angle: float, type: enum{ANGLE, LEFT, RIGHT})` — Roll the view
+- `bpy.ops.view3d.view_selected(use_all_regions: boolean)` — Move the view to the selection center
+- `bpy.ops.view3d.vr_location_scouting_capture_review()` — Interactively review Location Scouting VR Captures
+- `bpy.ops.view3d.walk()` — Interactively walk around the scene
+- `bpy.ops.view3d.zoom(mx: int, my: int, delta: int, use_cursor_init: boolean)` — Zoom in/out in the view
+- `bpy.ops.view3d.zoom_border(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, zoom_out: boolean)` — Zoom in the view to the nearest object contained in the border
+- `bpy.ops.view3d.zoom_camera_1_to_1()` — Match the camera to 1:1 to the render output

@@ -1,0 +1,190 @@
+---
+area: api-ops
+group: node
+version: 5.2.2
+---
+
+# Blender 5.2.2 operators: bpy.ops.node
+
+- `bpy.ops.node.activate_viewer()` — Activate selected viewer node in compositor and geometry nodes
+- `bpy.ops.node.add_closure_zone(settings: collection, use_transform: boolean, offset: float)` — Add a Closure zone
+- `bpy.ops.node.add_collection(name: string, session_uid: int)` — Add a collection info node to the current node editor
+- `bpy.ops.node.add_color(color: float, gamma: boolean, has_alpha: boolean)` — Add a color node to the current node editor
+- `bpy.ops.node.add_empty_group(settings: collection, use_transform: boolean)` — Add a group node with an empty group
+- `bpy.ops.node.add_foreach_geometry_element_zone(settings: collection, use_transform: boolean, offset: float)` — Add a For Each Geometry Element zone that allows executing nodes e.g. for each vertex separately
+- `bpy.ops.node.add_group(name: string, session_uid: int, show_datablock_in_node: boolean)` — Add an existing node group to the current node editor
+- `bpy.ops.node.add_group_asset(asset_library_type: enum{ALL, LOCAL, ESSENTIALS, ONLINE_ESSENTIALS, CUSTOM}, asset_library_identifier: string, relative_asset_identifier: string)` — Add a node group asset to the active node tree
+- `bpy.ops.node.add_group_input_node(only_selected_sockets: boolean, all_panel_contents: boolean)` — Add a Group Input node with selected sockets to the current node editor
+- `bpy.ops.node.add_image(filepath: string, directory: string, files: collection, hide_props_region: boolean, check_existing: boolean, filter_blender: boolean, filter_backup: boolean, filter_image: boolean, filter_movie: boolean, filter_python: boolean, filter_font: boolean, filter_sound: boolean, filter_text: boolean, filter_archive: boolean, filter_btx: boolean, filter_alembic: boolean, filter_usd: boolean, filter_obj: boolean, filter_volume: boolean, filter_folder: boolean, filter_blenlib: boolean, filemode: int, relative_path: boolean, show_multiview: boolean, use_multiview: boolean, display_type: enum{DEFAULT, LIST_VERTICAL, LIST_HORIZONTAL, THUMBNAIL}, sort_method: enum{DEFAULT, FILE_SORT_ALPHA, FILE_SORT_EXTENSION, FILE_SORT_TIME, FILE_SORT_SIZE, ASSET_CATALOG}, name: string, session_uid: int)` — Add a image/movie file as node to the current node editor
+- `bpy.ops.node.add_import_node(directory: string, files: collection)` — Add an import node to the node tree
+- `bpy.ops.node.add_mask(name: string, session_uid: int)` — Add a mask node to the current node editor
+- `bpy.ops.node.add_material(name: string, session_uid: int)` — Add a material node to the current node editor
+- `bpy.ops.node.add_node(settings: collection, use_transform: boolean, type: string, visible_output: string)` — Add a node to the active tree
+- `bpy.ops.node.add_object(name: string, session_uid: int)` — Add an object info node to the current node editor
+- `bpy.ops.node.add_repeat_zone(settings: collection, use_transform: boolean, offset: float)` — Add a repeat zone that allows executing nodes a dynamic number of times
+- `bpy.ops.node.add_reroute(path: collection, cursor: int)` — Add a reroute node
+- `bpy.ops.node.add_simulation_zone(settings: collection, use_transform: boolean, offset: float)` — Add simulation zone input and output nodes to the active tree
+- `bpy.ops.node.add_typed_bundle(settings: collection, use_transform: boolean)` — Add a Combine Bundle node with a type input
+- `bpy.ops.node.add_zone(settings: collection, use_transform: boolean, offset: float, input_node_type: string, output_node_type: string, add_default_geometry_link: boolean)` — (undocumented operator)
+- `bpy.ops.node.attach()` — Attach active node to a frame
+- `bpy.ops.node.backimage_fit()` — Fit the background image to the view
+- `bpy.ops.node.backimage_move()` — Move node backdrop
+- `bpy.ops.node.backimage_sample()` — Use mouse to sample background image
+- `bpy.ops.node.backimage_zoom(factor: float, use_mouse_pos: boolean)` — Zoom in/out the background image
+- `bpy.ops.node.bake_node_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.bake_node_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.bake_node_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.capture_attribute_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.capture_attribute_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.capture_attribute_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.clear_viewer_border()` — Clear the boundaries for viewer operations
+- `bpy.ops.node.clipboard_copy()` — Copy the selected nodes to the internal clipboard
+- `bpy.ops.node.clipboard_paste(offset: float)` — Paste nodes from the internal clipboard to the active node tree
+- `bpy.ops.node.closure_input_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.closure_input_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.closure_input_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.closure_output_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.closure_output_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.closure_output_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.closure_to_list_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.closure_to_list_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.closure_to_list_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.collapse_hide_unused_toggle()` — Toggle collapsed nodes and hide unused sockets
+- `bpy.ops.node.combine_bundle_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.combine_bundle_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.combine_bundle_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.connect_to_output(run_in_geometry_nodes: boolean)` — Connect active node to the active output node of the node tree
+- `bpy.ops.node.cryptomatte_layer_add()` — Add a new input layer to a Cryptomatte node
+- `bpy.ops.node.cryptomatte_layer_remove()` — Remove layer from a Cryptomatte node
+- `bpy.ops.node.deactivate_viewer()` — Deactivate selected viewer node in geometry nodes
+- `bpy.ops.node.default_group_width_set()` — Set the width based on the parent group node in the current context
+- `bpy.ops.node.delete()` — Remove selected nodes
+- `bpy.ops.node.delete_copy_reconnect(NODE_OT_clipboard_copy: pointer, NODE_OT_delete_reconnect: pointer)` — Copy nodes to clipboard, remove and reconnect them.
+- `bpy.ops.node.delete_reconnect()` — Remove nodes and reconnect nodes as if deletion was muted
+- `bpy.ops.node.detach()` — Detach selected nodes from parents
+- `bpy.ops.node.detach_translate_attach(NODE_OT_detach: pointer, TRANSFORM_OT_translate: pointer, NODE_OT_attach: pointer)` — Detach nodes, move and attach to frame
+- `bpy.ops.node.duplicate(keep_inputs: boolean, linked: boolean)` — Duplicate selected nodes
+- `bpy.ops.node.duplicate_compositing_modifier_node_group()` — Duplicate the currently assigned compositing node group.
+- `bpy.ops.node.duplicate_compositing_node_group()` — Duplicate the currently assigned compositing node group.
+- `bpy.ops.node.duplicate_move(NODE_OT_duplicate: pointer, NODE_OT_translate_attach: pointer)` — Duplicate selected nodes and move them
+- `bpy.ops.node.duplicate_move_keep_inputs(NODE_OT_duplicate: pointer, NODE_OT_translate_attach: pointer)` — Duplicate selected nodes keeping input links and move them
+- `bpy.ops.node.duplicate_move_linked(NODE_OT_duplicate: pointer, NODE_OT_translate_attach: pointer)` — Duplicate selected nodes, but not their node trees, and move them
+- `bpy.ops.node.enum_definition_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, item_name: string)` — Add item below active item
+- `bpy.ops.node.enum_definition_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.enum_definition_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.evaluate_closure_input_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.evaluate_closure_input_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.evaluate_closure_input_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.evaluate_closure_output_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.evaluate_closure_output_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.evaluate_closure_output_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.field_to_grid_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.field_to_grid_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.field_to_grid_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.field_to_list_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.field_to_list_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.field_to_list_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.file_output_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.file_output_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.file_output_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.find_node()` — Search for a node by name and focus and select it
+- `bpy.ops.node.foreach_geometry_element_zone_generation_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.foreach_geometry_element_zone_generation_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.foreach_geometry_element_zone_generation_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.foreach_geometry_element_zone_input_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.foreach_geometry_element_zone_input_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.foreach_geometry_element_zone_input_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.foreach_geometry_element_zone_main_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.foreach_geometry_element_zone_main_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.foreach_geometry_element_zone_main_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.format_string_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.format_string_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.format_string_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.geometry_nodes_viewer_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.geometry_nodes_viewer_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.geometry_nodes_viewer_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.gltf_settings_node_operator()` — Add a node to the active tree for glTF export
+- `bpy.ops.node.group_edit(exit: boolean)` — Edit node group
+- `bpy.ops.node.group_enter_exit()` — Enter or exit node group based on cursor location
+- `bpy.ops.node.group_insert()` — Insert selected nodes into a node group
+- `bpy.ops.node.group_make()` — Make group from selected nodes
+- `bpy.ops.node.group_separate(type: enum{COPY, MOVE})` — Separate selected nodes from the node group
+- `bpy.ops.node.group_ungroup()` — Ungroup selected nodes
+- `bpy.ops.node.hide_socket_toggle()` — Toggle unused node socket display
+- `bpy.ops.node.hide_toggle()` — Toggle collapsing of selected nodes
+- `bpy.ops.node.index_switch_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean)` — Add item below active item
+- `bpy.ops.node.index_switch_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.index_switch_item_remove(index: int)` — Remove active item
+- `bpy.ops.node.insert_offset()` — Automatically offset nodes on insertion
+- `bpy.ops.node.interface_item_duplicate()` — Add a copy of the active item to the interface
+- `bpy.ops.node.interface_item_make_panel_toggle()` — Make the active boolean socket a toggle for its parent panel
+- `bpy.ops.node.interface_item_new(item_type: enum{INPUT, OUTPUT, PANEL})` — Add a new item to the interface
+- `bpy.ops.node.interface_item_new_panel_toggle()` — Add a checkbox to the currently selected panel
+- `bpy.ops.node.interface_item_remove()` — Remove selected items from the interface
+- `bpy.ops.node.interface_item_unlink_panel_toggle()` — Make the panel toggle a stand-alone socket
+- `bpy.ops.node.join()` — Attach selected nodes to a new common frame
+- `bpy.ops.node.join_named(NODE_OT_join: pointer, WM_OT_call_panel: pointer)` — Create a new frame node around the selected nodes and name it immediately
+- `bpy.ops.node.join_nodes()` — Merge selected group input nodes into one if possible
+- `bpy.ops.node.link(detach: boolean, drag_start: float, inside_padding: float, outside_padding: float, speed_ramp: float, max_speed: float, delay: float, zoom_influence: float)` — Use the mouse to create a link between two nodes
+- `bpy.ops.node.link_drag_operation_test(find_link_operations: boolean, link_operation_index: int)` — Run a node link-drag operation for testing
+- `bpy.ops.node.link_make(replace: boolean)` — Make a link between selected output and input sockets
+- `bpy.ops.node.link_viewer()` — Link to viewer node
+- `bpy.ops.node.links_cut(path: collection, cursor: int)` — Use the mouse to cut (remove) some links
+- `bpy.ops.node.links_detach()` — Remove all links to selected nodes, and try to connect neighbor nodes together
+- `bpy.ops.node.links_mute(path: collection, cursor: int)` — Use the mouse to mute links
+- `bpy.ops.node.move_detach_links(NODE_OT_links_detach: pointer, TRANSFORM_OT_translate: pointer)` — Move a node to detach links
+- `bpy.ops.node.move_detach_links_release(NODE_OT_links_detach: pointer, NODE_OT_translate_attach: pointer)` — Move a node to detach links
+- `bpy.ops.node.mute_toggle()` — Toggle muting of selected nodes
+- `bpy.ops.node.new_compositing_node_group(name: string)` — Create a new compositing node group and initialize it with default nodes
+- `bpy.ops.node.new_compositor_sequencer_node_group(name: string)` — Create a new compositor node group for sequencer
+- `bpy.ops.node.new_geometry_node_group_assign()` — Create a new geometry node group and assign it to the active modifier
+- `bpy.ops.node.new_geometry_node_group_tool()` — Create a new geometry node group for a tool
+- `bpy.ops.node.new_geometry_nodes_modifier()` — Create a new modifier with a new geometry node group
+- `bpy.ops.node.new_node_tree(type: enum{}, name: string)` — Create a new node tree
+- `bpy.ops.node.node_color_preset_add(name: string, remove_name: boolean, remove_active: boolean)` — Add or remove a Node Color Preset
+- `bpy.ops.node.node_copy_color()` — Copy color to all selected nodes
+- `bpy.ops.node.options_toggle()` — Toggle option buttons display for selected nodes
+- `bpy.ops.node.parent_set()` — Attach selected nodes
+- `bpy.ops.node.preview_toggle()` — Toggle preview display for selected nodes
+- `bpy.ops.node.read_viewlayers()` — Read all render layers of all used scenes
+- `bpy.ops.node.render_changed()` — Render current scene, when input node's layer has been changed
+- `bpy.ops.node.repeat_zone_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.repeat_zone_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.repeat_zone_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.resize()` — Resize a node
+- `bpy.ops.node.sample_attribute_items_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.sample_attribute_items_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.sample_attribute_items_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.select(extend: boolean, deselect: boolean, toggle: boolean, deselect_all: boolean, select_passthrough: boolean, location: int, socket_select: boolean, clear_viewer: boolean)` — Select the node under the cursor
+- `bpy.ops.node.select_all(action: enum{TOGGLE, SELECT, DESELECT, INVERT})` — (De)select all nodes
+- `bpy.ops.node.select_box(tweak: boolean, xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Use box selection to select nodes
+- `bpy.ops.node.select_circle(x: int, y: int, radius: int, wait_for_input: boolean, mode: enum{SET, ADD, SUB})` — Use circle selection to select nodes
+- `bpy.ops.node.select_grouped(extend: boolean, type: enum{TYPE, COLOR, PREFIX, SUFFIX})` — Select nodes with similar properties
+- `bpy.ops.node.select_lasso(tweak: boolean, path: collection, use_smooth_stroke: boolean, smooth_stroke_factor: float, smooth_stroke_radius: int, mode: enum{SET, ADD, SUB})` — Select nodes using lasso selection
+- `bpy.ops.node.select_link_viewer(NODE_OT_select: pointer, NODE_OT_link_viewer: pointer)` — Select node and link it to a viewer node
+- `bpy.ops.node.select_linked_from()` — Select nodes linked from the selected ones
+- `bpy.ops.node.select_linked_to()` — Select nodes linked to the selected ones
+- `bpy.ops.node.select_same_type_step(prev: boolean)` — Activate and view same node type, step by step
+- `bpy.ops.node.separate_bundle_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.separate_bundle_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.separate_bundle_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.shader_script_update()` — Update shader script node with new sockets and options from the script
+- `bpy.ops.node.simulation_zone_item_add(node_identifier: int, show_dialog: boolean, init_from_active: boolean, socket_type: enum{FLOAT, INT, BOOLEAN, VECTOR, RGBA, ROTATION, MATRIX, STRING, MENU, SHADER, OBJECT, IMAGE, GEOMETRY, COLLECTION, TEXTURE, MATERIAL, BUNDLE, CLOSURE, FONT, SCENE, TEXT, MASK, SOUND, INT_VECTOR}, item_name: string)` — Add item below active item
+- `bpy.ops.node.simulation_zone_item_move(direction: enum{UP, DOWN}, node_identifier: int)` — Move active item
+- `bpy.ops.node.simulation_zone_item_remove(node_identifier: int)` — Remove active item
+- `bpy.ops.node.sockets_sync(node_name: string)` — Update sockets to match what is actually used
+- `bpy.ops.node.swap_empty_group(settings: collection)` — Replace active node with an empty group
+- `bpy.ops.node.swap_group_asset(asset_library_type: enum{ALL, LOCAL, ESSENTIALS, ONLINE_ESSENTIALS, CUSTOM}, asset_library_identifier: string, relative_asset_identifier: string)` — Swap selected nodes with the specified node group asset
+- `bpy.ops.node.swap_node(settings: collection, type: string, visible_output: string)` — Replace the selected nodes with the specified type
+- `bpy.ops.node.swap_typed_bundle(settings: collection)` — Swap existing node with a Combine Bundle node with a type input
+- `bpy.ops.node.swap_zone(settings: collection, offset: float, input_node_type: string, output_node_type: string, add_default_geometry_link: boolean)` — (undocumented operator)
+- `bpy.ops.node.test_inlining_shader_nodes()` — Create a new inlined shader node tree as is consumed by renderers
+- `bpy.ops.node.toggle_viewer()` — Toggle selected viewer node in compositor and geometry nodes
+- `bpy.ops.node.translate_attach(TRANSFORM_OT_translate: pointer, NODE_OT_attach: pointer)` — Move nodes and attach to frame
+- `bpy.ops.node.translate_attach_remove_on_cancel(TRANSFORM_OT_translate: pointer, NODE_OT_attach: pointer)` — Move nodes and attach to frame
+- `bpy.ops.node.tree_path_parent(parent_tree_index: int)` — Go to parent node tree
+- `bpy.ops.node.view_all()` — Resize view so you can see all nodes
+- `bpy.ops.node.view_selected()` — Resize view so you can see selected nodes
+- `bpy.ops.node.viewer_border(xmin: int, xmax: int, ymin: int, ymax: int, wait_for_input: boolean)` — Set the boundaries for viewer operations (Not implemented)
+- `bpy.ops.node.viewer_shortcut_get(viewer_index: int)` — Toggle a specific viewer node using 1,2,..,9 keys
+- `bpy.ops.node.viewer_shortcut_set(viewer_index: int)` — Create a viewer shortcut for the selected node by pressing ctrl+1,2,..9
