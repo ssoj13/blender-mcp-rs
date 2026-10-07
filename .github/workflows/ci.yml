@@ -1,0 +1,110 @@
+name: CI and release
+
+on:
+  push:
+    branches: ['**']
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_type != 'tag' }}
+
+env:
+  CARGO_TERM_COLOR: always
+  PYTHONUTF8: '1'
+
+jobs:
+  build:
+    name: ${{ matrix.platform }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-x86_64
+            os: windows-latest
+            target: x86_64-pc-windows-msvc
+          - platform: linux-x86_64
+            os: ubuntu-latest
+            target: x86_64-unknown-linux-musl
+          - platform: macos-aarch64
+            os: macos-15
+            target: aarch64-apple-darwin
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Set up stable Rust
+        shell: bash
+        run: |
+          rustup update stable --no-self-update
+          rustup default stable
+          rustup component add rustfmt clippy llvm-tools-preview
+          rustup target add "${{ matrix.target }}"
+      - name: Install musl toolchain
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y musl-tools
+      - uses: Swatinem/rust-cache@v2.9.2
+        with:
+          workspaces: |
+            . -> target
+            . -> target/portable
+          key: ${{ matrix.target }}
+      - name: Check, test, build with all features, and package
+        run: python bootstrap.py ci --target ${{ matrix.target }}
+      - uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ${{ matrix.platform }}
+          path: dist/*.zip
+          if-no-files-found: error
+          compression-level: 0
+
+  release:
+    name: Publish three portable ZIPs
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8.0.1
+        with:
+          pattern: '*'
+          path: release
+          merge-multiple: true
+      - name: Publish GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          for platform in windows-x86_64 linux-x86_64 macos-aarch64; do
+            test -f "release/blender-mcp-rs-${TAG}-${platform}.zip"
+          done
+          shopt -s nullglob
+          archives=(release/*.zip)
+          test "${#archives[@]}" -eq 3
+          prerelease=()
+          if [[ "$TAG" == *-* ]]; then
+            prerelease=(--prerelease)
+          fi
+          if ! gh release view "$TAG" > /dev/null 2>&1; then
+            gh release create "$TAG" --verify-tag --draft --generate-notes \
+              --title "$TAG" "${prerelease[@]}"
+          fi
+          gh release upload "$TAG" "${archives[@]}" --clobber
+          gh release edit "$TAG" --draft=false "${prerelease[@]}"

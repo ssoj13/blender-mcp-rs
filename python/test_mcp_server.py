@@ -6,8 +6,10 @@ Sends JSON-RPC-shaped MCP messages (same wire format `rmcp` uses on stdio).
 Requires: `cargo build` or `cargo build --release` (binary: blender-mcp-rs).
 """
 import json
+import os
 import subprocess
 import sys
+import threading
 from pathlib import Path
 from typing import Optional
 
@@ -16,6 +18,9 @@ PROJECT_ROOT = Path(__file__).parent.parent
 
 def find_binary() -> Optional[Path]:
     """Prefer release, fall back to debug; Windows .exe or Unix name."""
+    if explicit := os.environ.get("BLENDER_MCP_BINARY"):
+        path = Path(explicit)
+        return path if path.is_file() else None
     for profile in ("release", "debug"):
         for name in ("blender-mcp-rs.exe", "blender-mcp-rs"):
             p = PROJECT_ROOT / "target" / profile / name
@@ -231,6 +236,11 @@ def main():
         text=True,
         bufsize=1
     )
+    # A blocked request must fail the smoke test and close its server, including
+    # when this script is run directly rather than through the CI wrapper.
+    watchdog = threading.Timer(60, proc.kill)
+    watchdog.daemon = True
+    watchdog.start()
 
     passed = 0
     failed = 0
@@ -255,6 +265,7 @@ def main():
                 print(f"  ERROR: {e}")
                 failed += 1
     finally:
+        watchdog.cancel()
         proc.terminate()
         proc.wait(timeout=2)
 

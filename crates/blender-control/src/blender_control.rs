@@ -179,7 +179,14 @@ pub fn pid_alive(pid: u32) -> bool {
 /// discover a Blender the user launched by hand, or notice strays.
 pub fn running_pids() -> Vec<u32> {
     let mut sys = sysinfo::System::new();
-    sys.refresh_processes(sysinfo::ProcessesToUpdate::All, true);
+    // Only names and PIDs are needed. Fetching every process's environment and
+    // command line can block on an unrelated process; Linux tasks aren't Blender
+    // instances either. Names/PIDs are collected even with all refreshes disabled.
+    sys.refresh_processes_specifics(
+        sysinfo::ProcessesToUpdate::All,
+        true,
+        sysinfo::ProcessRefreshKind::nothing().without_tasks(),
+    );
     let target = exe_name();
     sys.processes()
         .values()

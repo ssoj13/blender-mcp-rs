@@ -18,6 +18,8 @@ Commands:
     t(est)       cargo test + the stdio smoke test + tools against a real Blender
     c(heck)      cargo fmt --check + clippy (all targets, warnings are errors)
     i(nstall)    Register the server with your AI agents (mcp-setup)
+    ci           Check/test/build/package the portable server (--target TRIPLE)
+    release      Build/package the portable server (--target TRIPLE)
     cl(ean)      cargo clean
     h(elp)       This
 
@@ -362,6 +364,14 @@ def run_help(_args: argparse.Namespace) -> int:
     return 0
 
 
+def run_portable(args: argparse.Namespace) -> int:
+    """Keep CI/release orchestration behind the same bootstrap entry point."""
+    command = [sys.executable, str(ROOT_DIR / "ci.py"), args.command]
+    if args.target:
+        command += ["--target", args.target]
+    return run(command)[0]
+
+
 COMMANDS = {
     "b": run_build, "build": run_build,
     "d": run_deploy, "deploy": run_deploy,
@@ -370,6 +380,7 @@ COMMANDS = {
     "i": run_install, "install": run_install,
     "cl": run_clean, "clean": run_clean,
     "h": run_help, "help": run_help,
+    "ci": run_portable, "release": run_portable,
 }
 
 
@@ -386,6 +397,7 @@ def main() -> int:
     parser.add_argument("-d", "--debug", action="store_true", help="debug profile")
     parser.add_argument("-n", "--nocapture", action="store_true", help="show test output")
     parser.add_argument("--blender", help="path to the Blender executable")
+    parser.add_argument("--target", help="portable ci/release: Rust target triple")
     parser.add_argument("--scope", default="user", choices=["user", "project"],
                         help="install scope")
     args = parser.parse_args()

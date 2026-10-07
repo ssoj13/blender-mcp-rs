@@ -1,6 +1,8 @@
 // The catalog is one enormous `json!` literal; the default macro recursion limit
 // cannot expand it. Drops back to the default once `mcp_catalog` is deleted.
 #![recursion_limit = "512"]
+// Helpers used only by handler closures become unused in schema-only server builds.
+#![cfg_attr(blender_mcp_server, allow(dead_code, unused_imports))]
 
 //! # blender_mcp — the Python extension module that runs inside Blender
 //!

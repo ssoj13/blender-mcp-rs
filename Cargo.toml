@@ -79,3 +79,6 @@ blender-control = { path = "crates/blender-control" }
 [dev-dependencies]
 # Used by the vendored mcp_setup roundtrip tests (src/mcp_setup/tests.rs).
 tempfile = "3"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(blender_mcp_server)'] }
