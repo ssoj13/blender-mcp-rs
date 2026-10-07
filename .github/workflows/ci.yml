@@ -50,16 +50,18 @@ jobs:
           rustup default stable
           rustup component add rustfmt clippy llvm-tools-preview
           rustup target add "${{ matrix.target }}"
-      - name: Install musl toolchain
+      - name: Install musl and glibc cross toolchains
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y musl-tools
+          python -m pip install cargo-zigbuild==0.23.4
       - uses: Swatinem/rust-cache@v2.9.2
         with:
           workspaces: |
             . -> target
             . -> target/portable
+            . -> target/extension
           key: ${{ matrix.target }}
       - name: Check, test, build with all features, and package
         run: python bootstrap.py ci --target ${{ matrix.target }}

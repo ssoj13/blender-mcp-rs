@@ -18,8 +18,8 @@ Commands:
     t(est)       cargo test + the stdio smoke test + tools against a real Blender
     c(heck)      cargo fmt --check + clippy (all targets, warnings are errors)
     i(nstall)    Register the server with your AI agents (mcp-setup)
-    ci           Check/test/build/package the portable server (--target TRIPLE)
-    release      Build/package the portable server (--target TRIPLE)
+    ci           Check/test/build/package the server + addon (--target TRIPLE)
+    release      Build/package the server + addon (--target TRIPLE)
     cl(ean)      cargo clean
     h(elp)       This
 
@@ -35,6 +35,12 @@ Examples:
     python bootstrap.py t -n
     python bootstrap.py c
     python bootstrap.py i --scope user
+
+Release ZIPs include the server and a ready-to-deploy mcp_server/ directory.
+After extracting: `python bootstrap.py d`, then `python bootstrap.py i`.
+No Rust toolchain is needed for these two commands. Enable "MCP Server" in Blender.
+Deployment also works using Blender's Python:
+    blender --background --python bootstrap.py -- d
 """
 
 from __future__ import annotations
@@ -129,6 +135,8 @@ def profile_dir(debug: bool) -> Path:
 
 def server_bin(debug: bool) -> Path:
     name = "blender-mcp-rs.exe" if IS_WINDOWS else "blender-mcp-rs"
+    if (ROOT_DIR / "mcp_server" / ext_name()).is_file():
+        return ROOT_DIR / name
     return profile_dir(debug) / name
 
 
@@ -218,7 +226,12 @@ def run_build(args: argparse.Namespace) -> int:
 def run_deploy(args: argparse.Namespace) -> int:
     header("Deploy addon to Blender")
 
-    ext = ext_built(args.debug)
+    src = ROOT_DIR / "mcp_server"
+    if src.is_dir():
+        ext = src / ext_name()
+    else:
+        src = ROOT_DIR / "addon" / "mcp_server"
+        ext = ext_built(args.debug)
     if not ext.exists():
         err(f"extension not built: {ext}")
         step("run: python bootstrap.py b")
@@ -228,7 +241,6 @@ def run_deploy(args: argparse.Namespace) -> int:
     step(f"target: {dest}")
     dest.mkdir(parents=True, exist_ok=True)
 
-    src = ROOT_DIR / "addon" / "mcp_server"
     for py in src.glob("*.py"):
         shutil.copy2(py, dest / py.name)
         step(f"  {py.name}")
@@ -400,7 +412,9 @@ def main() -> int:
     parser.add_argument("--target", help="portable ci/release: Rust target triple")
     parser.add_argument("--scope", default="user", choices=["user", "project"],
                         help="install scope")
-    args = parser.parse_args()
+    # Blender's own arguments precede the separator when using bundled Python.
+    argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else None
+    args = parser.parse_args(argv)
 
     try:
         return COMMANDS[args.command](args)
