@@ -76,6 +76,9 @@ dirs = "6.0"
 # stays reusable and free of pyo3/MCP, but versioned in this repo (see [workspace]).
 blender-control = { path = "crates/blender-control" }
 
+[build-dependencies]
+pyo3-build-config = "0.29"
+
 [dev-dependencies]
 # Used by the vendored mcp_setup roundtrip tests (src/mcp_setup/tests.rs).
 tempfile = "3"

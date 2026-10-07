@@ -126,6 +126,7 @@ dependencies = [
  "inventory",
  "jsonc-parser",
  "pyo3",
+ "pyo3-build-config",
  "regex",
  "rmcp",
  "schemars",
