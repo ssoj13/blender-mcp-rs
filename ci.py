@@ -166,7 +166,7 @@ def package(binary: Path, extension: Path, target: str, version: str) -> Path:
 import sys
 from pathlib import Path
 from argparse import Namespace
-root = Path(sys.argv[1])
+root = Path(sys.argv[1]).resolve()
 sys.path.insert(0, str(root))
 import bootstrap
 assert bootstrap.server_bin(False) == root / sys.argv[2]
