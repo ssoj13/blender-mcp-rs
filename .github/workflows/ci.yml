@@ -65,7 +65,7 @@ jobs:
           key: ${{ matrix.target }}
       - name: Check, test, build with all features, and package
         run: python bootstrap.py ci --target ${{ matrix.target }}
-      - uses: actions/upload-artifact@v7.0.1
+      - uses: actions/upload-artifact@v7.0.2
         with:
           name: ${{ matrix.platform }}
           path: dist/*.zip
