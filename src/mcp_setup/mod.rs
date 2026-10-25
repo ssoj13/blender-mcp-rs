@@ -40,22 +40,10 @@
 //! # Ok(()) }
 //! ```
 //!
-//! [`cli::SetupCommand`] gives this binary ready-made `install` / `uninstall` / `status`
-//! subcommands with a results table.
-//!
-//! # Vendored copy — do not edit here
-//!
-//! This module is a verbatim copy of the private `mcp-setup-rs` crate (see `VENDOR.md` for the
-//! pinned commit and the resync procedure). It is vendored rather than consumed as a git
-//! dependency for the same reason as the other MCP servers in this family (`shotgrid-mcp-rs`,
-//! `filesystem-mcp-rs`): a git dependency cannot be published to crates.io, and staying vendored
-//! keeps every consumer of `mcp-setup-rs` on one resync procedure instead of a bespoke one per
-//! host. Fixes belong upstream, in the private repo; re-vendor from there.
-//!
-//! The only edit applied to the upstream sources is mechanical: `crate::` → `crate::mcp_setup::`,
-//! because the vendored files address what was their own crate root and is now this module. The
-//! upstream `cli` cargo feature is dropped — this host always builds the CLI.
+//! With the `cli` feature (on by default), [`cli::SetupCommand`] gives a host binary ready-made
+//! `install` / `uninstall` / `status` subcommands with a results table.
 
+mod agent_cli;
 mod backup;
 mod json_client;
 mod json_merge;
@@ -70,6 +58,7 @@ pub mod error;
 pub mod hints;
 pub mod host;
 pub mod marked_md;
+pub mod plugin;
 pub mod types;
 
 pub mod cli;
@@ -83,6 +72,7 @@ pub use error::{Result, SetupError};
 pub use host::{HostSpec, install, status, uninstall};
 pub use json_client::JsonClient;
 pub use json_merge::EntryStyle;
+pub use plugin::{PluginCli, PluginSpec};
 pub use toml_client::TomlClient;
 pub use types::{
     ApplyReport, HintsConfig, INSTALL_ID_ENV_KEY, InstallPlan, RemoveReport, Scope, SetupContext,
