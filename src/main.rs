@@ -1,10 +1,10 @@
-#![recursion_limit = "512"]
 //! # main.rs — Blender MCP server (rmcp stdio + local named pipe)
 //!
 //! An MCP client (Claude Code, etc.) talks to this process over stdio via `rmcp`.
 //! Tool calls are forwarded to Blender over a local named pipe; the tool list and
 //! its schemas come from `blender_mcp::tools`, the same registry that executes them
 //! on the Blender side.
+#![recursion_limit = "512"]
 
 use std::collections::HashMap;
 use std::fs::File;
@@ -140,6 +140,7 @@ fn setup_logging(log_arg: Option<Option<PathBuf>>) -> Option<File> {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
+    let _crash_guard = crashdump::init!(|cfg| { cfg.spawn_dialog_on_crash = false; });
     let args = Args::parse();
 
     // Setup runs and exits — it must not touch stdio, which belongs to the MCP

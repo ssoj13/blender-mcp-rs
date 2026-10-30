@@ -75,6 +75,7 @@ dirs = "6.0"
 # workspace crate under `crates/` — kept separate so the pure process-control logic
 # stays reusable and free of pyo3/MCP, but versioned in this repo (see [workspace]).
 blender-control = { path = "crates/blender-control" }
+crashdump = { package = "crashdump-rs", git = "ssh://git@github.com/ssoj13/crashdump-rs.git", branch = "main" }
 
 [build-dependencies]
 pyo3-build-config = "0.29"
